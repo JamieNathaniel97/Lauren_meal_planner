@@ -40,12 +40,13 @@ are relative, so it works under `/<repo-name>/`.
 index.html               app page (tabs: Find, Recipes, Stock, Shopping, Profile)
 manifest.webmanifest     install info (name, icons, colours)
 sw.js                    service worker: offline cache (bump CACHE on changes)
-css/app.css              all styles; light and dark mode
+css/app.css              main styles; light and dark mode
+css/kitchen.css          stock and shopping styles
 js/app.js                start-up, routing (#/find, #/recipes, #/recipe/<id>, #/profile …)
 js/constants.js          cuisines, meal types, diets, 14 UK allergens, tools, presets, default profile
 js/derive.js             works out diet tags, allergens, label warnings, ingredient count, nutrition
 js/data.js               loads ingredients + all recipe batches, runs derive.js on each
-js/db.js                 IndexedDB storage (profile now; stock, shopping, own recipes later)
+js/db.js                 IndexedDB storage (profile, stock, shopping; own recipes later)
 js/ui.js                 HTML escaping, quantity and time formatting
 js/views/*.js            one file per screen
 data/ingredients.json    master ingredient list
@@ -143,3 +144,33 @@ http://localhost:8000/tools/validate.html while serving the repo.
   **"Gluten-free & nut-free"** filters to those recipes for anyone.
 - Nutrition and allergen information is worked out from the ingredient list
   and is only a guide. Always check the packaging.
+
+## Kitchen stock and shopping list
+
+Added in phases 2 and 4. All of it is saved on the phone (IndexedDB stores
+`stock`, `shopping` and `meta`/`staples`; every record has `id` + `updatedAt`).
+
+- **Stock tab**: have it / don't have it, no quantities. Search to add (name,
+  synonyms, small typos are fine) or tap a quick-add button. Your own items
+  can be added too, but they aren't used to match recipes. Each item can be
+  marked **Low** and given an optional use-by date. Anything due within 3 days
+  shows in **Use it up**. Swipe left (or tap ✕) to remove, with Undo.
+  **Staples** (salt, pepper, oil, water by default) always count as in stock.
+- **Shopping tab**: grouped by supermarket aisle. The same food from several
+  recipes is combined into one line (amounts added up, converted between
+  units where the ingredient list gives weights). Running-low stock is
+  suggested at the top. Tick items as you shop. **Done shopping** puts the
+  ticked foods into stock (clearing their Low mark) and removes them from
+  the list. Share sends the list as text.
+- **Recipe page**: each ingredient shows Have / Low / Need (tap to change your
+  stock), plus **Add missing to shopping list** and **Add all ingredients**,
+  scaled to the chosen servings and labelled with the recipe name.
+- Matching is on exact ingredient ids only, so wheat pasta never counts as
+  gluten-free pasta. Similar-item matching (phase 3) must keep that rule.
+
+Files: `js/kitchen.js` (data and logic), `js/stock-data.js` (storage places,
+aisle order, default staples, quick-add list), `js/views/stock.js`,
+`js/views/shopping.js`, `js/views/recipe-kitchen.js` (recipe page block),
+`js/views/food-search.js`, `js/views/kitchen-ui.js` (Undo toast, swipe),
+`css/kitchen.css`. Run `tools/kitchen-test.html` in a browser (served
+locally) to exercise the stock and shopping flows.

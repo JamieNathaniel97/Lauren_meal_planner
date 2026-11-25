@@ -10,7 +10,10 @@ import { renderFind } from "./views/find.js";
 import { renderRecipes } from "./views/recipes.js";
 import { renderRecipe } from "./views/recipe.js";
 import { renderProfile } from "./views/profile.js";
-import { renderComingSoon } from "./views/coming-soon.js";
+// --- Kitchen stock & shopping list (phases 2 & 4)
+import { loadKitchen } from "./kitchen.js";
+import { renderStock } from "./views/stock.js";
+import { renderShopping } from "./views/shopping.js";
 
 const app = {
   catalogue: null,
@@ -56,14 +59,8 @@ async function render() {
     case "recipes": renderRecipes(ctx); break;
     case "recipe": renderRecipe(ctx); break;
     case "profile": renderProfile(ctx); break;
-    case "stock":
-      renderComingSoon(ctx, { title: "Kitchen stock", emoji: "🥫", phase: 2,
-        text: "Tick off what's in the fridge, freezer and cupboards, and mark things as running low." });
-      break;
-    case "shopping":
-      renderComingSoon(ctx, { title: "Shopping list", emoji: "🛒", phase: 4,
-        text: "A list sorted by supermarket aisle. Ticked items go straight into your stock." });
-      break;
+    case "stock": renderStock(ctx); break;
+    case "shopping": renderShopping(ctx); break;
     default: app.go("#/find"); return;
   }
   if (route.name !== "recipes") window.scrollTo(0, 0);
@@ -75,6 +72,7 @@ async function start() {
     const [catalogue, saved] = await Promise.all([loadCatalogue(new URL("./", location.href)), db.get("profile", "me")]);
     app.catalogue = catalogue;
     if (saved) app.profile = { ...DEFAULT_PROFILE, ...saved };
+    await loadKitchen(catalogue.ingById); // kitchen stock & shopping list
     if (catalogue.problems.length) console.warn("Recipe data problems:", catalogue.problems);
   } catch (e) {
     $("#view").innerHTML = `<p class="empty">Couldn't load the recipes. Check your connection and reopen the app.<br><small>${e.message}</small></p>`;

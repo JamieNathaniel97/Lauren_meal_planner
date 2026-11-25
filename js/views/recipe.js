@@ -3,6 +3,7 @@
 import { CUISINE_BY_ID, DIET_BY_ID, ALLERGEN_BY_ID, TOOL_BY_ID, DIFFICULTY, COST } from "../constants.js";
 import { fitsProfile, optionalClashes } from "../derive.js";
 import { esc, $, formatQty, minutes } from "../ui.js";
+import { mountRecipeKitchen } from "./recipe-kitchen.js"; // kitchen stock & shopping
 
 const SPICE = ["Not spicy", "Mild", "Medium", "Hot"];
 
@@ -106,4 +107,8 @@ export function renderRecipe({ app, view, route }) {
   $("#less", view).addEventListener("click", () => { if (servings > 1) { servings--; drawIngredients(); } });
   $("#more", view).addEventListener("click", () => { if (servings < 20) { servings++; drawIngredients(); } });
   drawIngredients();
+
+  // --- Kitchen stock & shopping list (phases 2 & 4): in-stock marks and
+  // "Add missing to shopping list". See js/views/recipe-kitchen.js.
+  mountRecipeKitchen({ app, view, recipe: r, getServings: () => servings });
 }

@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<title>Kitchen stock & shopping test</title>
+<style>
+  body { font: 14px/1.4 system-ui, sans-serif; margin: 12px; }
+  iframe { width: 390px; height: 844px; border: 1px solid #ccc; float: right; }
+  .pass { color: #2b8a3e; } .fail { color: #c92a2a; font-weight: bold; }
+</style>
+</head>
+<body>
+<!--
+  Drives the real app (in the iframe) through the stock and shopping flows
+  and prints PASS/FAIL lines. WARNING: it clears this browser's meal planner
+  data first, so don't run it in the browser you use the app in.
+  Serve the folder (python -m http.server 8010) and open /tools/kitchen-test.html.
+-->
+<h1>Kitchen stock & shopping test</h1>
+<iframe id="app" title="App under test"></iframe>
+<pre id="out">Running…</pre>
+<script type="module">
+const out = document.getElementById("out");
+const frame = document.getElementById("app");
+const lines = [];
+let failures = 0;
+const log = (ok, msg) => { if (!ok) failures++; lines.push(`${ok ? "PASS" : "FAIL"}  ${msg}`); out.textContent = lines.join("\n"); };
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+const errors = [];
+
+async function until(fn, ms = 4000) {
+  const end = Date.now() + ms;
+  while (Date.now() < end) { try { const v = fn(); if (v) return v; } catch {} await sleep(50); }
+  return null;
+}
+const doc = () => frame.contentDocument;
+const q = (sel) => doc().querySelector(sel);
+const qa = (sel) => [...doc().querySelectorAll(sel)];
+const text = (el) => (el ? el.textContent.replace(/\s+/g, " ").trim() : "");
+async function go(hash) { frame.contentWindow.location.hash = hash; await sleep(250); }
+async function type(input, value) {
+  input.value = value;
+  input.dispatchEvent(new Event("input", { bubbles: true }));
+  await sleep(60);
+}
+async function click(el) { el.click(); await sleep(200); }
+const rowNamed = (sel, name) => qa(sel).find((r) => text(r.querySelector(".sname span, .shname b")).replace(/ \(own item\)$/, "") === name);
+
+async function main() {
+  await new Promise((res) => { const r = indexedDB.deleteDatabase("lauren-meal-planner"); r.onsuccess = r.onerror = r.onblocked = res; });
+
+  const ingredients = await (await fetch("../data/ingredients.json")).json();
+  const ingById = Object.fromEntries(ingredients.map((i) => [i.id, i]));
+  const index = await (await fetch("../data/recipes/index.json")).json();
+  const recipes = (await Promise.all(index.batches.map(async (f) => (await fetch(`../data/recipes/${f}`)).json()))).flat();
+
+  frame.src = "../index.html#/stock";
+  await new Promise((r) => frame.addEventListener("load", r, { once: true }));
+  const w = frame.contentWindow;
+  w.addEventListener("error", (e) => errors.push(e.message));
+  w.addEventListener("unhandledrejection", (e) => errors.push(String(e.reason)));
+  const origErr = w.console.error.bind(w.console);
+  w.console.error = (...a) => { errors.push(a.join(" ")); origErr(...a); };
+  w.confirm = () => true;
+
+  log(!!(await until(() => q(".screen #fs input"))), "Stock tab renders with a search box (no 'coming soon')");
+  log(text(q(".empty")).includes("Nothing in stock"), "Empty stock message shown");
+
+  // Search with a typo.
+  const input = q("#fs input");
+  await type(input, "tomatos");
+  const sugg = qa("#fs .fsearch-list button").map(text);
+  log(sugg.some((s) => /tomato/i.test(s)), `Typo search "tomatos" suggests tomatoes (${sugg.slice(0, 3).join(" | ")})`);
+  await type(input, "spring onion");
+  log(qa("#fs .fsearch-list button").map(text).some((s) => /spring onion/i.test(s)), "Search finds 'Spring onions'");
+
+  // Add onion via Enter.
+  await type(input, "onion");
+  input.dispatchEvent(new KeyboardEvent("keydown", { key: "Enter", bubbles: true }));
+  await sleep(300);
+  log(!!rowNamed(".srow", "Onion"), "Enter adds the top match (Onion) to stock");
+  log(text(q(".toast")).includes("Added Onion"), "Toast with Undo after adding");
+
+  // Quick add.
+  const chip = q("#quick [data-add]");
+  const chipName = text(chip).replace(/^\+\s*/, "");
+  await click(chip);
+  log(!!rowNamed(".srow", chipName), `Quick-add button adds ${chipName}`);
+
+  // Grouping by storage.
+  const groups = qa(".group-h").map(text);
+  log(groups.length >= 1, `Stock grouped by storage: ${groups.join(" / ")}`);
+
+  // Mark low.
+  await click(rowNamed(".srow", "Onion").querySelector("[data-low]"));
+  log(rowNamed(".srow", "Onion").classList.contains("is-low"), "Low button marks Onion as running low");
+
+  // Expiry date: tomorrow.
+  await click(rowNamed(".srow", "Onion").querySelector("[data-edit]"));
+  const date = q(".sedit [data-exp]");
+  log(!!date, "Tapping the name opens the use-by editor");
+  const t = new Date(); t.setDate(t.getDate() + 1);
+  date.value = `${t.getFullYear()}-${String(t.getMonth() + 1).padStart(2, "0")}-${String(t.getDate()).padStart(2, "0")}`;
+  date.dispatchEvent(new Event("change", { bubbles: true }));
+  await sleep(300);
+  log(text(q(".useup")).includes("Onion") && text(q(".useup")).includes("tomorrow"), `Use it up strip shows Onion (${text(q(".useup"))})`);
+  log(rowNamed(".srow", "Onion").classList.contains("soon"), "Row highlighted as expiring soon");
+
+  // Delete + undo.
+  await click(rowNamed(".srow", "Onion").querySelector("[data-del]"));
+  log(!rowNamed(".srow", "Onion"), "✕ removes Onion");
+  await click(q(".toast button"));
+  await sleep(200);
+  const back = rowNamed(".srow", "Onion");
+  log(!!back && back.classList.contains("is-low"), "Undo restores Onion (still low, with its date)");
+
+  // Custom item.
+  await type(q("#fs input"), "Dog biscuits");
+  const customBtn = q("#fs [data-custom]");
+  log(!!customBtn, "Offers to add an own item");
+  await click(customBtn);
+  const form = q("#custom");
+  log(!form.hidden, "Own-item form shown");
+  form.storage.value = "cupboard"; form.aisle.value = "household";
+  form.requestSubmit();
+  await sleep(300);
+  log(!!rowNamed(".srow", "Dog biscuits"), "Own item added to stock");
+  await click(rowNamed(".srow", "Dog biscuits").querySelector("[data-low]"));
+
+  // Filter within stock.
+  await type(q("#fs input"), "dog");
+  log(qa(".srow").length === 1, "Typing filters the stock list");
+  await type(q("#fs input"), "");
+
+  // Staples.
+  log(text(q("details.staples")).includes("Salt"), "Salt is a default staple");
+
+  // ---------------- recipe page
+  // Two recipes sharing a non-staple ingredient in the same unit, to test merging.
+  let pair = null;
+  outer: for (const a of recipes) for (const b of recipes) {
+    if (a.id >= b.id) continue;
+    for (const la of a.ingredients) {
+      const lb = b.ingredients.find((x) => x.id === la.id && x.unit === la.unit && x.qty != null && la.qty != null && !x.optional && !la.optional);
+      if (lb && !ingById[la.id].staple && la.id !== "onion") { pair = { a, b, id: la.id }; break outer; }
+    }
+  }
+  log(!!pair, pair ? `Merge test: ${pair.a.name} + ${pair.b.name} share ${pair.id}` : "Found two recipes sharing an ingredient");
+
+  await go(`#/recipe/${pair.a.id}`);
+  await until(() => q(".ing-st"));
+  const pills = qa("#ings .ing-st").map(text);
+  log(pills.length === pair.a.ingredients.length, `Every ingredient has a stock mark (${[...new Set(pills)].join(", ")})`);
+  const onionLi = q('#ings li[data-ing="onion"]');
+  if (onionLi) log(text(onionLi.querySelector(".ing-st")) === "Low", "Onion shows as Low on the recipe");
+  const saltLi = q('#ings li[data-ing="salt"], #ings li[data-ing="olive-oil"]');
+  if (saltLi) log(text(saltLi.querySelector(".ing-st")) === "Staple", "Staples show as Staple");
+
+  // Tap toggles stock.
+  const missingLi = q("#ings li.st-missing");
+  const missingId = missingLi?.dataset.ing;
+  await click(missingLi);
+  log(q(`#ings li[data-ing="${missingId}"]`).classList.contains("st-in"), `Tapping a missing ingredient (${missingId}) adds it to stock`);
+  await click(q(`#ings li[data-ing="${missingId}"]`));
+  log(q(`#ings li[data-ing="${missingId}"]`).classList.contains("st-missing"), "Tapping again removes it");
+
+  // Servings change keeps the marks.
+  await click(q("#more"));
+  log(qa("#ings .ing-st").length === pair.a.ingredients.length, "Marks survive a servings change");
+
+  const addMissing = q("[data-addmissing]");
+  log(!!addMissing, `Button: ${text(addMissing)}`);
+  const inStockOnA = qa("#ings li.st-in, #ings li.st-low").map((li) => li.dataset.ing).filter((id) => !ingById[id].staple);
+  await click(addMissing);
+  await sleep(300);
+  log(text(q(".toast")).includes("shopping list"), `Toast: ${text(q(".toast"))}`);
+  await go("#/shopping");
+  await until(() => q(".shrow"));
+  log(inStockOnA.every((id) => !q(`.shrow[data-id="${id}"]`)), `"Add missing" skipped what's already in stock (${inStockOnA.join(", ") || "none"})`);
+  await go(`#/recipe/${pair.a.id}`);
+  await until(() => q("[data-addall]"));
+  await click(q("[data-addall]"));
+  await sleep(300);
+
+  await go(`#/recipe/${pair.b.id}`);
+  await until(() => q("[data-addall]"));
+  await click(q("[data-addall]"));
+  await sleep(300);
+
+  // ---------------- shopping list
+  await go("#/shopping");
+  await until(() => q(".shrow"));
+  const shared = q(`.shrow[data-id="${pair.id}"]`);
+  log(!!shared, `${ingById[pair.id].name} is on the list once`);
+  log(text(shared?.querySelector(".for")).includes(pair.a.name) && text(shared?.querySelector(".for")).includes(pair.b.name),
+    `Merged item lists both recipes (${text(shared?.querySelector(".for"))})`);
+  log(!!text(shared?.querySelector(".amt")), `Combined amount shown: ${text(shared?.querySelector(".amt"))}`);
+  log(!q('.shrow[data-id="salt"]'), "Staples aren't added to the list");
+  const aisles = qa(".group-h").map(text);
+  log(aisles.length >= 2, `Grouped by aisle: ${aisles.join(" / ")}`);
+
+  // Running-low suggestions (Onion is low, but may already be on the list from a recipe).
+  const onionListed = !!q('.shrow[data-id="onion"]');
+  log(text(q(".lowbox")).includes("Dog biscuits") && text(q(".lowbox")).includes("Onion") !== onionListed,
+    `Running-low items not on the list are suggested (${text(q(".lowbox"))})`);
+  await click(q('.lowbox [data-addlow="all"]') || q(".lowbox [data-addlow]"));
+  log(!!q('.shrow[data-id="onion"]') && !!rowNamed(".shrow", "Dog biscuits") && !q(".lowbox"), "Add all puts them on the list and hides the suggestions");
+
+  // Free text.
+  await type(q("#fs input"), "Birthday candles");
+  await click(q("#fs [data-custom]"));
+  log(!!rowNamed(".shrow", "Birthday candles"), "Free-text item added");
+
+  // Tick and Done shopping.
+  const tickIds = ["onion", pair.id];
+  for (const id of tickIds) await click(q(`.shrow[data-id="${id}"] [data-tick]`));
+  await click(rowNamed(".shrow", "Birthday candles").querySelector("[data-tick]"));
+  await click(rowNamed(".shrow", "Dog biscuits").querySelector("[data-tick]"));
+  log(q('.shrow[data-id="onion"]').classList.contains("ticked"), "Ticking greys the item");
+  const groupOfOnion = q('.shrow[data-id="onion"]').parentElement;
+  log(groupOfOnion.lastElementChild.classList.contains("ticked"), "Ticked items move to the bottom of their aisle");
+  const before = qa(".shrow").length;
+  await click(q("[data-done]"));
+  await sleep(300);
+  log(qa(".shrow").length === before - 4, `Done shopping removes the 4 ticked items (toast: ${text(q(".toast"))})`);
+
+  await go("#/stock");
+  await until(() => q(".srow"));
+  const onionRow = rowNamed(".srow", "Onion");
+  log(!!onionRow && !onionRow.classList.contains("is-low"), "Onion is back in stock with its Low mark cleared");
+  log(!!rowNamed(".srow", ingById[pair.id].name), `${ingById[pair.id].name} was added to stock`);
+  log(!rowNamed(".srow", "Birthday candles"), "Free-text items aren't added to stock");
+
+  // Clear list.
+  await go("#/shopping");
+  await until(() => q("[data-clear]"));
+  await click(q("[data-clear]"));
+  log(text(q(".empty")).includes("list is empty"), "Clear list empties it");
+
+  // Persistence: reload and check stock is still there.
+  frame.contentWindow.location.reload();
+  await new Promise((r) => frame.addEventListener("load", r, { once: true }));
+  await sleep(300);
+  frame.contentWindow.location.hash = "#/stock";
+  const persisted = await until(() => rowNamed(".srow", "Dog biscuits"));
+  log(!!persisted, "Stock is still there after reloading the app");
+
+  log(errors.length === 0, `No console errors${errors.length ? ": " + errors.join(" | ") : ""}`);
+  lines.push("", failures ? `${failures} FAILED` : "ALL PASSED");
+  out.textContent = lines.join("\n");
+  document.title = failures ? "FAILED" : "PASSED";
+  document.body.dataset.done = "1";
+}
+main().catch((e) => { log(false, `Test crashed: ${e.stack || e}`); document.body.dataset.done = "1"; });
+</script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+/* Kitchen stock & shopping list (phases 2 & 4). Uses the colour tokens
+   from app.css, so light and dark mode follow automatically. */
+
+.center { text-align: center; }
+.group-h { display: flex; align-items: baseline; gap: 6px; margin: 1.2rem 0 .45rem; }
+.group-h small { font-weight: 500; }
+
+/* ---------- food search box */
+.fsearch { position: relative; }
+.fsearch .search { margin-bottom: 8px; }
+.fsearch-list {
+  list-style: none; margin: -4px 0 10px; padding: 4px; background: var(--surface);
+  border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--shadow);
+}
+.fsearch-list button {
+  display: flex; justify-content: space-between; align-items: center; gap: 10px; width: 100%;
+  min-height: 46px; padding: 8px 10px; border: 0; background: none; text-align: left; border-radius: 9px; cursor: pointer;
+}
+.fsearch-list button:hover, .fsearch-list button:focus-visible { background: var(--surface-2); }
+.fs-status { color: var(--accent); font-weight: 600; white-space: nowrap; }
+.fs-custom { color: var(--accent); font-weight: 600; }
+.custom-form p { margin: 10px 0; }
+.custom-form label { display: flex; flex-direction: column; gap: 4px; }
+
+/* ---------- swipeable rows (stock + shopping) */
+.slist, .shlist {
+  list-style: none; margin: 0; padding: 0; background: var(--surface);
+  border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden;
+}
+.srow, .shrow { position: relative; border-top: 1px solid var(--line); overflow: hidden; }
+.srow:first-child, .shrow:first-child { border-top: 0; }
+.swipe-bg {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: flex-end;
+  padding-right: 18px; background: #c92a2a; color: #fff; font-weight: 700; visibility: hidden;
+}
+.swiping .swipe-bg { visibility: visible; }
+.swipe-inner {
+  position: relative; display: flex; align-items: center; gap: 6px; background: var(--surface);
+  padding: 4px 6px 4px 4px; transition: transform .18s ease;
+}
+.swiping .swipe-inner { transition: none; }
+.del {
+  flex: none; width: 40px; height: 40px; border: 0; border-radius: 50%; background: none;
+  color: var(--muted); font-size: 1rem; cursor: pointer;
+}
+.del:hover { background: var(--surface-2); }
+
+/* ---------- stock */
+.sname {
+  flex: 1; min-width: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 1px;
+  min-height: 48px; justify-content: center; padding: 6px 10px; border: 0; background: none; text-align: left; cursor: pointer;
+}
+.sname .exp { font-size: .78rem; color: var(--muted); }
+.srow.soon .exp { color: var(--warn-ink); font-weight: 700; }
+.srow.expired .exp { color: var(--danger-ink); font-weight: 700; }
+.srow.expired .sname > span { text-decoration: line-through; text-decoration-color: var(--danger-ink); }
+.lowbtn {
+  flex: none; min-width: 56px; height: 34px; border-radius: 999px; border: 1px dashed var(--line);
+  background: none; color: var(--muted); font-size: .8rem; font-weight: 600; cursor: pointer;
+}
+.lowbtn[aria-pressed="true"] { border: 1px solid var(--warn-line); background: var(--warn-bg); color: var(--warn-ink); }
+.sedit { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 4px 14px 12px; background: var(--surface); }
+.sedit label { display: flex; flex-direction: column; gap: 4px; }
+.sedit label:first-child { grid-column: 1 / -1; }
+.sedit input, .sedit select, .custom-form select {
+  padding: 8px 10px; border-radius: 10px; border: 1px solid var(--line); background: var(--surface); font-size: 16px; min-height: 40px;
+}
+.sedit .row { justify-content: flex-start; gap: 8px; }
+.sedit .row input { flex: 1; }
+.sedit .btn { padding: 8px 12px; }
+
+.useup {
+  background: var(--warn-bg); color: var(--warn-ink); border: 1px solid var(--warn-line);
+  border-radius: var(--radius); padding: 4px 12px 10px; margin: 4px 0 6px;
+}
+.useup h3 { margin: 8px 0 6px; }
+.useup-list { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; }
+.useup-item {
+  flex: none; display: flex; flex-direction: column; align-items: flex-start; gap: 1px; padding: 7px 11px;
+  border-radius: 10px; border: 0; background: var(--surface); color: var(--text); cursor: pointer; text-align: left;
+}
+.useup-item small { color: var(--warn-ink); font-weight: 600; }
+.useup-item.expired small { color: var(--danger-ink); }
+.staples { margin-top: 18px; padding: 10px 14px; }
+.staples summary { cursor: pointer; padding: 4px 0; }
+.staples .search { margin-top: 4px; }
+
+/* ---------- shopping */
+.lowbox {
+  background: var(--warn-bg); color: var(--warn-ink); border: 1px solid var(--warn-line);
+  border-radius: var(--radius); padding: 10px 12px 4px; margin: 4px 0 8px;
+}
+.lowbox .chip { border-color: var(--warn-line); }
+.small-btn { padding: 6px 12px; font-size: .85rem; }
+.tick {
+  flex: 1; min-width: 0; display: flex; align-items: center; gap: 12px; min-height: 56px;
+  padding: 6px 8px; border: 0; background: none; text-align: left; cursor: pointer;
+}
+.tick .box {
+  flex: none; width: 28px; height: 28px; border-radius: 8px; border: 2px solid var(--line);
+  display: grid; place-items: center; font-weight: 800; color: var(--accent-ink);
+}
+.shname { display: flex; flex-direction: column; min-width: 0; }
+.shname .amt { color: var(--muted); font-size: .9rem; }
+.shname .for { color: var(--muted); font-size: .76rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.shrow.ticked .box { background: var(--accent); border-color: var(--accent); }
+.shrow.ticked .shname { opacity: .5; }
+.shrow.ticked .shname b { text-decoration: line-through; }
+.shop-actions { margin: 20px 0 8px; display: flex; flex-direction: column; gap: 8px; }
+.shop-actions .row > * { flex: 1; }
+.shop-actions p { margin: 0; }
+.btn[disabled] { opacity: .45; cursor: default; }
+.btn.danger-text, .danger-text { color: var(--danger-ink); }
+
+/* ---------- toast with Undo */
+.toast.with-action { display: flex; align-items: center; gap: 14px; padding: 8px 8px 8px 16px; max-width: calc(100vw - 32px); }
+.toast.with-action button {
+  border: 0; background: none; color: var(--accent); font-weight: 700; padding: 4px 10px; cursor: pointer;
+  filter: brightness(1.25);
+}
+@media (prefers-color-scheme: dark) { .toast.with-action button { filter: brightness(.7); } }
+
+/* ---------- recipe page: stock marks */
+.ingredients li.tappable { cursor: pointer; align-items: center; }
+.ingredients li.tappable > span:nth-child(2) { flex: 1; }
+.ing-st {
+  flex: none; font-size: .72rem; font-weight: 700; padding: 3px 8px; border-radius: 999px; white-space: nowrap;
+  background: var(--surface-2); color: var(--muted);
+}
+.st-in .ing-st { background: var(--accent-soft); color: var(--accent); }
+.st-low .ing-st { background: var(--warn-bg); color: var(--warn-ink); }
+.st-missing .ing-st { background: var(--danger-bg); color: var(--danger-ink); }
+.kitchen-actions { display: flex; flex-direction: column; gap: 8px; margin: 4px 0 6px; }
+.kitchen-actions p { margin: 0; }
+.have-all { color: var(--accent); font-weight: 700; text-align: center; padding: 6px 0; }
+.low-note { color: var(--warn-ink); }

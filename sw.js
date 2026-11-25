@@ -2,7 +2,7 @@
 // served from the cache first.
 // IMPORTANT: bump CACHE whenever any file changes (code, CSS or recipes),
 // otherwise installed phones keep showing the old version.
-const CACHE = "meal-planner-v2";
+const CACHE = "meal-planner-v3";
 
 const SHELL = [
   "./",
@@ -20,6 +20,15 @@ const SHELL = [
   "js/views/profile.js",
   "js/views/recipe.js",
   "js/views/recipes.js",
+  // Kitchen stock & shopping list (phases 2 & 4)
+  "css/kitchen.css",
+  "js/kitchen.js",
+  "js/stock-data.js",
+  "js/views/food-search.js",
+  "js/views/kitchen-ui.js",
+  "js/views/recipe-kitchen.js",
+  "js/views/shopping.js",
+  "js/views/stock.js",
   "data/ingredients.json",
   "data/recipes/index.json",
   "icons/icon.svg",
