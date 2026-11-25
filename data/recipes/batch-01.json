@@ -1,0 +1,4188 @@
+[
+ {
+  "id": "spaghetti-pomodoro",
+  "name": "Spaghetti al pomodoro",
+  "description": "Gluten-free spaghetti in a quick, glossy garlic and tomato sauce finished with torn basil.",
+  "cuisine": "italian",
+  "mealTypes": [
+   "dinner",
+   "lunch"
+  ],
+  "servings": 4,
+  "prepMins": 5,
+  "cookMins": 20,
+  "difficulty": "easy",
+  "spice": 0,
+  "cost": 1,
+  "tools": [
+   "hob"
+  ],
+  "onePot": false,
+  "batchCook": false,
+  "freezerFriendly": false,
+  "goodForLeftovers": false,
+  "lunchbox": false,
+  "season": "all year",
+  "tags": [
+   "quick",
+   "store cupboard"
+  ],
+  "ingredients": [
+   {
+    "id": "gf-spaghetti",
+    "qty": 320,
+    "unit": "g"
+   },
+   {
+    "id": "chopped-tomatoes",
+    "qty": 2,
+    "unit": "tin"
+   },
+   {
+    "id": "garlic",
+    "qty": 3,
+    "unit": "clove",
+    "note": "thinly sliced"
+   },
+   {
+    "id": "basil",
+    "qty": 1,
+    "unit": "bunch"
+   },
+   {
+    "id": "olive-oil",
+    "qty": 3,
+    "unit": "tbsp"
+   },
+   {
+    "id": "sugar",
+    "qty": 1,
+    "unit": "tsp"
+   },
+   {
+    "id": "salt"
+   },
+   {
+    "id": "black-pepper"
+   },
+   {
+    "id": "veg-hard-cheese",
+    "qty": 30,
+    "unit": "g",
+    "note": "grated, to serve",
+    "optional": true
+   }
+  ],
+  "steps": [
+   "Bring a large pan of salted water to the boil.",
+   "Warm the olive oil in a wide frying pan over a low heat and add the garlic. Let it sizzle gently for 2 minutes without browning.",
+   "Tip in the tomatoes and sugar, season, and simmer for 15 minutes, squashing any lumps, until thick.",
+   "Meanwhile cook the spaghetti following the pack timing. Gluten-free pasta goes soft quickly, so start tasting a minute early.",
+   "Scoop out a mugful of pasta water, then drain the spaghetti and toss it into the sauce with a splash of the water until glossy.",
+   "Tear in the basil and serve with grated cheese if you like."
+  ]
+ },
+ {
+  "id": "pesto-pasta-beans",
+  "name": "Sunflower seed pesto pasta with green beans",
+  "description": "A bright, nut-free basil pesto made with toasted sunflower seeds, tossed through pasta, green beans and potatoes.",
+  "cuisine": "italian",
+  "mealTypes": [
+   "dinner",
+   "lunch"
+  ],
+  "servings": 4,
+  "prepMins": 15,
+  "cookMins": 15,
+  "difficulty": "easy",
+  "spice": 0,
+  "cost": 2,
+  "tools": [
+   "hob",
+   "food-processor"
+  ],
+  "onePot": false,
+  "batchCook": false,
+  "freezerFriendly": false,
+  "goodForLeftovers": false,
+  "lunchbox": true,
+  "season": "summer",
+  "tags": [
+   "nut-free pesto",
+   "vegetarian"
+  ],
+  "ingredients": [
+   {
+    "id": "gf-pasta",
+    "qty": 320,
+    "unit": "g"
+   },
+   {
+    "id": "green-beans",
+    "qty": 200,
+    "unit": "g",
+    "note": "trimmed and halved"
+   },
+   {
+    "id": "baby-potatoes",
+    "qty": 250,
+    "unit": "g",
+    "note": "quartered"
+   },
+   {
+    "id": "basil",
+    "qty": 2,
+    "unit": "bunch"
+   },
+   {
+    "id": "sunflower-seeds",
+    "qty": 40,
+    "unit": "g"
+   },
+   {
+    "id": "veg-hard-cheese",
+    "qty": 40,
+    "unit": "g",
+    "note": "grated"
+   },
+   {
+    "id": "garlic",
+    "qty": 1,
+    "unit": "clove"
+   },
+   {
+    "id": "lemon",
+    "qty": 0.5,
+    "unit": "each",
+    "note": "juiced"
+   },
+   {
+    "id": "olive-oil",
+    "qty": 6,
+    "unit": "tbsp"
+   },
+   {
+    "id": "salt"
+   },
+   {
+    "id": "black-pepper"
+   }
+  ],
+  "steps": [
+   "Toast the sunflower seeds in a dry pan for 3 minutes until golden. Let them cool.",
+   "Blitz the seeds, basil, garlic, cheese and lemon juice in a food processor, then pour in the olive oil with the motor running. Season.",
+   "Boil the potatoes in salted water for 8 minutes, add the pasta, then add the beans for the last 4 minutes.",
+   "Save a cup of the cooking water, then drain everything.",
+   "Stir the pesto through with a splash of the water until creamy, and serve."
+  ]
+ },
+ {
+  "id": "chicken-mushroom-risotto",
+  "name": "Chicken and mushroom risotto",
+  "description": "Creamy, slow-stirred risotto with golden chicken, mushrooms and a good grating of Parmesan.",
+  "cuisine": "italian",
+  "mealTypes": [
+   "dinner"
+  ],
+  "servings": 4,
+  "prepMins": 10,
+  "cookMins": 35,
+  "difficulty": "medium",
+  "spice": 0,
+  "cost": 2,
+  "tools": [
+   "hob"
+  ],
+  "onePot": true,
+  "batchCook": false,
+  "freezerFriendly": false,
+  "goodForLeftovers": false,
+  "lunchbox": false,
+  "season": "all year",
+  "tags": [
+   "comfort food"
+  ],
+  "ingredients": [
+   {
+    "id": "arborio-rice",
+    "qty": 300,
+    "unit": "g"
+   },
+   {
+    "id": "chicken-breast",
+    "qty": 2,
+    "unit": "each",
+    "note": "diced"
+   },
+   {
+    "id": "mushrooms",
+    "qty": 250,
+    "unit": "g",
+    "note": "sliced"
+   },
+   {
+    "id": "onion",
+    "qty": 1,
+    "unit": "each",
+    "note": "finely chopped"
+   },
+   {
+    "id": "garlic",
+    "qty": 2,
+    "unit": "clove",
+    "note": "crushed"
+   },
+   {
+    "id": "gf-chicken-stock",
+    "qty": 2,
+    "unit": "each"
+   },
+   {
+    "id": "water",
+    "qty": 1200,
+    "unit": "ml",
+    "note": "hot"
+   },
+   {
+    "id": "butter",
+    "qty": 30,
+    "unit": "g"
+   },
+   {
+    "id": "parmesan",
+    "qty": 50,
+    "unit": "g",
+    "note": "grated"
+   },
+   {
+    "id": "parsley",
+    "qty": 1,
+    "unit": "handful",
+    "note": "chopped"
+   },
+   {
+    "id": "olive-oil",
+    "qty": 2,
+    "unit": "tbsp"
+   },
+   {
+    "id": "salt"
+   },
+   {
+    "id": "black-pepper"
+   }
+  ],
+  "steps": [
+   "Dissolve the stock cubes in the hot water and keep it warm on a low heat.",
+   "Brown the chicken in half the oil in a large pan, then lift it out. Fry the mushrooms in the same pan until golden, and lift them out too.",
+   "Soften the onion in the rest of the oil for 5 minutes, add the garlic and the rice and stir for 1 minute.",
+   "Add the stock a ladle at a time, stirring often and waiting until each ladleful is absorbed. This takes about 20 minutes.",
+   "When the rice is just tender, stir the chicken and mushrooms back in with the butter and Parmesan. Cover and rest for 2 minutes.",
+   "Season and scatter with parsley."
+  ]
+ },
+ {
+  "id": "slow-cooker-beef-ragu",
+  "name": "Slow-cooker beef ragù",
+  "description": "Braising beef cooked low and slow in tomato until it falls apart, served over gluten-free pasta.",
+  "cuisine": "italian",
+  "mealTypes": [
+   "dinner"
+  ],
+  "servings": 6,
+  "prepMins": 20,
+  "cookMins": 480,
+  "difficulty": "easy",
+  "spice": 0,
+  "cost": 2,
+  "tools": [
+   "slow-cooker",
+   "hob"
+  ],
+  "onePot": false,
+  "batchCook": true,
+  "freezerFriendly": true,
+  "goodForLeftovers": true,
+  "lunchbox": false,
+  "season": "winter",
+  "tags": [
+   "comfort food",
+   "batch cook"
+  ],
+  "ingredients": [
+   {
+    "id": "braising-beef",
+    "qty": 750,
+    "unit": "g",
+    "note": "in large chunks"
+   },
+   {
+    "id": "onion",
+    "qty": 1,
+    "unit": "each",
+    "note": "finely chopped"
+   },
+   {
+    "id": "carrot",
+    "qty": 1,
+    "unit": "each",
+    "note": "finely chopped"
+   },
+   {
+    "id": "celery",
+    "qty": 1,
+    "unit": "stick",
+    "note": "finely chopped"
+   },
+   {
+    "id": "garlic",
+    "qty": 3,
+    "unit": "clove",
+    "note": "crushed"
+   },
+   {
+    "id": "chopped-tomatoes",
+    "qty": 2,
+    "unit": "tin"
+   },
+   {
+    "id": "tomato-puree",
+    "qty": 2,
+    "unit": "tbsp"
+   },
+   {
+    "id": "gf-beef-stock",
+    "qty": 1,
+    "unit": "each"
+   },
+   {
+    "id": "water",
+    "qty": 200,
+    "unit": "ml"
+   },
+   {
+    "id": "mixed-herbs",
+    "qty": 1,
+    "unit": "tsp"
+   },
+   {
+    "id": "bay-leaf",
+    "qty": 2,
+    "unit": "each"
+   },
+   {
+    "id": "gf-pasta",
+    "qty": 450,
+    "unit": "g",
+    "note": "pappardelle or tagliatelle style"
+   },
+   {
+    "id": "olive-oil",
+    "qty": 1,
+    "unit": "tbsp"
+   },
+   {
+    "id": "parmesan",
+    "qty": 40,
+    "unit": "g",
+    "note": "to serve",
+    "optional": true
+   },
+   {
+    "id": "salt"
+   },
+   {
+    "id": "black-pepper"
+   }
+  ],
+  "steps": [
+   "Brown the beef in batches in the oil in a hot frying pan and put it in the slow cooker.",
+   "Fry the onion, carrot and celery in the same pan for 5 minutes, add the garlic and tomato purée for 1 minute, then add to the slow cooker.",
+   "Crumble in the stock cube and add the tomatoes, water, herbs and bay leaves. Stir.",
+   "Cook on LOW for 8 hours (or HIGH for 5) until the beef falls apart.",
+   "Shred the beef with two forks, remove the bay leaves and season.",
+   "Cook the pasta, toss with the ragù and serve with Parmesan if you like."
+  ]
+ },
+ {
+  "id": "chickpea-spinach-curry",
+  "name": "Chickpea and spinach curry",
+  "description": "A mellow, coconut-rich curry from store-cupboard tins, ready in half an hour.",
+  "cuisine": "indian",
+  "mealTypes": [
+   "dinner"
+  ],
+  "servings": 4,
+  "prepMins": 10,
+  "cookMins": 25,
+  "difficulty": "easy",
+  "spice": 1,
+  "cost": 1,
+  "tools": [
+   "hob"
+  ],
+  "onePot": true,
+  "batchCook": false,
+  "freezerFriendly": true,
+  "goodForLeftovers": true,
+  "lunchbox": true,
+  "season": "all year",
+  "tags": [
+   "store cupboard",
+   "vegan"
+  ],
+  "ingredients": [
+   {
+    "id": "chickpeas",
+    "qty": 2,
+    "unit": "tin",
+    "note": "drained"
+   },
+   {
+    "id": "chopped-tomatoes",
+    "qty": 1,
+    "unit": "tin"
+   },
+   {
+    "id": "coconut-milk",
+    "qty": 1,
+    "unit": "tin"
+   },
+   {
+    "id": "spinach",
+    "qty": 150,
+    "unit": "g"
+   },
+   {
+    "id": "onion",
+    "qty": 1,
+    "unit": "each",
+    "note": "chopped"
+   },
+   {
+    "id": "garlic",
+    "qty": 3,
+    "unit": "clove",
+    "note": "crushed"
+   },
+   {
+    "id": "ginger",
+    "qty": 1,
+    "unit": "tbsp",
+    "note": "grated"
+   },
+   {
+    "id": "garam-masala",
+    "qty": 2,
+    "unit": "tsp"
+   },
+   {
+    "id": "ground-cumin",
+    "qty": 1,
+    "unit": "tsp"
+   },
+   {
+    "id": "turmeric",
+    "qty": 1,
+    "unit": "tsp"
+   },
+   {
+    "id": "chilli-flakes",
+    "qty": 0.5,
+    "unit": "tsp"
+   },
+   {
+    "id": "basmati-rice",
+    "qty": 240,
+    "unit": "g"
+   },
+   {
+    "id": "vegetable-oil",
+    "qty": 2,
+    "unit": "tbsp"
+   },
+   {
+    "id": "coriander",
+    "qty": 1,
+    "unit": "handful"
+   },
+   {
+    "id": "salt"
+   }
+  ],
+  "steps": [
+   "Put the rice on to cook following the pack instructions.",
+   "Fry the onion in the oil for 6–8 minutes until soft and golden. Add the garlic and ginger for 1 minute.",
+   "Stir in the spices for 30 seconds until fragrant, then add the tomatoes, coconut milk and chickpeas.",
+   "Simmer for 15 minutes until thickened.",
+   "Stir in the spinach until it wilts, season with salt, and scatter with coriander. Serve with the rice."
+  ]
+ },
+ {
+  "id": "slow-cooker-dal",
+  "name": "Slow-cooker red lentil dal",
+  "description": "Golden, soothing lentils that cook themselves. Finish with a squeeze of lemon and plenty of coriander.",
+  "cuisine": "indian",
+  "mealTypes": [
+   "dinner",
+   "lunch"
+  ],
+  "servings": 6,
+  "prepMins": 10,
+  "cookMins": 360,
+  "difficulty": "easy",
+  "spice": 1,
+  "cost": 1,
+  "tools": [
+   "slow-cooker"
+  ],
+  "onePot": false,
+  "batchCook": true,
+  "freezerFriendly": true,
+  "goodForLeftovers": true,
+  "lunchbox": true,
+  "season": "all year",
+  "tags": [
+   "batch cook",
+   "vegan"
+  ],
+  "ingredients": [
+   {
+    "id": "red-lentils",
+    "qty": 400,
+    "unit": "g",
+    "note": "rinsed"
+   },
+   {
+    "id": "onion",
+    "qty": 1,
+    "unit": "each",
+    "note": "finely chopped"
+   },
+   {
+    "id": "garlic",
+    "qty": 4,
+    "unit": "clove",
+    "note": "crushed"
+   },
+   {
+    "id": "ginger",
+    "qty": 1,
+    "unit": "tbsp",
+    "note": "grated"
+   },
+   {
+    "id": "chopped-tomatoes",
+    "qty": 1,
+    "unit": "tin"
+   },
+   {
+    "id": "turmeric",
+    "qty": 1,
+    "unit": "tsp"
+   },
+   {
+    "id": "ground-cumin",
+    "qty": 2,
+    "unit": "tsp"
+   },
+   {
+    "id": "garam-masala",
+    "qty": 2,
+    "unit": "tsp"
+   },
+   {
+    "id": "gf-veg-stock",
+    "qty": 1,
+    "unit": "each"
+   },
+   {
+    "id": "water",
+    "qty": 1200,
+    "unit": "ml"
+   },
+   {
+    "id": "spinach",
+    "qty": 100,
+    "unit": "g",
+    "optional": true
+   },
+   {
+    "id": "lemon",
+    "qty": 1,
+    "unit": "each",
+    "note": "juiced"
+   },
+   {
+    "id": "coriander",
+    "qty": 1,
+    "unit": "handful"
+   },
+   {
+    "id": "basmati-rice",
+    "qty": 300,
+    "unit": "g",
+    "note": "to serve"
+   },
+   {
+    "id": "salt"
+   }
+  ],
+  "steps": [
+   "Put everything except the spinach, lemon, coriander and rice into the slow cooker. Crumble in the stock cube and stir.",
+   "Cook on LOW for 6 hours (or HIGH for 3), stirring once if you can, until the lentils have broken down.",
+   "Cook the rice shortly before serving.",
+   "Stir in the spinach (if using) and the lemon juice, season, and loosen with a little hot water if needed.",
+   "Serve over the rice, topped with coriander."
+  ]
+ },
+ {
+  "id": "chicken-tikka-traybake",
+  "name": "Chicken tikka traybake",
+  "description": "Yogurt-and-spice marinated chicken roasted with cauliflower, peppers and red onion on one tray.",
+  "cuisine": "indian",
+  "mealTypes": [
+   "dinner"
+  ],
+  "servings": 4,
+  "prepMins": 15,
+  "cookMins": 35,
+  "difficulty": "easy",
+  "spice": 1,
+  "cost": 2,
+  "tools": [
+   "oven"
+  ],
+  "onePot": true,
+  "batchCook": false,
+  "freezerFriendly": false,
+  "goodForLeftovers": true,
+  "lunchbox": true,
+  "season": "all year",
+  "tags": [
+   "traybake",
+   "high protein"
+  ],
+  "ingredients": [
+   {
+    "id": "chicken-thighs",
+    "qty": 8,
+    "unit": "each"
+   },
+   {
+    "id": "natural-yogurt",
+    "qty": 150,
+    "unit": "g"
+   },
+   {
+    "id": "garam-masala",
+    "qty": 2,
+    "unit": "tsp"
+   },
+   {
+    "id": "ground-cumin",
+    "qty": 1,
+    "unit": "tsp"
+   },
+   {
+    "id": "paprika",
+    "qty": 2,
+    "unit": "tsp"
+   },
+   {
+    "id": "turmeric",
+    "qty": 1,
+    "unit": "tsp"
+   },
+   {
+    "id": "garlic",
+    "qty": 2,
+    "unit": "clove",
+    "note": "crushed"
+   },
+   {
+    "id": "ginger",
+    "qty": 1,
+    "unit": "tbsp",
+    "note": "grated"
+   },
+   {
+    "id": "lemon",
+    "qty": 1,
+    "unit": "each"
+   },
+   {
+    "id": "cauliflower",
+    "qty": 0.5,
+    "unit": "each",
+    "note": "in florets"
+   },
+   {
+    "id": "red-pepper",
+    "qty": 2,
+    "unit": "each",
+    "note": "in chunks"
+   },
+   {
+    "id": "red-onion",
+    "qty": 2,
+    "unit": "each",
+    "note": "in wedges"
+   },
+   {
+    "id": "vegetable-oil",
+    "qty": 2,
+    "unit": "tbsp"
+   },
+   {
+    "id": "coriander",
+    "qty": 1,
+    "unit": "handful"
+   },
+   {
+    "id": "salt"
+   }
+  ],
+  "steps": [
+   "Mix the yogurt, spices, garlic, ginger, half the lemon juice and a good pinch of salt. Coat the chicken and leave for 10 minutes (or overnight in the fridge).",
+   "Heat the oven to 220°C (200°C fan).",
+   "Toss the cauliflower, peppers and onion with the oil and salt on a large roasting tray.",
+   "Sit the chicken on top and roast for 30–35 minutes until charred at the edges and cooked through.",
+   "Squeeze over the remaining lemon and scatter with coriander."
+  ]
+ },
+ {
+  "id": "air-fryer-onion-bhajis",
+  "name": "Air-fryer onion bhajis",
+  "description": "Crisp, lacy bhajis made with gram flour, which is naturally gluten-free, and cooked with barely any oil.",
+  "cuisine": "indian",
+  "mealTypes": [
+   "snack",
+   "lunch"
+  ],
+  "servings": 4,
+  "prepMins": 15,
+  "cookMins": 15,
+  "difficulty": "easy",
+  "spice": 1,
+  "cost": 1,
+  "tools": [
+   "air-fryer"
+  ],
+  "onePot": false,
+  "batchCook": false,
+  "freezerFriendly": false,
+  "goodForLeftovers": false,
+  "lunchbox": false,
+  "season": "all year",
+  "tags": [
+   "vegan",
+   "party food"
+  ],
+  "ingredients": [
+   {
+    "id": "onion",
+    "qty": 2,
+    "unit": "each",
+    "note": "thinly sliced"
+   },
+   {
+    "id": "gram-flour",
+    "qty": 100,
+    "unit": "g"
+   },
+   {
+    "id": "ground-cumin",
+    "qty": 1,
+    "unit": "tsp"
+   },
+   {
+    "id": "ground-coriander",
+    "qty": 1,
+    "unit": "tsp"
+   },
+   {
+    "id": "turmeric",
+    "qty": 0.5,
+    "unit": "tsp"
+   },
+   {
+    "id": "chilli-flakes",
+    "qty": 0.5,
+    "unit": "tsp"
+   },
+   {
+    "id": "baking-powder",
+    "qty": 0.5,
+    "unit": "tsp"
+   },
+   {
+    "id": "coriander",
+    "qty": 1,
+    "unit": "handful",
+    "note": "chopped"
+   },
+   {
+    "id": "water",
+    "qty": 80,
+    "unit": "ml"
+   },
+   {
+    "id": "vegetable-oil",
+    "qty": 1,
+    "unit": "tbsp"
+   },
+   {
+    "id": "salt",
+    "qty": 1,
+    "unit": "tsp"
+   },
+   {
+    "id": "natural-yogurt",
+    "qty": 100,
+    "unit": "g",
+    "note": "with mint, to dip",
+    "optional": true
+   }
+  ],
+  "steps": [
+   "Toss the onions with the salt and leave for 5 minutes to soften.",
+   "Stir in the gram flour, spices, baking powder and coriander, then add the water a little at a time to make a thick, sticky batter that coats the onions.",
+   "Heat the air fryer to 190°C. Brush the basket with a little oil.",
+   "Drop in spoonfuls of the mixture, flatten slightly and brush the tops with oil.",
+   "Cook for 12–15 minutes, turning halfway, until deep golden and crisp. Cook in batches if needed."
+  ]
+ },
+ {
+  "id": "egg-fried-rice",
+  "name": "Egg fried rice with peas",
+  "description": "Better than a takeaway: day-old rice, fluffy egg, peas and spring onion, seasoned with tamari.",
+  "cuisine": "chinese",
+  "mealTypes": [
+   "lunch",
+   "dinner"
+  ],
+  "servings": 2,
+  "prepMins": 5,
+  "cookMins": 10,
+  "difficulty": "easy",
+  "spice": 0,
+  "cost": 1,
+  "tools": [
+   "wok"
+  ],
+  "onePot": true,
+  "batchCook": false,
+  "freezerFriendly": false,
+  "goodForLeftovers": false,
+  "lunchbox": false,
+  "season": "all year",
+  "tags": [
+   "quick",
+   "leftover rice"
+  ],
+  "ingredients": [
+   {
+    "id": "basmati-rice",
+    "qty": 150,
+    "unit": "g",
+    "note": "cooked the day before and chilled"
+   },
+   {
+    "id": "eggs",
+    "qty": 3,
+    "unit": "each",
+    "note": "beaten"
+   },
+   {
+    "id": "peas-frozen",
+    "qty": 100,
+    "unit": "g"
+   },
+   {
+    "id": "spring-onion",
+    "qty": 4,
+    "unit": "each",
+    "note": "sliced"
+   },
+   {
+    "id": "garlic",
+    "qty": 1,
+    "unit": "clove",
+    "note": "crushed"
+   },
+   {
+    "id": "tamari",
+    "qty": 2,
+    "unit": "tbsp"
+   },
+   {
+    "id": "sesame-oil",
+    "qty": 1,
+    "unit": "tsp"
+   },
+   {
+    "id": "vegetable-oil",
+    "qty": 2,
+    "unit": "tbsp"
+   }
+  ],
+  "steps": [
+   "Heat the vegetable oil in a wok until very hot. Add the garlic and most of the spring onion for 30 seconds.",
+   "Add the cold rice and stir-fry for 3–4 minutes, breaking up any clumps, until hot.",
+   "Push the rice to one side, pour the eggs into the gap and scramble until just set, then toss them through the rice.",
+   "Add the peas and tamari and stir-fry for 2 minutes more.",
+   "Finish with the sesame oil and the remaining spring onion."
+  ]
+ },
+ {
+  "id": "sweet-sour-chicken",
+  "name": "Sweet and sour chicken",
+  "description": "Crisp-edged chicken and peppers in a tangy pineapple sauce, thickened with cornflour.",
+  "cuisine": "chinese",
+  "mealTypes": [
+   "dinner"
+  ],
+  "servings": 4,
+  "prepMins": 15,
+  "cookMins": 15,
+  "difficulty": "easy",
+  "spice": 0,
+  "cost": 2,
+  "tools": [
+   "wok"
+  ],
+  "onePot": false,
+  "batchCook": false,
+  "freezerFriendly": false,
+  "goodForLeftovers": false,
+  "lunchbox": false,
+  "season": "all year",
+  "tags": [
+   "takeaway favourite"
+  ],
+  "ingredients": [
+   {
+    "id": "chicken-breast",
+    "qty": 3,
+    "unit": "each",
+    "note": "in bite-sized pieces"
+   },
+   {
+    "id": "cornflour",
+    "qty": 3,
+    "unit": "tbsp"
+   },
+   {
+    "id": "red-pepper",
+    "qty": 1,
+    "unit": "each",
+    "note": "in chunks"
+   },
+   {
+    "id": "green-pepper",
+    "qty": 1,
+    "unit": "each",
+    "note": "in chunks"
+   },
+   {
+    "id": "onion",
+    "qty": 1,
+    "unit": "each",
+    "note": "in chunks"
+   },
+   {
+    "id": "pineapple",
+    "qty": 1,
+    "unit": "tin",
+    "note": "drained, juice saved"
+   },
+   {
+    "id": "ketchup",
+    "qty": 3,
+    "unit": "tbsp"
+   },
+   {
+    "id": "rice-vinegar",
+    "qty": 3,
+    "unit": "tbsp"
+   },
+   {
+    "id": "tamari",
+    "qty": 2,
+    "unit": "tbsp"
+   },
+   {
+    "id": "brown-sugar",
+    "qty": 2,
+    "unit": "tbsp"
+   },
+   {
+    "id": "garlic",
+    "qty": 2,
+    "unit": "clove",
+    "note": "crushed"
+   },
+   {
+    "id": "jasmine-rice",
+    "qty": 280,
+    "unit": "g"
+   },
+   {
+    "id": "vegetable-oil",
+    "qty": 3,
+    "unit": "tbsp"
+   }
+  ],
+  "steps": [
+   "Cook the rice. Whisk the ketchup, vinegar, tamari, sugar, 100 ml of the pineapple juice and 1 tbsp of the cornflour to make the sauce.",
+   "Toss the chicken in the remaining cornflour with a pinch of salt.",
+   "Stir-fry the chicken in 2 tbsp oil in a very hot wok for 5–6 minutes until golden and cooked. Lift it out.",
+   "Add the rest of the oil and stir-fry the onion and peppers for 3 minutes, then the garlic for 30 seconds.",
+   "Pour in the sauce and pineapple and bubble until glossy and thick, then return the chicken and toss. Serve with the rice."
+  ]
+ },
+ {
+  "id": "tofu-broccoli-stir-fry",
+  "name": "Garlic-ginger tofu and broccoli",
+  "description": "Crispy cornflour-coated tofu and broccoli in a sticky tamari, garlic and ginger glaze.",
+  "cuisine": "chinese",
+  "mealTypes": [
+   "dinner"
+  ],
+  "servings": 3,
+  "prepMins": 15,
+  "cookMins": 15,
+  "difficulty": "easy",
+  "spice": 1,
+  "cost": 1,
+  "tools": [
+   "wok"
+  ],
+  "onePot": false,
+  "batchCook": false,
+  "freezerFriendly": false,
+  "goodForLeftovers": false,
+  "lunchbox": false,
+  "season": "all year",
+  "tags": [
+   "vegan",
+   "high protein"
+  ],
+  "ingredients": [
+   {
+    "id": "tofu",
+    "qty": 1,
+    "unit": "block",
+    "note": "pressed and cubed"
+   },
+   {
+    "id": "cornflour",
+    "qty": 2,
+    "unit": "tbsp"
+   },
+   {
+    "id": "broccoli",
+    "qty": 1,
+    "unit": "each",
+    "note": "in small florets"
+   },
+   {
+    "id": "garlic",
+    "qty": 3,
+    "unit": "clove",
+    "note": "crushed"
+   },
+   {
+    "id": "ginger",
+    "qty": 1,
+    "unit": "tbsp",
+    "note": "grated"
+   },
+   {
+    "id": "tamari",
+    "qty": 3,
+    "unit": "tbsp"
+   },
+   {
+    "id": "maple-syrup",
+    "qty": 1,
+    "unit": "tbsp"
+   },
+   {
+    "id": "rice-vinegar",
+    "qty": 1,
+    "unit": "tbsp"
+   },
+   {
+    "id": "red-chilli",
+    "qty": 1,
+    "unit": "each",
+    "note": "sliced",
+    "optional": true
+   },
+   {
+    "id": "spring-onion",
+    "qty": 3,
+    "unit": "each",
+    "note": "sliced"
+   },
+   {
+    "id": "jasmine-rice",
+    "qty": 210,
+    "unit": "g"
+   },
+   {
+    "id": "vegetable-oil",
+    "qty": 3,
+    "unit": "tbsp"
+   },
+   {
+    "id": "sesame-seeds",
+    "qty": 1,
+    "unit": "tbsp",
+    "optional": true
+   }
+  ],
+  "steps": [
+   "Cook the rice. Mix the tamari, maple syrup, vinegar and 3 tbsp water.",
+   "Toss the tofu in the cornflour and fry in 2 tbsp oil in a wok, turning, until crisp on all sides (about 8 minutes). Lift out.",
+   "Stir-fry the broccoli in the remaining oil with a splash of water for 3 minutes, then add the garlic, ginger and chilli for 1 minute.",
+   "Pour in the sauce, return the tofu and toss until sticky.",
+   "Top with spring onion and sesame seeds and serve with the rice."
+  ]
+ },
+ {
+  "id": "slow-cooker-chilli",
+  "name": "Slow-cooker chilli con carne",
+  "description": "A deep, smoky chilli that's even better the next day. Great for the freezer.",
+  "cuisine": "mexican",
+  "mealTypes": [
+   "dinner"
+  ],
+  "servings": 6,
+  "prepMins": 15,
+  "cookMins": 480,
+  "difficulty": "easy",
+  "spice": 2,
+  "cost": 2,
+  "tools": [
+   "slow-cooker",
+   "hob"
+  ],
+  "onePot": false,
+  "batchCook": true,
+  "freezerFriendly": true,
+  "goodForLeftovers": true,
+  "lunchbox": false,
+  "season": "winter",
+  "tags": [
+   "batch cook",
+   "comfort food"
+  ],
+  "ingredients": [
+   {
+    "id": "beef-mince",
+    "qty": 750,
+    "unit": "g"
+   },
+   {
+    "id": "onion",
+    "qty": 2,
+    "unit": "each",
+    "note": "chopped"
+   },
+   {
+    "id": "garlic",
+    "qty": 3,
+    "unit": "clove",
+    "note": "crushed"
+   },
+   {
+    "id": "red-pepper",
+    "qty": 2,
+    "unit": "each",
+    "note": "chopped"
+   },
+   {
+    "id": "kidney-beans",
+    "qty": 2,
+    "unit": "tin",
+    "note": "drained"
+   },
+   {
+    "id": "chopped-tomatoes",
+    "qty": 2,
+    "unit": "tin"
+   },
+   {
+    "id": "tomato-puree",
+    "qty": 2,
+    "unit": "tbsp"
+   },
+   {
+    "id": "gf-beef-stock",
+    "qty": 1,
+    "unit": "each"
+   },
+   {
+    "id": "ground-cumin",
+    "qty": 2,
+    "unit": "tsp"
+   },
+   {
+    "id": "smoked-paprika",
+    "qty": 2,
+    "unit": "tsp"
+   },
+   {
+    "id": "chilli-powder",
+    "qty": 1,
+    "unit": "tsp"
+   },
+   {
+    "id": "dried-oregano",
+    "qty": 1,
+    "unit": "tsp"
+   },
+   {
+    "id": "basmati-rice",
+    "qty": 420,
+    "unit": "g",
+    "note": "to serve"
+   },
+   {
+    "id": "vegetable-oil",
+    "qty": 1,
+    "unit": "tbsp"
+   },
+   {
+    "id": "salt"
+   },
+   {
+    "id": "natural-yogurt",
+    "qty": 150,
+    "unit": "g",
+    "note": "to serve",
+    "optional": true
+   }
+  ],
+  "steps": [
+   "Brown the mince well in the oil in a large frying pan, breaking it up, then tip it into the slow cooker.",
+   "Soften the onions and peppers in the same pan for 5 minutes, then add the garlic, spices and tomato purée for 1 minute.",
+   "Add everything to the slow cooker with the tomatoes and beans. Crumble in the stock cube with 150 ml water and stir.",
+   "Cook on LOW for 8 hours (or HIGH for 4–5).",
+   "Season, then serve with rice and a spoonful of yogurt."
+  ]
+ },
+ {
+  "id": "black-bean-quesadillas",
+  "name": "Black bean and sweetcorn quesadillas",
+  "description": "Crisp corn tortillas filled with spiced black beans, sweetcorn and melted cheddar.",
+  "cuisine": "mexican",
+  "mealTypes": [
+   "lunch",
+   "dinner"
+  ],
+  "servings": 2,
+  "prepMins": 10,
+  "cookMins": 10,
+  "difficulty": "easy",
+  "spice": 1,
+  "cost": 1,
+  "tools": [
+   "hob"
+  ],
+  "onePot": false,
+  "batchCook": false,
+  "freezerFriendly": false,
+  "goodForLeftovers": false,
+  "lunchbox": false,
+  "season": "all year",
+  "tags": [
+   "quick",
+   "vegetarian"
+  ],
+  "ingredients": [
+   {
+    "id": "corn-tortillas",
+    "qty": 6,
+    "unit": "each"
+   },
+   {
+    "id": "black-beans",
+    "qty": 1,
+    "unit": "tin",
+    "note": "drained"
+   },
+   {
+    "id": "sweetcorn",
+    "qty": 100,
+    "unit": "g"
+   },
+   {
+    "id": "cheddar",
+    "qty": 100,
+    "unit": "g",
+    "note": "grated"
+   },
+   {
+    "id": "red-onion",
+    "qty": 0.5,
+    "unit": "each",
+    "note": "finely chopped"
+   },
+   {
+    "id": "ground-cumin",
+    "qty": 1,
+    "unit": "tsp"
+   },
+   {
+    "id": "smoked-paprika",
+    "qty": 0.5,
+    "unit": "tsp"
+   },
+   {
+    "id": "lime",
+    "qty": 1,
+    "unit": "each"
+   },
+   {
+    "id": "coriander",
+    "qty": 1,
+    "unit": "handful",
+    "note": "chopped"
+   },
+   {
+    "id": "avocado",
+    "qty": 1,
+    "unit": "each",
+    "note": "to serve",
+    "optional": true
+   },
+   {
+    "id": "vegetable-oil",
+    "qty": 1,
+    "unit": "tbsp"
+   },
+   {
+    "id": "salt"
+   }
+  ],
+  "steps": [
+   "Roughly mash the beans with the spices, half the lime juice and a pinch of salt. Stir in the sweetcorn, onion and coriander.",
+   "Warm the tortillas briefly in a dry pan so they bend without cracking.",
+   "Spread the bean mix over 3 tortillas, scatter with cheese and top with the other 3.",
+   "Fry each quesadilla in a lightly oiled frying pan for 2–3 minutes per side, pressing down, until crisp and the cheese melts.",
+   "Cut into wedges and serve with avocado and lime wedges."
+  ]
+ },
+ {
+  "id": "huevos-rancheros",
+  "name": "Huevos rancheros",
+  "description": "Eggs baked in a smoky tomato and black bean sauce, spooned over warm corn tortillas.",
+  "cuisine": "mexican",
+  "mealTypes": [
+   "breakfast",
+   "lunch"
+  ],
+  "servings": 2,
+  "prepMins": 10,
+  "cookMins": 20,
+  "difficulty": "easy",
+  "spice": 2,
+  "cost": 1,
+  "tools": [
+   "hob"
+  ],
+  "onePot": true,
+  "batchCook": false,
+  "freezerFriendly": false,
+  "goodForLeftovers": false,
+  "lunchbox": false,
+  "season": "all year",
+  "tags": [
+   "brunch",
+   "vegetarian"
+  ],
+  "ingredients": [
+   {
+    "id": "eggs",
+    "qty": 4,
+    "unit": "each"
+   },
+   {
+    "id": "corn-tortillas",
+    "qty": 4,
+    "unit": "each"
+   },
+   {
+    "id": "chopped-tomatoes",
+    "qty": 1,
+    "unit": "tin"
+   },
+   {
+    "id": "black-beans",
+    "qty": 0.5,
+    "unit": "tin",
+    "note": "drained"
+   },
+   {
+    "id": "onion",
+    "qty": 1,
+    "unit": "each",
+    "note": "chopped"
+   },
+   {
+    "id": "garlic",
+    "qty": 1,
+    "unit": "clove",
+    "note": "crushed"
+   },
+   {
+    "id": "red-chilli",
+    "qty": 1,
+    "unit": "each",
+    "note": "chopped"
+   },
+   {
+    "id": "ground-cumin",
+    "qty": 1,
+    "unit": "tsp"
+   },
+   {
+    "id": "avocado",
+    "qty": 1,
+    "unit": "each",
+    "note": "sliced"
+   },
+   {
+    "id": "coriander",
+    "qty": 1,
+    "unit": "handful"
+   },
+   {
+    "id": "feta",
+    "qty": 40,
+    "unit": "g",
+    "note": "crumbled",
+    "optional": true
+   },
+   {
+    "id": "olive-oil",
+    "qty": 1,
+    "unit": "tbsp"
+   },
+   {
+    "id": "salt"
+   }
+  ],
+  "steps": [
+   "Soften the onion in the oil in a frying pan for 5 minutes. Add the garlic, chilli and cumin for 1 minute.",
+   "Add the tomatoes and beans, season, and simmer for 8 minutes until thick.",
+   "Make 4 dips in the sauce, crack in the eggs, cover and cook for 5–6 minutes until the whites are set.",
+   "Meanwhile, warm the tortillas in a dry pan.",
+   "Serve the eggs and sauce on the tortillas with avocado, coriander and feta."
+  ]
+ },
+ {
+  "id": "thai-green-curry",
+  "name": "Thai green chicken curry",
+  "description": "Fragrant coconut curry with chicken thighs and green beans, finished with lime and basil.",
+  "cuisine": "thai",
+  "mealTypes": [
+   "dinner"
+  ],
+  "servings": 4,
+  "prepMins": 10,
+  "cookMins": 20,
+  "difficulty": "easy",
+  "spice": 2,
+  "cost": 2,
+  "tools": [
+   "hob"
+  ],
+  "onePot": true,
+  "batchCook": false,
+  "freezerFriendly": false,
+  "goodForLeftovers": false,
+  "lunchbox": false,
+  "season": "all year",
+  "tags": [
+   "fakeaway"
+  ],
+  "ingredients": [
+   {
+    "id": "chicken-thighs",
+    "qty": 6,
+    "unit": "each",
+    "note": "in bite-sized pieces"
+   },
+   {
+    "id": "thai-green-paste",
+    "qty": 3,
+    "unit": "tbsp"
+   },
+   {
+    "id": "coconut-milk",
+    "qty": 1,
+    "unit": "tin"
+   },
+   {
+    "id": "green-beans",
+    "qty": 150,
+    "unit": "g",
+    "note": "halved"
+   },
+   {
+    "id": "red-pepper",
+    "qty": 1,
+    "unit": "each",
+    "note": "sliced"
+   },
+   {
+    "id": "fish-sauce",
+    "qty": 1,
+    "unit": "tbsp"
+   },
+   {
+    "id": "brown-sugar",
+    "qty": 1,
+    "unit": "tsp"
+   },
+   {
+    "id": "lime",
+    "qty": 1,
+    "unit": "each"
+   },
+   {
+    "id": "basil",
+    "qty": 1,
+    "unit": "handful"
+   },
+   {
+    "id": "jasmine-rice",
+    "qty": 280,
+    "unit": "g"
+   },
+   {
+    "id": "vegetable-oil",
+    "qty": 1,
+    "unit": "tbsp"
+   }
+  ],
+  "steps": [
+   "Cook the rice.",
+   "Fry the curry paste in the oil for 1 minute until fragrant, then add the chicken and stir to coat.",
+   "Pour in the coconut milk with 100 ml water, bring to a simmer and cook for 10 minutes.",
+   "Add the green beans and pepper for 5 minutes, until just tender.",
+   "Season with the fish sauce, sugar and lime juice to taste, then tear in the basil. Serve with the rice."
+  ]
+ },
+ {
+  "id": "prawn-pad-thai",
+  "name": "Prawn pad thai",
+  "description": "Rice noodles stir-fried with prawns, egg and beansprouts in a tamarind, lime and fish sauce dressing. No peanuts.",
+  "cuisine": "thai",
+  "mealTypes": [
+   "dinner"
+  ],
+  "servings": 2,
+  "prepMins": 15,
+  "cookMins": 10,
+  "difficulty": "medium",
+  "spice": 1,
+  "cost": 2,
+  "tools": [
+   "wok"
+  ],
+  "onePot": false,
+  "batchCook": false,
+  "freezerFriendly": false,
+  "goodForLeftovers": false,
+  "lunchbox": false,
+  "season": "all year",
+  "tags": [
+   "nut-free",
+   "fakeaway"
+  ],
+  "ingredients": [
+   {
+    "id": "rice-noodles",
+    "qty": 150,
+    "unit": "g",
+    "note": "flat"
+   },
+   {
+    "id": "king-prawns",
+    "qty": 200,
+    "unit": "g"
+   },
+   {
+    "id": "eggs",
+    "qty": 2,
+    "unit": "each",
+    "note": "beaten"
+   },
+   {
+    "id": "beansprouts",
+    "qty": 150,
+    "unit": "g"
+   },
+   {
+    "id": "spring-onion",
+    "qty": 4,
+    "unit": "each",
+    "note": "in short lengths"
+   },
+   {
+    "id": "garlic",
+    "qty": 2,
+    "unit": "clove",
+    "note": "crushed"
+   },
+   {
+    "id": "tamarind",
+    "qty": 2,
+    "unit": "tbsp"
+   },
+   {
+    "id": "fish-sauce",
+    "qty": 2,
+    "unit": "tbsp"
+   },
+   {
+    "id": "brown-sugar",
+    "qty": 1,
+    "unit": "tbsp"
+   },
+   {
+    "id": "lime",
+    "qty": 1,
+    "unit": "each"
+   },
+   {
+    "id": "chilli-flakes",
+    "qty": 0.5,
+    "unit": "tsp"
+   },
+   {
+    "id": "coriander",
+    "qty": 1,
+    "unit": "handful"
+   },
+   {
+    "id": "vegetable-oil",
+    "qty": 2,
+    "unit": "tbsp"
+   }
+  ],
+  "steps": [
+   "Soak the noodles in just-boiled water following the pack timing until bendy but still firm, then drain.",
+   "Mix the tamarind, fish sauce, sugar, chilli and the juice of half the lime.",
+   "Stir-fry the garlic and prawns in the oil in a very hot wok for 2 minutes until pink.",
+   "Push them aside and scramble the eggs in the gap, then add the noodles and sauce and toss for 2 minutes.",
+   "Add the beansprouts and spring onion for 1 minute. Serve with coriander and lime wedges."
+  ]
+ },
+ {
+  "id": "thai-beef-salad",
+  "name": "Thai griddled beef salad",
+  "description": "Charred steak sliced over crunchy salad and herbs with a hot, sour, salty lime dressing.",
+  "cuisine": "thai",
+  "mealTypes": [
+   "lunch",
+   "dinner"
+  ],
+  "servings": 2,
+  "prepMins": 15,
+  "cookMins": 8,
+  "difficulty": "easy",
+  "spice": 2,
+  "cost": 3,
+  "tools": [
+   "griddle"
+  ],
+  "onePot": false,
+  "batchCook": false,
+  "freezerFriendly": false,
+  "goodForLeftovers": false,
+  "lunchbox": false,
+  "season": "summer",
+  "tags": [
+   "low carb",
+   "high protein"
+  ],
+  "ingredients": [
+   {
+    "id": "beef-steak",
+    "qty": 1,
+    "unit": "each"
+   },
+   {
+    "id": "little-gem",
+    "qty": 2,
+    "unit": "each",
+    "note": "leaves separated"
+   },
+   {
+    "id": "cucumber",
+    "qty": 0.5,
+    "unit": "each",
+    "note": "sliced"
+   },
+   {
+    "id": "cherry-tomatoes",
+    "qty": 150,
+    "unit": "g",
+    "note": "halved"
+   },
+   {
+    "id": "red-onion",
+    "qty": 0.5,
+    "unit": "each",
+    "note": "thinly sliced"
+   },
+   {
+    "id": "mint",
+    "qty": 1,
+    "unit": "handful"
+   },
+   {
+    "id": "coriander",
+    "qty": 1,
+    "unit": "handful"
+   },
+   {
+    "id": "red-chilli",
+    "qty": 1,
+    "unit": "each",
+    "note": "finely chopped"
+   },
+   {
+    "id": "lime",
+    "qty": 2,
+    "unit": "each"
+   },
+   {
+    "id": "fish-sauce",
+    "qty": 1.5,
+    "unit": "tbsp"
+   },
+   {
+    "id": "brown-sugar",
+    "qty": 1,
+    "unit": "tsp"
+   },
+   {
+    "id": "vegetable-oil",
+    "qty": 1,
+    "unit": "tsp"
+   },
+   {
+    "id": "jasmine-rice",
+    "qty": 100,
+    "unit": "g",
+    "note": "to serve",
+    "optional": true
+   }
+  ],
+  "steps": [
+   "Whisk the lime juice, fish sauce, sugar and chilli to make the dressing.",
+   "Rub the steak with the oil and griddle over a very high heat for 2–3 minutes per side for medium-rare. Rest it for 5 minutes.",
+   "Toss the lettuce, cucumber, tomatoes, onion and herbs on a platter.",
+   "Slice the steak thinly, toss it in half the dressing and pile it on top. Pour over the rest of the dressing."
+  ]
+ },
+ {
+  "id": "shepherds-pie",
+  "name": "Shepherd's pie",
+  "description": "Rich lamb mince under a fluffy, cheesy mash topping. Thickened with cornflour, so it's naturally gluten-free.",
+  "cuisine": "british",
+  "mealTypes": [
+   "dinner"
+  ],
+  "servings": 6,
+  "prepMins": 25,
+  "cookMins": 60,
+  "difficulty": "medium",
+  "spice": 0,
+  "cost": 2,
+  "tools": [
+   "hob",
+   "oven"
+  ],
+  "onePot": false,
+  "batchCook": true,
+  "freezerFriendly": true,
+  "goodForLeftovers": true,
+  "lunchbox": false,
+  "season": "winter",
+  "tags": [
+   "comfort food"
+  ],
+  "ingredients": [
+   {
+    "id": "lamb-mince",
+    "qty": 500,
+    "unit": "g"
+   },
+   {
+    "id": "onion",
+    "qty": 1,
+    "unit": "each",
+    "note": "chopped"
+   },
+   {
+    "id": "carrot",
+    "qty": 2,
+    "unit": "each",
+    "note": "diced"
+   },
+   {
+    "id": "celery",
+    "qty": 1,
+    "unit": "stick",
+    "note": "diced"
+   },
+   {
+    "id": "garlic",
+    "qty": 2,
+    "unit": "clove",
+    "note": "crushed"
+   },
+   {
+    "id": "tomato-puree",
+    "qty": 2,
+    "unit": "tbsp"
+   },
+   {
+    "id": "tamari",
+    "qty": 1,
+    "unit": "tbsp"
+   },
+   {
+    "id": "gf-beef-stock",
+    "qty": 1,
+    "unit": "each"
+   },
+   {
+    "id": "water",
+    "qty": 400,
+    "unit": "ml"
+   },
+   {
+    "id": "cornflour",
+    "qty": 1,
+    "unit": "tbsp"
+   },
+   {
+    "id": "mixed-herbs",
+    "qty": 1,
+    "unit": "tsp"
+   },
+   {
+    "id": "peas-frozen",
+    "qty": 150,
+    "unit": "g"
+   },
+   {
+    "id": "potato",
+    "qty": 5,
+    "unit": "each",
+    "note": "peeled, in chunks"
+   },
+   {
+    "id": "butter",
+    "qty": 40,
+    "unit": "g"
+   },
+   {
+    "id": "milk",
+    "qty": 100,
+    "unit": "ml"
+   },
+   {
+    "id": "cheddar",
+    "qty": 50,
+    "unit": "g",
+    "note": "grated",
+    "optional": true
+   },
+   {
+    "id": "salt"
+   },
+   {
+    "id": "black-pepper"
+   }
+  ],
+  "steps": [
+   "Brown the lamb in a large pan, then pour off most of the fat.",
+   "Add the onion, carrot and celery and cook for 8 minutes. Stir in the garlic and tomato purée for 1 minute.",
+   "Add the water, stock cube, tamari and herbs and simmer for 20 minutes. Thicken with the cornflour mixed with a little cold water, then stir in the peas.",
+   "Meanwhile boil the potatoes for 15–20 minutes until tender, drain, and mash with the butter, milk and seasoning.",
+   "Heat the oven to 200°C (180°C fan). Spoon the lamb into a baking dish, top with the mash, rough it up with a fork and scatter with cheese.",
+   "Bake for 25–30 minutes until golden and bubbling."
+  ]
+ },
+ {
+  "id": "leek-potato-soup",
+  "name": "Leek and potato soup",
+  "description": "Silky, comforting soup that's blended smooth with a stick blender. Made with a gluten-free stock cube.",
+  "cuisine": "british",
+  "mealTypes": [
+   "lunch"
+  ],
+  "servings": 4,
+  "prepMins": 10,
+  "cookMins": 30,
+  "difficulty": "easy",
+  "spice": 0,
+  "cost": 1,
+  "tools": [
+   "hob",
+   "stick-blender"
+  ],
+  "onePot": true,
+  "batchCook": true,
+  "freezerFriendly": true,
+  "goodForLeftovers": false,
+  "lunchbox": false,
+  "season": "winter",
+  "tags": [
+   "soup",
+   "vegetarian"
+  ],
+  "ingredients": [
+   {
+    "id": "leek",
+    "qty": 3,
+    "unit": "each",
+    "note": "sliced"
+   },
+   {
+    "id": "potato",
+    "qty": 2,
+    "unit": "each",
+    "note": "diced"
+   },
+   {
+    "id": "onion",
+    "qty": 1,
+    "unit": "each",
+    "note": "chopped"
+   },
+   {
+    "id": "butter",
+    "qty": 30,
+    "unit": "g"
+   },
+   {
+    "id": "gf-veg-stock",
+    "qty": 1,
+    "unit": "each"
+   },
+   {
+    "id": "water",
+    "qty": 1000,
+    "unit": "ml"
+   },
+   {
+    "id": "milk",
+    "qty": 150,
+    "unit": "ml"
+   },
+   {
+    "id": "double-cream",
+    "qty": 4,
+    "unit": "tbsp",
+    "optional": true
+   },
+   {
+    "id": "gf-bread",
+    "qty": 4,
+    "unit": "slice",
+    "note": "to serve",
+    "optional": true
+   },
+   {
+    "id": "salt"
+   },
+   {
+    "id": "black-pepper"
+   }
+  ],
+  "steps": [
+   "Melt the butter in a large pan and gently cook the leeks and onion with a pinch of salt for 10 minutes until soft but not brown.",
+   "Add the potatoes, water and stock cube. Simmer for 15–20 minutes until the potatoes are very soft.",
+   "Blend until smooth with a stick blender, then stir in the milk.",
+   "Season well, swirl in the cream if you like, and serve with gluten-free bread."
+  ]
+ },
+ {
+  "id": "apple-cinnamon-porridge",
+  "name": "Apple and cinnamon porridge",
+  "description": "Creamy microwave porridge made with gluten-free oats, grated apple and cinnamon, topped with seeds.",
+  "cuisine": "british",
+  "mealTypes": [
+   "breakfast"
+  ],
+  "servings": 2,
+  "prepMins": 3,
+  "cookMins": 4,
+  "difficulty": "easy",
+  "spice": 0,
+  "cost": 1,
+  "tools": [
+   "microwave"
+  ],
+  "onePot": false,
+  "batchCook": false,
+  "freezerFriendly": false,
+  "goodForLeftovers": false,
+  "lunchbox": false,
+  "season": "all year",
+  "tags": [
+   "quick",
+   "vegetarian"
+  ],
+  "ingredients": [
+   {
+    "id": "gf-oats",
+    "qty": 80,
+    "unit": "g"
+   },
+   {
+    "id": "milk",
+    "qty": 400,
+    "unit": "ml"
+   },
+   {
+    "id": "apple",
+    "qty": 1,
+    "unit": "each",
+    "note": "grated"
+   },
+   {
+    "id": "cinnamon",
+    "qty": 0.5,
+    "unit": "tsp"
+   },
+   {
+    "id": "maple-syrup",
+    "qty": 1,
+    "unit": "tbsp"
+   },
+   {
+    "id": "mixed-seeds",
+    "qty": 2,
+    "unit": "tbsp",
+    "note": "to top"
+   }
+  ],
+  "steps": [
+   "Mix the oats, milk, apple and cinnamon in a large microwaveable bowl.",
+   "Microwave on high for 2 minutes, stir, then cook for another 1½–2 minutes until thick and creamy. Watch it doesn't boil over.",
+   "Stand for 1 minute, then divide between bowls and top with maple syrup and seeds."
+  ]
+ },
+ {
+  "id": "chicken-katsu-curry",
+  "name": "Air-fryer chicken katsu curry",
+  "description": "Crunchy gluten-free crumbed chicken from the air fryer with a sweet, mild Japanese-style curry sauce.",
+  "cuisine": "japanese",
+  "mealTypes": [
+   "dinner"
+  ],
+  "servings": 4,
+  "prepMins": 20,
+  "cookMins": 25,
+  "difficulty": "medium",
+  "spice": 1,
+  "cost": 2,
+  "tools": [
+   "air-fryer",
+   "hob",
+   "stick-blender"
+  ],
+  "onePot": false,
+  "batchCook": false,
+  "freezerFriendly": false,
+  "goodForLeftovers": false,
+  "lunchbox": false,
+  "season": "all year",
+  "tags": [
+   "fakeaway",
+   "family favourite"
+  ],
+  "ingredients": [
+   {
+    "id": "chicken-breast",
+    "qty": 4,
+    "unit": "each",
+    "note": "butterflied flat"
+   },
+   {
+    "id": "gf-flour",
+    "qty": 3,
+    "unit": "tbsp"
+   },
+   {
+    "id": "eggs",
+    "qty": 1,
+    "unit": "each",
+    "note": "beaten"
+   },
+   {
+    "id": "gf-breadcrumbs",
+    "qty": 100,
+    "unit": "g"
+   },
+   {
+    "id": "vegetable-oil",
+    "qty": 2,
+    "unit": "tbsp"
+   },
+   {
+    "id": "onion",
+    "qty": 1,
+    "unit": "each",
+    "note": "chopped"
+   },
+   {
+    "id": "carrot",
+    "qty": 1,
+    "unit": "each",
+    "note": "chopped"
+   },
+   {
+    "id": "garlic",
+    "qty": 2,
+    "unit": "clove",
+    "note": "crushed"
+   },
+   {
+    "id": "ginger",
+    "qty": 1,
+    "unit": "tsp",
+    "note": "grated"
+   },
+   {
+    "id": "curry-powder",
+    "qty": 1,
+    "unit": "tbsp"
+   },
+   {
+    "id": "gf-chicken-stock",
+    "qty": 1,
+    "unit": "each"
+   },
+   {
+    "id": "water",
+    "qty": 400,
+    "unit": "ml"
+   },
+   {
+    "id": "honey",
+    "qty": 1,
+    "unit": "tbsp"
+   },
+   {
+    "id": "tamari",
+    "qty": 1,
+    "unit": "tbsp"
+   },
+   {
+    "id": "cornflour",
+    "qty": 1,
+    "unit": "tbsp"
+   },
+   {
+    "id": "jasmine-rice",
+    "qty": 280,
+    "unit": "g"
+   }
+  ],
+  "steps": [
+   "For the sauce, soften the onion and carrot in 1 tbsp oil for 8 minutes. Add the garlic, ginger and curry powder for 1 minute.",
+   "Add the water, stock cube, honey and tamari and simmer for 15 minutes. Blend smooth, then thicken with the cornflour mixed with a splash of water.",
+   "Cook the rice.",
+   "Dust the chicken in the flour, dip it in the egg, then press it into the breadcrumbs. Spray or brush with the remaining oil.",
+   "Air-fry at 200°C for 12–15 minutes, turning halfway, until golden and cooked through.",
+   "Slice the chicken and serve over the rice with the sauce poured alongside."
+  ]
+ },
+ {
+  "id": "miso-salmon-bowl",
+  "name": "Miso-glazed salmon rice bowl",
+  "description": "Oven-roasted salmon with a sweet-salty miso glaze, served over rice with broccoli and spring onion.",
+  "cuisine": "japanese",
+  "mealTypes": [
+   "dinner"
+  ],
+  "servings": 2,
+  "prepMins": 10,
+  "cookMins": 15,
+  "difficulty": "easy",
+  "spice": 0,
+  "cost": 3,
+  "tools": [
+   "oven",
+   "hob"
+  ],
+  "onePot": false,
+  "batchCook": false,
+  "freezerFriendly": false,
+  "goodForLeftovers": false,
+  "lunchbox": false,
+  "season": "all year",
+  "tags": [
+   "quick",
+   "high protein"
+  ],
+  "ingredients": [
+   {
+    "id": "salmon",
+    "qty": 2,
+    "unit": "each"
+   },
+   {
+    "id": "miso",
+    "qty": 1,
+    "unit": "tbsp"
+   },
+   {
+    "id": "honey",
+    "qty": 1,
+    "unit": "tbsp"
+   },
+   {
+    "id": "tamari",
+    "qty": 1,
+    "unit": "tbsp"
+   },
+   {
+    "id": "rice-vinegar",
+    "qty": 1,
+    "unit": "tsp"
+   },
+   {
+    "id": "broccoli",
+    "qty": 0.5,
+    "unit": "each",
+    "note": "in florets"
+   },
+   {
+    "id": "jasmine-rice",
+    "qty": 140,
+    "unit": "g"
+   },
+   {
+    "id": "spring-onion",
+    "qty": 2,
+    "unit": "each",
+    "note": "sliced"
+   },
+   {
+    "id": "sesame-seeds",
+    "qty": 1,
+    "unit": "tsp"
+   },
+   {
+    "id": "cucumber",
+    "qty": 0.25,
+    "unit": "each",
+    "note": "sliced",
+    "optional": true
+   }
+  ],
+  "steps": [
+   "Heat the oven to 200°C (180°C fan) and cook the rice.",
+   "Mix the miso, honey, tamari and vinegar and brush it over the salmon on a lined tray.",
+   "Roast for 12–15 minutes until the salmon flakes and the glaze is sticky.",
+   "Steam or boil the broccoli for 4 minutes.",
+   "Pile the rice into bowls with the broccoli and salmon, and scatter with spring onion and sesame seeds."
+  ]
+ },
+ {
+  "id": "fluffy-pancakes",
+  "name": "Fluffy American pancakes",
+  "description": "Thick, buttermilk-style pancakes for lazy weekends, with berries and maple syrup.",
+  "cuisine": "american",
+  "mealTypes": [
+   "breakfast",
+   "dessert"
+  ],
+  "servings": 4,
+  "prepMins": 10,
+  "cookMins": 15,
+  "difficulty": "easy",
+  "spice": 0,
+  "cost": 1,
+  "tools": [
+   "hob"
+  ],
+  "onePot": false,
+  "batchCook": false,
+  "freezerFriendly": false,
+  "goodForLeftovers": false,
+  "lunchbox": false,
+  "season": "all year",
+  "tags": [
+   "weekend",
+   "vegetarian"
+  ],
+  "ingredients": [
+   {
+    "id": "plain-flour",
+    "qty": 200,
+    "unit": "g"
+   },
+   {
+    "id": "baking-powder",
+    "qty": 2,
+    "unit": "tsp"
+   },
+   {
+    "id": "sugar",
+    "qty": 1,
+    "unit": "tbsp"
+   },
+   {
+    "id": "eggs",
+    "qty": 1,
+    "unit": "each"
+   },
+   {
+    "id": "milk",
+    "qty": 250,
+    "unit": "ml"
+   },
+   {
+    "id": "lemon",
+    "qty": 0.5,
+    "unit": "each",
+    "note": "juiced"
+   },
+   {
+    "id": "butter",
+    "qty": 30,
+    "unit": "g",
+    "note": "melted, plus extra for the pan"
+   },
+   {
+    "id": "mixed-berries",
+    "qty": 200,
+    "unit": "g"
+   },
+   {
+    "id": "maple-syrup",
+    "qty": 4,
+    "unit": "tbsp"
+   },
+   {
+    "id": "salt",
+    "qty": 1,
+    "unit": "pinch"
+   }
+  ],
+  "steps": [
+   "Stir the lemon juice into the milk and leave for 5 minutes to thicken slightly.",
+   "Whisk the flour, baking powder, sugar and salt in a bowl. Whisk the egg and melted butter into the milk.",
+   "Pour the wet ingredients into the dry and mix until just combined. A few lumps are fine.",
+   "Heat a non-stick frying pan over a medium heat with a little butter. Add ladlefuls of batter and cook until bubbles pop on top (about 2 minutes), then flip for 1 minute more.",
+   "Serve stacked with berries and maple syrup."
+  ],
+  "variants": [
+   {
+    "id": "gf-fluffy-pancakes",
+    "label": "Gluten-free version"
+   }
+  ]
+ },
+ {
+  "id": "gf-fluffy-pancakes",
+  "name": "Gluten-free fluffy pancakes",
+  "description": "Thick, fluffy pancakes made with a gluten-free flour blend, with berries and maple syrup.",
+  "cuisine": "american",
+  "mealTypes": [
+   "breakfast",
+   "dessert"
+  ],
+  "servings": 4,
+  "prepMins": 10,
+  "cookMins": 15,
+  "difficulty": "easy",
+  "spice": 0,
+  "cost": 1,
+  "tools": [
+   "hob"
+  ],
+  "onePot": false,
+  "batchCook": false,
+  "freezerFriendly": false,
+  "goodForLeftovers": false,
+  "lunchbox": false,
+  "season": "all year",
+  "tags": [
+   "weekend",
+   "vegetarian",
+   "gluten-free"
+  ],
+  "ingredients": [
+   {
+    "id": "gf-flour",
+    "qty": 200,
+    "unit": "g",
+    "note": "plain gluten-free blend"
+   },
+   {
+    "id": "xanthan-gum",
+    "qty": 0.5,
+    "unit": "tsp",
+    "optional": true,
+    "note": "skip if your flour blend already contains it"
+   },
+   {
+    "id": "baking-powder",
+    "qty": 2,
+    "unit": "tsp",
+    "note": "gluten-free"
+   },
+   {
+    "id": "sugar",
+    "qty": 1,
+    "unit": "tbsp"
+   },
+   {
+    "id": "eggs",
+    "qty": 1,
+    "unit": "each"
+   },
+   {
+    "id": "milk",
+    "qty": 280,
+    "unit": "ml"
+   },
+   {
+    "id": "lemon",
+    "qty": 0.5,
+    "unit": "each",
+    "note": "juiced"
+   },
+   {
+    "id": "butter",
+    "qty": 30,
+    "unit": "g",
+    "note": "melted, plus extra for the pan"
+   },
+   {
+    "id": "mixed-berries",
+    "qty": 200,
+    "unit": "g"
+   },
+   {
+    "id": "maple-syrup",
+    "qty": 4,
+    "unit": "tbsp"
+   },
+   {
+    "id": "salt",
+    "qty": 1,
+    "unit": "pinch"
+   }
+  ],
+  "steps": [
+   "Stir the lemon juice into the milk and leave for 5 minutes to thicken slightly.",
+   "Whisk the gluten-free flour, xanthan gum (if using), baking powder, sugar and salt in a bowl. Whisk the egg and melted butter into the milk.",
+   "Pour the wet ingredients into the dry and mix until smooth. Leave the batter to rest for 5 minutes; gluten-free flour needs a moment to soak up the liquid. If it's too thick to pour, add a splash more milk.",
+   "Heat a non-stick frying pan over a medium heat with a little butter. Add ladlefuls of batter and cook until bubbles appear and the edges look set (about 2–3 minutes), then flip for 1 minute more. Gluten-free batter is more delicate, so keep the pancakes small.",
+   "Serve stacked with berries and maple syrup. If anyone else is cooking, use a clean pan and utensils so there's no cross-contamination."
+  ],
+  "variants": [
+   {
+    "id": "fluffy-pancakes",
+    "label": "Original version"
+   }
+  ]
+ },
+ {
+  "id": "air-fryer-bbq-wings",
+  "name": "Air-fryer BBQ chicken wings",
+  "description": "Extra-crispy wings (the trick is a little baking powder) tossed in sticky BBQ sauce.",
+  "cuisine": "american",
+  "mealTypes": [
+   "snack",
+   "dinner"
+  ],
+  "servings": 4,
+  "prepMins": 10,
+  "cookMins": 25,
+  "difficulty": "easy",
+  "spice": 1,
+  "cost": 2,
+  "tools": [
+   "air-fryer"
+  ],
+  "onePot": false,
+  "batchCook": false,
+  "freezerFriendly": false,
+  "goodForLeftovers": false,
+  "lunchbox": false,
+  "season": "all year",
+  "tags": [
+   "game night",
+   "party food"
+  ],
+  "ingredients": [
+   {
+    "id": "chicken-wings",
+    "qty": 1000,
+    "unit": "g"
+   },
+   {
+    "id": "baking-powder",
+    "qty": 2,
+    "unit": "tsp"
+   },
+   {
+    "id": "smoked-paprika",
+    "qty": 1,
+    "unit": "tsp"
+   },
+   {
+    "id": "garlic-granules",
+    "qty": 1,
+    "unit": "tsp"
+   },
+   {
+    "id": "salt",
+    "qty": 1,
+    "unit": "tsp"
+   },
+   {
+    "id": "bbq-sauce",
+    "qty": 5,
+    "unit": "tbsp"
+   },
+   {
+    "id": "honey",
+    "qty": 1,
+    "unit": "tbsp"
+   },
+   {
+    "id": "spring-onion",
+    "qty": 2,
+    "unit": "each",
+    "note": "sliced"
+   }
+  ],
+  "steps": [
+   "Pat the wings very dry with kitchen paper.",
+   "Toss with the baking powder, paprika, garlic granules and salt.",
+   "Air-fry at 200°C in a single layer for 22–25 minutes, shaking halfway, until crisp and cooked through. Cook in batches if needed.",
+   "Warm the BBQ sauce with the honey, toss the hot wings in it, and scatter with spring onion."
+  ]
+ },
+ {
+  "id": "baked-falafel-bowls",
+  "name": "Baked falafel bowls",
+  "description": "Herby falafel made in the food processor and baked, served with rice, salad and a lemony tahini drizzle.",
+  "cuisine": "middle-eastern",
+  "mealTypes": [
+   "lunch",
+   "dinner"
+  ],
+  "servings": 4,
+  "prepMins": 20,
+  "cookMins": 25,
+  "difficulty": "medium",
+  "spice": 0,
+  "cost": 1,
+  "tools": [
+   "food-processor",
+   "oven"
+  ],
+  "onePot": false,
+  "batchCook": false,
+  "freezerFriendly": false,
+  "goodForLeftovers": false,
+  "lunchbox": true,
+  "season": "all year",
+  "tags": [
+   "vegan",
+   "meal prep"
+  ],
+  "ingredients": [
+   {
+    "id": "chickpeas",
+    "qty": 2,
+    "unit": "tin",
+    "note": "drained and patted dry"
+   },
+   {
+    "id": "onion",
+    "qty": 0.5,
+    "unit": "each",
+    "note": "roughly chopped"
+   },
+   {
+    "id": "garlic",
+    "qty": 2,
+    "unit": "clove"
+   },
+   {
+    "id": "parsley",
+    "qty": 1,
+    "unit": "bunch"
+   },
+   {
+    "id": "coriander",
+    "qty": 1,
+    "unit": "bunch"
+   },
+   {
+    "id": "ground-cumin",
+    "qty": 2,
+    "unit": "tsp"
+   },
+   {
+    "id": "ground-coriander",
+    "qty": 1,
+    "unit": "tsp"
+   },
+   {
+    "id": "gram-flour",
+    "qty": 3,
+    "unit": "tbsp"
+   },
+   {
+    "id": "baking-powder",
+    "qty": 1,
+    "unit": "tsp"
+   },
+   {
+    "id": "olive-oil",
+    "qty": 3,
+    "unit": "tbsp"
+   },
+   {
+    "id": "basmati-rice",
+    "qty": 240,
+    "unit": "g"
+   },
+   {
+    "id": "cucumber",
+    "qty": 0.5,
+    "unit": "each",
+    "note": "diced"
+   },
+   {
+    "id": "tomato",
+    "qty": 3,
+    "unit": "each",
+    "note": "diced"
+   },
+   {
+    "id": "little-gem",
+    "qty": 2,
+    "unit": "each",
+    "note": "shredded"
+   },
+   {
+    "id": "tahini",
+    "qty": 3,
+    "unit": "tbsp"
+   },
+   {
+    "id": "lemon",
+    "qty": 1,
+    "unit": "each"
+   },
+   {
+    "id": "salt"
+   }
+  ],
+  "steps": [
+   "Heat the oven to 200°C (180°C fan) and line a tray with baking paper. Cook the rice.",
+   "Pulse the chickpeas, onion, garlic, herbs, spices and 1 tsp salt in a food processor until finely chopped but not a paste.",
+   "Mix in the gram flour and baking powder. Shape into 16 small patties.",
+   "Brush with 2 tbsp of the oil and bake for 25 minutes, turning halfway, until crisp.",
+   "Whisk the tahini with the lemon juice and enough water to make a pourable sauce.",
+   "Build bowls with rice, salad and falafel, then drizzle with tahini sauce and the rest of the oil."
+  ]
+ },
+ {
+  "id": "lemony-houmous",
+  "name": "Silky lemon houmous",
+  "description": "Ultra-smooth houmous blitzed with tahini, garlic and lemon. Serve with veg sticks or gluten-free crackers.",
+  "cuisine": "middle-eastern",
+  "mealTypes": [
+   "snack"
+  ],
+  "servings": 6,
+  "prepMins": 10,
+  "cookMins": 0,
+  "difficulty": "easy",
+  "spice": 0,
+  "cost": 1,
+  "tools": [
+   "food-processor"
+  ],
+  "onePot": false,
+  "batchCook": false,
+  "freezerFriendly": false,
+  "goodForLeftovers": false,
+  "lunchbox": true,
+  "season": "all year",
+  "tags": [
+   "vegan",
+   "dip"
+  ],
+  "ingredients": [
+   {
+    "id": "chickpeas",
+    "qty": 1,
+    "unit": "tin",
+    "note": "drained, liquid saved"
+   },
+   {
+    "id": "tahini",
+    "qty": 3,
+    "unit": "tbsp"
+   },
+   {
+    "id": "lemon",
+    "qty": 1,
+    "unit": "each",
+    "note": "juiced"
+   },
+   {
+    "id": "garlic",
+    "qty": 1,
+    "unit": "clove"
+   },
+   {
+    "id": "ground-cumin",
+    "qty": 0.5,
+    "unit": "tsp"
+   },
+   {
+    "id": "olive-oil",
+    "qty": 2,
+    "unit": "tbsp"
+   },
+   {
+    "id": "water",
+    "qty": 3,
+    "unit": "tbsp",
+    "note": "ice-cold"
+   },
+   {
+    "id": "paprika",
+    "qty": 1,
+    "unit": "pinch"
+   },
+   {
+    "id": "carrot",
+    "qty": 2,
+    "unit": "each",
+    "note": "in sticks, to serve",
+    "optional": true
+   },
+   {
+    "id": "salt"
+   }
+  ],
+  "steps": [
+   "Blitz the tahini and lemon juice in a food processor for 1 minute until pale and thick.",
+   "Add the garlic, cumin and a pinch of salt, then the chickpeas, and blend for 2 minutes.",
+   "With the motor running, add the ice-cold water a spoonful at a time until very smooth.",
+   "Spread into a bowl, drizzle with oil and dust with paprika."
+  ]
+ },
+ {
+  "id": "beef-bulgogi-bowl",
+  "name": "Beef bulgogi rice bowl",
+  "description": "Thin slices of steak in a sweet tamari, garlic and sesame marinade, flash-fried and piled onto rice.",
+  "cuisine": "korean",
+  "mealTypes": [
+   "dinner"
+  ],
+  "servings": 2,
+  "prepMins": 15,
+  "cookMins": 10,
+  "difficulty": "easy",
+  "spice": 1,
+  "cost": 3,
+  "tools": [
+   "wok"
+  ],
+  "onePot": false,
+  "batchCook": false,
+  "freezerFriendly": false,
+  "goodForLeftovers": false,
+  "lunchbox": false,
+  "season": "all year",
+  "tags": [
+   "quick",
+   "high protein"
+  ],
+  "ingredients": [
+   {
+    "id": "beef-steak",
+    "qty": 1,
+    "unit": "each",
+    "note": "very thinly sliced"
+   },
+   {
+    "id": "tamari",
+    "qty": 3,
+    "unit": "tbsp"
+   },
+   {
+    "id": "brown-sugar",
+    "qty": 1,
+    "unit": "tbsp"
+   },
+   {
+    "id": "garlic",
+    "qty": 2,
+    "unit": "clove",
+    "note": "crushed"
+   },
+   {
+    "id": "ginger",
+    "qty": 1,
+    "unit": "tsp",
+    "note": "grated"
+   },
+   {
+    "id": "sesame-oil",
+    "qty": 1,
+    "unit": "tbsp"
+   },
+   {
+    "id": "spring-onion",
+    "qty": 3,
+    "unit": "each",
+    "note": "sliced"
+   },
+   {
+    "id": "jasmine-rice",
+    "qty": 140,
+    "unit": "g"
+   },
+   {
+    "id": "carrot",
+    "qty": 1,
+    "unit": "each",
+    "note": "in thin matchsticks"
+   },
+   {
+    "id": "cucumber",
+    "qty": 0.5,
+    "unit": "each",
+    "note": "in thin matchsticks"
+   },
+   {
+    "id": "sesame-seeds",
+    "qty": 1,
+    "unit": "tsp"
+   },
+   {
+    "id": "vegetable-oil",
+    "qty": 1,
+    "unit": "tbsp"
+   },
+   {
+    "id": "chilli-flakes",
+    "qty": 0.5,
+    "unit": "tsp",
+    "optional": true
+   }
+  ],
+  "steps": [
+   "Mix the tamari, sugar, garlic, ginger and sesame oil. Toss the beef in it and leave for 10 minutes.",
+   "Cook the rice.",
+   "Heat the vegetable oil in a wok until smoking and stir-fry the beef in a single layer for 2–3 minutes until caramelised.",
+   "Serve on the rice with carrot, cucumber, spring onion, sesame seeds and chilli flakes."
+  ]
+ },
+ {
+  "id": "kimchi-fried-rice",
+  "name": "Kimchi fried rice with a fried egg",
+  "description": "Tangy, spicy kimchi fried with leftover rice, then topped with a runny fried egg.",
+  "cuisine": "korean",
+  "mealTypes": [
+   "lunch",
+   "dinner"
+  ],
+  "servings": 2,
+  "prepMins": 5,
+  "cookMins": 10,
+  "difficulty": "easy",
+  "spice": 2,
+  "cost": 1,
+  "tools": [
+   "wok"
+  ],
+  "onePot": false,
+  "batchCook": false,
+  "freezerFriendly": false,
+  "goodForLeftovers": false,
+  "lunchbox": false,
+  "season": "all year",
+  "tags": [
+   "quick",
+   "leftover rice"
+  ],
+  "ingredients": [
+   {
+    "id": "basmati-rice",
+    "qty": 150,
+    "unit": "g",
+    "note": "cooked the day before and chilled"
+   },
+   {
+    "id": "kimchi",
+    "qty": 150,
+    "unit": "g",
+    "note": "chopped, plus 2 tbsp juice"
+   },
+   {
+    "id": "eggs",
+    "qty": 2,
+    "unit": "each"
+   },
+   {
+    "id": "spring-onion",
+    "qty": 3,
+    "unit": "each",
+    "note": "sliced"
+   },
+   {
+    "id": "garlic",
+    "qty": 1,
+    "unit": "clove",
+    "note": "crushed"
+   },
+   {
+    "id": "tamari",
+    "qty": 1,
+    "unit": "tbsp"
+   },
+   {
+    "id": "chilli-flakes",
+    "qty": 1,
+    "unit": "tsp"
+   },
+   {
+    "id": "sesame-oil",
+    "qty": 1,
+    "unit": "tsp"
+   },
+   {
+    "id": "vegetable-oil",
+    "qty": 2,
+    "unit": "tbsp"
+   },
+   {
+    "id": "sesame-seeds",
+    "qty": 1,
+    "unit": "tsp",
+    "optional": true
+   }
+  ],
+  "steps": [
+   "Stir-fry the kimchi and garlic in 1 tbsp oil in a wok for 2 minutes.",
+   "Add the rice, kimchi juice, tamari and chilli flakes and stir-fry for 4 minutes until hot and slightly crisp.",
+   "Meanwhile fry the eggs in the remaining oil in a separate pan until the whites are crisp but the yolks are runny.",
+   "Stir the sesame oil and most of the spring onion into the rice, then top with the eggs, the rest of the spring onion and the sesame seeds."
+  ]
+ },
+ {
+  "id": "prawn-summer-rolls",
+  "name": "Prawn summer rolls with nuoc cham",
+  "description": "Fresh rice paper rolls packed with prawns, noodles and herbs, with a zingy lime and fish sauce dip. No peanuts.",
+  "cuisine": "vietnamese",
+  "mealTypes": [
+   "lunch",
+   "snack"
+  ],
+  "servings": 2,
+  "prepMins": 25,
+  "cookMins": 5,
+  "difficulty": "medium",
+  "spice": 1,
+  "cost": 2,
+  "tools": [
+   "hob"
+  ],
+  "onePot": false,
+  "batchCook": false,
+  "freezerFriendly": false,
+  "goodForLeftovers": false,
+  "lunchbox": true,
+  "season": "summer",
+  "tags": [
+   "fresh",
+   "nut-free"
+  ],
+  "ingredients": [
+   {
+    "id": "rice-paper",
+    "qty": 8,
+    "unit": "each"
+   },
+   {
+    "id": "king-prawns",
+    "qty": 160,
+    "unit": "g"
+   },
+   {
+    "id": "rice-noodles",
+    "qty": 1,
+    "unit": "nest",
+    "note": "vermicelli"
+   },
+   {
+    "id": "little-gem",
+    "qty": 1,
+    "unit": "each",
+    "note": "shredded"
+   },
+   {
+    "id": "carrot",
+    "qty": 1,
+    "unit": "each",
+    "note": "in thin matchsticks"
+   },
+   {
+    "id": "cucumber",
+    "qty": 0.5,
+    "unit": "each",
+    "note": "in thin matchsticks"
+   },
+   {
+    "id": "mint",
+    "qty": 1,
+    "unit": "handful"
+   },
+   {
+    "id": "coriander",
+    "qty": 1,
+    "unit": "handful"
+   },
+   {
+    "id": "lime",
+    "qty": 2,
+    "unit": "each"
+   },
+   {
+    "id": "fish-sauce",
+    "qty": 2,
+    "unit": "tbsp"
+   },
+   {
+    "id": "sugar",
+    "qty": 1,
+    "unit": "tbsp"
+   },
+   {
+    "id": "red-chilli",
+    "qty": 1,
+    "unit": "each",
+    "note": "finely chopped"
+   },
+   {
+    "id": "garlic",
+    "qty": 1,
+    "unit": "clove",
+    "note": "finely chopped"
+   }
+  ],
+  "steps": [
+   "Make the dip: stir the lime juice, fish sauce, sugar, chilli and garlic with 3 tbsp water until the sugar dissolves.",
+   "Poach the prawns in simmering water for 2–3 minutes until pink, then cool and halve them lengthways.",
+   "Soak the noodles in just-boiled water following the pack timing, then rinse in cold water.",
+   "Dip one rice paper in warm water for 10 seconds and lay it on a damp board.",
+   "Lay a row of prawns, then noodles, veg and herbs across the middle. Fold in the sides and roll up tightly. Repeat.",
+   "Serve straight away with the dip."
+  ]
+ },
+ {
+  "id": "chicken-souvlaki",
+  "name": "Chicken souvlaki with lemon potatoes and tzatziki",
+  "description": "Lemony, oregano-marinated chicken skewers grilled until charred, with crispy roast potatoes and cool tzatziki.",
+  "cuisine": "greek",
+  "mealTypes": [
+   "dinner"
+  ],
+  "servings": 4,
+  "prepMins": 20,
+  "cookMins": 40,
+  "difficulty": "easy",
+  "spice": 0,
+  "cost": 2,
+  "tools": [
+   "grill",
+   "oven"
+  ],
+  "onePot": false,
+  "batchCook": false,
+  "freezerFriendly": false,
+  "goodForLeftovers": false,
+  "lunchbox": false,
+  "season": "summer",
+  "tags": [
+   "bbq friendly",
+   "high protein"
+  ],
+  "ingredients": [
+   {
+    "id": "chicken-breast",
+    "qty": 4,
+    "unit": "each",
+    "note": "in chunks"
+   },
+   {
+    "id": "lemon",
+    "qty": 2,
+    "unit": "each"
+   },
+   {
+    "id": "dried-oregano",
+    "qty": 2,
+    "unit": "tsp"
+   },
+   {
+    "id": "garlic",
+    "qty": 3,
+    "unit": "clove",
+    "note": "crushed"
+   },
+   {
+    "id": "olive-oil",
+    "qty": 4,
+    "unit": "tbsp"
+   },
+   {
+    "id": "baby-potatoes",
+    "qty": 800,
+    "unit": "g",
+    "note": "halved"
+   },
+   {
+    "id": "greek-yogurt",
+    "qty": 200,
+    "unit": "g"
+   },
+   {
+    "id": "cucumber",
+    "qty": 0.5,
+    "unit": "each",
+    "note": "grated and squeezed"
+   },
+   {
+    "id": "mint",
+    "qty": 1,
+    "unit": "handful",
+    "note": "chopped"
+   },
+   {
+    "id": "tomato",
+    "qty": 3,
+    "unit": "each",
+    "note": "in wedges"
+   },
+   {
+    "id": "red-onion",
+    "qty": 0.5,
+    "unit": "each",
+    "note": "thinly sliced"
+   },
+   {
+    "id": "salt"
+   },
+   {
+    "id": "black-pepper"
+   }
+  ],
+  "steps": [
+   "Mix the juice of 1 lemon, half the oregano, 2 garlic cloves, 2 tbsp oil and seasoning. Toss the chicken in it and thread it onto skewers.",
+   "Heat the oven to 220°C (200°C fan). Toss the potatoes with the rest of the oil and oregano, salt and the zest of the other lemon, and roast for 35–40 minutes.",
+   "Mix the yogurt, cucumber, mint and remaining garlic for the tzatziki, and season.",
+   "Grill the skewers on high for 12–15 minutes, turning, until charred and cooked through.",
+   "Serve with the potatoes, tomato and onion salad, tzatziki and a squeeze of lemon."
+  ]
+ },
+ {
+  "id": "yogurt-honey-walnuts",
+  "name": "Greek yogurt with honey and walnuts",
+  "description": "Thick yogurt drizzled with honey, toasted walnuts and a pinch of cinnamon. A two-minute pudding or breakfast.",
+  "cuisine": "greek",
+  "mealTypes": [
+   "breakfast",
+   "dessert"
+  ],
+  "servings": 2,
+  "prepMins": 5,
+  "cookMins": 2,
+  "difficulty": "easy",
+  "spice": 0,
+  "cost": 1,
+  "tools": [],
+  "onePot": false,
+  "batchCook": false,
+  "freezerFriendly": false,
+  "goodForLeftovers": false,
+  "lunchbox": false,
+  "season": "all year",
+  "tags": [
+   "no cook",
+   "quick"
+  ],
+  "ingredients": [
+   {
+    "id": "greek-yogurt",
+    "qty": 300,
+    "unit": "g"
+   },
+   {
+    "id": "honey",
+    "qty": 2,
+    "unit": "tbsp"
+   },
+   {
+    "id": "walnuts",
+    "qty": 30,
+    "unit": "g",
+    "note": "roughly chopped"
+   },
+   {
+    "id": "cinnamon",
+    "qty": 1,
+    "unit": "pinch"
+   },
+   {
+    "id": "mixed-berries",
+    "qty": 100,
+    "unit": "g",
+    "optional": true
+   }
+  ],
+  "steps": [
+   "Toast the walnuts in a dry pan for 2–3 minutes (optional, but it makes them crunchier).",
+   "Spoon the yogurt into bowls.",
+   "Drizzle with honey and scatter with walnuts, cinnamon and berries."
+  ],
+  "variants": [
+   {
+    "id": "yogurt-honey-seeds",
+    "label": "Nut-free version"
+   }
+  ]
+ },
+ {
+  "id": "yogurt-honey-seeds",
+  "name": "Greek yogurt with honey and toasted seeds",
+  "description": "Thick yogurt drizzled with honey, crunchy toasted seeds and a pinch of cinnamon. A nut-free two-minute pudding or breakfast.",
+  "cuisine": "greek",
+  "mealTypes": [
+   "breakfast",
+   "dessert"
+  ],
+  "servings": 2,
+  "prepMins": 5,
+  "cookMins": 2,
+  "difficulty": "easy",
+  "spice": 0,
+  "cost": 1,
+  "tools": [],
+  "onePot": false,
+  "batchCook": false,
+  "freezerFriendly": false,
+  "goodForLeftovers": false,
+  "lunchbox": false,
+  "season": "all year",
+  "tags": [
+   "no cook",
+   "quick",
+   "nut-free"
+  ],
+  "ingredients": [
+   {
+    "id": "greek-yogurt",
+    "qty": 300,
+    "unit": "g"
+   },
+   {
+    "id": "honey",
+    "qty": 2,
+    "unit": "tbsp"
+   },
+   {
+    "id": "mixed-seeds",
+    "qty": 30,
+    "unit": "g"
+   },
+   {
+    "id": "cinnamon",
+    "qty": 1,
+    "unit": "pinch"
+   },
+   {
+    "id": "mixed-berries",
+    "qty": 100,
+    "unit": "g",
+    "optional": true
+   }
+  ],
+  "steps": [
+   "Toast the seeds in a dry pan for 2–3 minutes, until they start to pop and smell nutty.",
+   "Spoon the yogurt into bowls.",
+   "Drizzle with honey and scatter with the toasted seeds, cinnamon and berries."
+  ],
+  "variants": [
+   {
+    "id": "yogurt-honey-walnuts",
+    "label": "Original version"
+   }
+  ]
+ },
+ {
+  "id": "chorizo-chickpea-stew",
+  "name": "Chorizo and chickpea stew",
+  "description": "A smoky one-pot stew of chorizo, peppers, chickpeas and spinach. Mop it up with gluten-free bread.",
+  "cuisine": "spanish",
+  "mealTypes": [
+   "dinner"
+  ],
+  "servings": 4,
+  "prepMins": 10,
+  "cookMins": 25,
+  "difficulty": "easy",
+  "spice": 1,
+  "cost": 2,
+  "tools": [
+   "hob"
+  ],
+  "onePot": true,
+  "batchCook": false,
+  "freezerFriendly": true,
+  "goodForLeftovers": true,
+  "lunchbox": false,
+  "season": "winter",
+  "tags": [
+   "one pot"
+  ],
+  "ingredients": [
+   {
+    "id": "chorizo",
+    "qty": 150,
+    "unit": "g",
+    "note": "sliced"
+   },
+   {
+    "id": "onion",
+    "qty": 1,
+    "unit": "each",
+    "note": "chopped"
+   },
+   {
+    "id": "red-pepper",
+    "qty": 2,
+    "unit": "each",
+    "note": "sliced"
+   },
+   {
+    "id": "garlic",
+    "qty": 2,
+    "unit": "clove",
+    "note": "sliced"
+   },
+   {
+    "id": "smoked-paprika",
+    "qty": 1,
+    "unit": "tsp"
+   },
+   {
+    "id": "chickpeas",
+    "qty": 2,
+    "unit": "tin",
+    "note": "drained"
+   },
+   {
+    "id": "chopped-tomatoes",
+    "qty": 1,
+    "unit": "tin"
+   },
+   {
+    "id": "gf-chicken-stock",
+    "qty": 1,
+    "unit": "each"
+   },
+   {
+    "id": "water",
+    "qty": 250,
+    "unit": "ml"
+   },
+   {
+    "id": "spinach",
+    "qty": 100,
+    "unit": "g"
+   },
+   {
+    "id": "parsley",
+    "qty": 1,
+    "unit": "handful",
+    "optional": true
+   },
+   {
+    "id": "gf-bread",
+    "qty": 4,
+    "unit": "slice",
+    "note": "to serve",
+    "optional": true
+   }
+  ],
+  "steps": [
+   "Fry the chorizo in a dry pan for 3 minutes until it releases its red oil.",
+   "Add the onion and peppers and cook for 8 minutes until soft. Stir in the garlic and paprika for 1 minute.",
+   "Add the chickpeas, tomatoes, water and crumbled stock cube and simmer for 12 minutes.",
+   "Stir in the spinach until wilted. Scatter with parsley and serve with bread."
+  ]
+ },
+ {
+  "id": "spanish-tortilla",
+  "name": "Spanish potato tortilla",
+  "description": "A thick, golden omelette of slowly cooked potatoes and onions. Good hot, cold, or in a lunchbox.",
+  "cuisine": "spanish",
+  "mealTypes": [
+   "lunch",
+   "dinner"
+  ],
+  "servings": 4,
+  "prepMins": 10,
+  "cookMins": 35,
+  "difficulty": "medium",
+  "spice": 0,
+  "cost": 1,
+  "tools": [
+   "hob"
+  ],
+  "onePot": false,
+  "batchCook": false,
+  "freezerFriendly": false,
+  "goodForLeftovers": true,
+  "lunchbox": true,
+  "season": "all year",
+  "tags": [
+   "vegetarian",
+   "picnic"
+  ],
+  "ingredients": [
+   {
+    "id": "potato",
+    "qty": 3,
+    "unit": "each",
+    "note": "peeled and thinly sliced"
+   },
+   {
+    "id": "onion",
+    "qty": 1,
+    "unit": "each",
+    "note": "thinly sliced"
+   },
+   {
+    "id": "eggs",
+    "qty": 6,
+    "unit": "each"
+   },
+   {
+    "id": "olive-oil",
+    "qty": 5,
+    "unit": "tbsp"
+   },
+   {
+    "id": "salt"
+   },
+   {
+    "id": "parsley",
+    "qty": 1,
+    "unit": "handful",
+    "optional": true
+   }
+  ],
+  "steps": [
+   "Cook the potatoes and onion gently in the olive oil in a non-stick frying pan, covered, for 20 minutes, stirring now and then, until very soft but not brown.",
+   "Beat the eggs with salt in a large bowl. Tip in the potatoes, leaving most of the oil behind, and stand for 5 minutes.",
+   "Heat 1 tbsp of the oil in the pan, pour in the mixture and cook on a low heat for 8 minutes until almost set.",
+   "Put a large plate over the pan, flip the tortilla onto it, and slide it back in to cook the other side for 3 minutes.",
+   "Rest for 5 minutes and cut into wedges."
+  ]
+ },
+ {
+  "id": "buckwheat-galettes",
+  "name": "Buckwheat galettes with ham, cheese and egg",
+  "description": "Brittany-style savoury pancakes made with buckwheat flour, which is naturally gluten-free, folded around ham, cheese and a soft egg.",
+  "cuisine": "french",
+  "mealTypes": [
+   "breakfast",
+   "lunch"
+  ],
+  "servings": 4,
+  "prepMins": 10,
+  "cookMins": 25,
+  "difficulty": "medium",
+  "spice": 0,
+  "cost": 2,
+  "tools": [
+   "hob"
+  ],
+  "onePot": false,
+  "batchCook": false,
+  "freezerFriendly": false,
+  "goodForLeftovers": false,
+  "lunchbox": false,
+  "season": "all year",
+  "tags": [
+   "brunch"
+  ],
+  "ingredients": [
+   {
+    "id": "buckwheat-flour",
+    "qty": 150,
+    "unit": "g"
+   },
+   {
+    "id": "eggs",
+    "qty": 5,
+    "unit": "each"
+   },
+   {
+    "id": "milk",
+    "qty": 200,
+    "unit": "ml"
+   },
+   {
+    "id": "water",
+    "qty": 200,
+    "unit": "ml"
+   },
+   {
+    "id": "butter",
+    "qty": 30,
+    "unit": "g"
+   },
+   {
+    "id": "ham",
+    "qty": 4,
+    "unit": "slice"
+   },
+   {
+    "id": "cheddar",
+    "qty": 100,
+    "unit": "g",
+    "note": "grated (or Gruyère)"
+   },
+   {
+    "id": "salt",
+    "qty": 1,
+    "unit": "pinch"
+   },
+   {
+    "id": "black-pepper"
+   }
+  ],
+  "steps": [
+   "Whisk the flour, 1 egg, salt, milk and water into a smooth, thin batter. Rest for 10 minutes if you can.",
+   "Melt a little butter in a large non-stick frying pan over a medium heat and swirl in a ladle of batter to coat the base thinly.",
+   "When the edges lift (about 2 minutes), flip the galette.",
+   "Scatter with cheese and a slice of ham, crack an egg into the middle and cover the pan for 3 minutes until the white sets.",
+   "Fold the edges in to make a square around the yolk. Season and repeat."
+  ]
+ },
+ {
+  "id": "ratatouille",
+  "name": "Oven-roasted ratatouille",
+  "description": "Summer vegetables roasted until sweet, then folded into a garlicky tomato sauce with basil.",
+  "cuisine": "french",
+  "mealTypes": [
+   "dinner",
+   "lunch"
+  ],
+  "servings": 4,
+  "prepMins": 20,
+  "cookMins": 45,
+  "difficulty": "easy",
+  "spice": 0,
+  "cost": 1,
+  "tools": [
+   "oven",
+   "hob"
+  ],
+  "onePot": false,
+  "batchCook": true,
+  "freezerFriendly": true,
+  "goodForLeftovers": true,
+  "lunchbox": false,
+  "season": "summer",
+  "tags": [
+   "vegan"
+  ],
+  "ingredients": [
+   {
+    "id": "aubergine",
+    "qty": 1,
+    "unit": "each",
+    "note": "in chunks"
+   },
+   {
+    "id": "courgette",
+    "qty": 2,
+    "unit": "each",
+    "note": "in chunks"
+   },
+   {
+    "id": "red-pepper",
+    "qty": 2,
+    "unit": "each",
+    "note": "in chunks"
+   },
+   {
+    "id": "red-onion",
+    "qty": 1,
+    "unit": "each",
+    "note": "in wedges"
+   },
+   {
+    "id": "garlic",
+    "qty": 3,
+    "unit": "clove",
+    "note": "sliced"
+   },
+   {
+    "id": "chopped-tomatoes",
+    "qty": 1,
+    "unit": "tin"
+   },
+   {
+    "id": "mixed-herbs",
+    "qty": 1,
+    "unit": "tsp"
+   },
+   {
+    "id": "olive-oil",
+    "qty": 4,
+    "unit": "tbsp"
+   },
+   {
+    "id": "basil",
+    "qty": 1,
+    "unit": "handful"
+   },
+   {
+    "id": "baby-potatoes",
+    "qty": 600,
+    "unit": "g",
+    "note": "to serve"
+   },
+   {
+    "id": "salt"
+   },
+   {
+    "id": "black-pepper"
+   }
+  ],
+  "steps": [
+   "Heat the oven to 220°C (200°C fan). Toss the aubergine, courgette, peppers and onion with 3 tbsp oil, the herbs and seasoning, and roast for 35 minutes.",
+   "Boil the potatoes for 15–20 minutes until tender.",
+   "Meanwhile, soften the garlic in the remaining oil, add the tomatoes and simmer for 15 minutes.",
+   "Fold the roasted veg into the sauce and tear in the basil. Serve with the potatoes."
+  ]
+ },
+ {
+  "id": "turkish-eggs",
+  "name": "Turkish eggs (çılbır)",
+  "description": "Soft poached eggs on cool garlic yogurt with sizzling chilli butter and dill.",
+  "cuisine": "turkish",
+  "mealTypes": [
+   "breakfast",
+   "lunch"
+  ],
+  "servings": 2,
+  "prepMins": 10,
+  "cookMins": 8,
+  "difficulty": "easy",
+  "spice": 1,
+  "cost": 1,
+  "tools": [
+   "hob"
+  ],
+  "onePot": false,
+  "batchCook": false,
+  "freezerFriendly": false,
+  "goodForLeftovers": false,
+  "lunchbox": false,
+  "season": "all year",
+  "tags": [
+   "brunch",
+   "vegetarian"
+  ],
+  "ingredients": [
+   {
+    "id": "eggs",
+    "qty": 4,
+    "unit": "each"
+   },
+   {
+    "id": "greek-yogurt",
+    "qty": 250,
+    "unit": "g"
+   },
+   {
+    "id": "garlic",
+    "qty": 1,
+    "unit": "clove",
+    "note": "finely grated"
+   },
+   {
+    "id": "butter",
+    "qty": 30,
+    "unit": "g"
+   },
+   {
+    "id": "chilli-flakes",
+    "qty": 1,
+    "unit": "tsp"
+   },
+   {
+    "id": "paprika",
+    "qty": 0.5,
+    "unit": "tsp"
+   },
+   {
+    "id": "dill",
+    "qty": 1,
+    "unit": "handful"
+   },
+   {
+    "id": "lemon",
+    "qty": 0.5,
+    "unit": "each"
+   },
+   {
+    "id": "gf-bread",
+    "qty": 2,
+    "unit": "slice",
+    "note": "toasted, to serve",
+    "optional": true
+   },
+   {
+    "id": "salt"
+   }
+  ],
+  "steps": [
+   "Stir the garlic and a pinch of salt into the yogurt and spread it over two plates.",
+   "Poach the eggs in barely simmering water for 3 minutes.",
+   "Meanwhile, melt the butter with the chilli flakes and paprika until it foams.",
+   "Sit the eggs on the yogurt, spoon over the chilli butter and finish with dill and a squeeze of lemon. Serve with toast."
+  ]
+ },
+ {
+  "id": "jerk-chicken-rice-peas",
+  "name": "Jerk chicken with rice and peas",
+  "description": "Spicy, sticky roast jerk chicken thighs with coconut rice and kidney beans.",
+  "cuisine": "caribbean",
+  "mealTypes": [
+   "dinner"
+  ],
+  "servings": 4,
+  "prepMins": 15,
+  "cookMins": 40,
+  "difficulty": "easy",
+  "spice": 3,
+  "cost": 2,
+  "tools": [
+   "oven",
+   "hob"
+  ],
+  "onePot": false,
+  "batchCook": false,
+  "freezerFriendly": false,
+  "goodForLeftovers": true,
+  "lunchbox": false,
+  "season": "all year",
+  "tags": [
+   "spicy",
+   "family favourite"
+  ],
+  "ingredients": [
+   {
+    "id": "chicken-thighs",
+    "qty": 8,
+    "unit": "each"
+   },
+   {
+    "id": "jerk-seasoning",
+    "qty": 2,
+    "unit": "tbsp"
+   },
+   {
+    "id": "lime",
+    "qty": 2,
+    "unit": "each"
+   },
+   {
+    "id": "honey",
+    "qty": 1,
+    "unit": "tbsp"
+   },
+   {
+    "id": "vegetable-oil",
+    "qty": 1,
+    "unit": "tbsp"
+   },
+   {
+    "id": "basmati-rice",
+    "qty": 280,
+    "unit": "g",
+    "note": "rinsed"
+   },
+   {
+    "id": "kidney-beans",
+    "qty": 1,
+    "unit": "tin",
+    "note": "drained"
+   },
+   {
+    "id": "coconut-milk",
+    "qty": 1,
+    "unit": "tin"
+   },
+   {
+    "id": "water",
+    "qty": 200,
+    "unit": "ml"
+   },
+   {
+    "id": "spring-onion",
+    "qty": 4,
+    "unit": "each",
+    "note": "sliced"
+   },
+   {
+    "id": "garlic",
+    "qty": 2,
+    "unit": "clove",
+    "note": "crushed"
+   },
+   {
+    "id": "mixed-herbs",
+    "qty": 1,
+    "unit": "tsp",
+    "note": "or fresh thyme"
+   },
+   {
+    "id": "salt"
+   }
+  ],
+  "steps": [
+   "Mix the jerk seasoning, juice of 1 lime, honey and oil. Coat the chicken and marinate for at least 15 minutes.",
+   "Heat the oven to 220°C (200°C fan) and roast the chicken on a lined tray for 35–40 minutes until charred and cooked.",
+   "Meanwhile, put the rice, beans, coconut milk, water, garlic, herbs, half the spring onion and a pinch of salt in a pan. Bring to the boil, cover and cook on the lowest heat for 20 minutes without lifting the lid.",
+   "Fluff the rice, then serve with the chicken, the rest of the spring onion and lime wedges."
+  ]
+ },
+ {
+  "id": "mango-smoothie",
+  "name": "Mango, banana and lime smoothie",
+  "description": "A thick, tropical breakfast smoothie. Frozen mango works brilliantly.",
+  "cuisine": "caribbean",
+  "mealTypes": [
+   "breakfast",
+   "snack"
+  ],
+  "servings": 2,
+  "prepMins": 5,
+  "cookMins": 0,
+  "difficulty": "easy",
+  "spice": 0,
+  "cost": 1,
+  "tools": [
+   "blender"
+  ],
+  "onePot": false,
+  "batchCook": false,
+  "freezerFriendly": false,
+  "goodForLeftovers": false,
+  "lunchbox": false,
+  "season": "all year",
+  "tags": [
+   "no cook",
+   "quick"
+  ],
+  "ingredients": [
+   {
+    "id": "mango",
+    "qty": 1,
+    "unit": "each",
+    "note": "peeled and chopped, or 250 g frozen"
+   },
+   {
+    "id": "banana",
+    "qty": 1,
+    "unit": "each"
+   },
+   {
+    "id": "natural-yogurt",
+    "qty": 150,
+    "unit": "g"
+   },
+   {
+    "id": "orange-juice",
+    "qty": 200,
+    "unit": "ml"
+   },
+   {
+    "id": "lime",
+    "qty": 0.5,
+    "unit": "each",
+    "note": "juiced"
+   }
+  ],
+  "steps": [
+   "Put everything in a blender and blend until completely smooth.",
+   "Add a splash more juice if it's too thick, then pour into glasses."
+  ]
+ },
+ {
+  "id": "shakshuka",
+  "name": "Shakshuka",
+  "description": "Eggs gently poached in a spiced pepper and tomato sauce. Bring the pan to the table.",
+  "cuisine": "north-african",
+  "mealTypes": [
+   "breakfast",
+   "lunch",
+   "dinner"
+  ],
+  "servings": 2,
+  "prepMins": 10,
+  "cookMins": 25,
+  "difficulty": "easy",
+  "spice": 1,
+  "cost": 1,
+  "tools": [
+   "hob"
+  ],
+  "onePot": true,
+  "batchCook": false,
+  "freezerFriendly": false,
+  "goodForLeftovers": false,
+  "lunchbox": false,
+  "season": "all year",
+  "tags": [
+   "brunch",
+   "vegetarian"
+  ],
+  "ingredients": [
+   {
+    "id": "eggs",
+    "qty": 4,
+    "unit": "each"
+   },
+   {
+    "id": "onion",
+    "qty": 1,
+    "unit": "each",
+    "note": "sliced"
+   },
+   {
+    "id": "red-pepper",
+    "qty": 2,
+    "unit": "each",
+    "note": "sliced"
+   },
+   {
+    "id": "garlic",
+    "qty": 2,
+    "unit": "clove",
+    "note": "crushed"
+   },
+   {
+    "id": "ground-cumin",
+    "qty": 1,
+    "unit": "tsp"
+   },
+   {
+    "id": "paprika",
+    "qty": 1,
+    "unit": "tsp"
+   },
+   {
+    "id": "chilli-flakes",
+    "qty": 0.5,
+    "unit": "tsp"
+   },
+   {
+    "id": "chopped-tomatoes",
+    "qty": 1,
+    "unit": "tin"
+   },
+   {
+    "id": "olive-oil",
+    "qty": 2,
+    "unit": "tbsp"
+   },
+   {
+    "id": "feta",
+    "qty": 50,
+    "unit": "g",
+    "note": "crumbled",
+    "optional": true
+   },
+   {
+    "id": "coriander",
+    "qty": 1,
+    "unit": "handful"
+   },
+   {
+    "id": "gf-bread",
+    "qty": 2,
+    "unit": "slice",
+    "note": "to serve",
+    "optional": true
+   },
+   {
+    "id": "salt"
+   }
+  ],
+  "steps": [
+   "Soften the onion and peppers in the oil in a wide frying pan for 10 minutes.",
+   "Stir in the garlic and spices for 1 minute, then add the tomatoes. Season and simmer for 10 minutes until thick.",
+   "Make 4 dips, crack in the eggs, cover and cook on a low heat for 6–8 minutes until the whites are set.",
+   "Scatter with feta and coriander and serve from the pan with bread."
+  ]
+ },
+ {
+  "id": "chickpea-apricot-tagine",
+  "name": "Chickpea and apricot tagine with quinoa",
+  "description": "Sweet-spiced chickpeas, sweet potato and apricots in a ras el hanout sauce, served with fluffy quinoa.",
+  "cuisine": "north-african",
+  "mealTypes": [
+   "dinner"
+  ],
+  "servings": 4,
+  "prepMins": 15,
+  "cookMins": 35,
+  "difficulty": "easy",
+  "spice": 1,
+  "cost": 1,
+  "tools": [
+   "hob"
+  ],
+  "onePot": false,
+  "batchCook": true,
+  "freezerFriendly": true,
+  "goodForLeftovers": true,
+  "lunchbox": true,
+  "season": "all year",
+  "tags": [
+   "vegan"
+  ],
+  "ingredients": [
+   {
+    "id": "chickpeas",
+    "qty": 2,
+    "unit": "tin",
+    "note": "drained"
+   },
+   {
+    "id": "sweet-potato",
+    "qty": 1,
+    "unit": "each",
+    "note": "in chunks"
+   },
+   {
+    "id": "carrot",
+    "qty": 2,
+    "unit": "each",
+    "note": "sliced"
+   },
+   {
+    "id": "onion",
+    "qty": 1,
+    "unit": "each",
+    "note": "chopped"
+   },
+   {
+    "id": "garlic",
+    "qty": 2,
+    "unit": "clove",
+    "note": "crushed"
+   },
+   {
+    "id": "ras-el-hanout",
+    "qty": 2,
+    "unit": "tsp"
+   },
+   {
+    "id": "cinnamon",
+    "qty": 0.5,
+    "unit": "tsp"
+   },
+   {
+    "id": "chopped-tomatoes",
+    "qty": 1,
+    "unit": "tin"
+   },
+   {
+    "id": "dried-apricots",
+    "qty": 80,
+    "unit": "g",
+    "note": "halved"
+   },
+   {
+    "id": "gf-veg-stock",
+    "qty": 1,
+    "unit": "each"
+   },
+   {
+    "id": "water",
+    "qty": 300,
+    "unit": "ml"
+   },
+   {
+    "id": "quinoa",
+    "qty": 200,
+    "unit": "g"
+   },
+   {
+    "id": "lemon",
+    "qty": 0.5,
+    "unit": "each"
+   },
+   {
+    "id": "coriander",
+    "qty": 1,
+    "unit": "handful"
+   },
+   {
+    "id": "olive-oil",
+    "qty": 2,
+    "unit": "tbsp"
+   },
+   {
+    "id": "salt"
+   }
+  ],
+  "steps": [
+   "Soften the onion in the oil for 6 minutes, then add the garlic and spices for 1 minute.",
+   "Add the sweet potato, carrots, chickpeas, tomatoes, apricots, water and crumbled stock cube. Cover and simmer for 25 minutes until the veg is tender.",
+   "Meanwhile, rinse the quinoa and simmer it in twice its volume of water for 15 minutes, then fluff it up.",
+   "Squeeze in the lemon, season, and scatter with coriander. Serve over the quinoa."
+  ]
+ }
+]

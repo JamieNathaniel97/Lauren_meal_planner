@@ -179,7 +179,7 @@ can never say "vegan" while containing honey.
 
 ## Decisions
 
-- **Recipes**: an original starter catalogue (about 100–150 recipes with
+- **Recipes**: an original starter catalogue (growing to about 150–200 recipes with
   full details, spread across all the cuisines), plus Lauren's own recipes
   and ones she saves from sites like BBC Good Food. Saved recipes stay on
   her phone only; the app is published on a public website, so it can't
@@ -188,6 +188,22 @@ can never say "vegan" while containing honey.
   between phones may come later.
 - **Stock**: have it / don't have it, plus a "running low" mark that can
   always be changed by hand.
+- **Lauren's diet comes first**: she has coeliac disease and a peanut
+  allergy, and avoids all nuts. At least three-quarters of the catalogue is
+  gluten-free and nut-free (38 of the first 40).
+  - Gluten is strict: no wheat, barley, rye, spelt, malt, couscous, ordinary
+    soy sauce or ordinary oats. Gluten-free versions are separate
+    ingredients (tamari, GF pasta, GF stock, GF oats).
+  - Ingredients that vary by brand or are often contaminated (stock, sauces,
+    spice blends, tortillas, oats) show "check labels". With "Strict
+    (coeliac)" on, this becomes a warning banner.
+  - Nut-free excludes peanuts, all tree nuts and pine nuts. **Coconut is
+    allowed.**
+  - The Profile has a one-tap "Coeliac + nut-free" preset.
+  - When "similar items" matching is built (phase 3), wheat pasta must never
+    count as gluten-free pasta, nor soy sauce as tamari.
+- **Catalogue size**: grows in batches (`data/recipes/batch-NN.json`) to
+  about 150–200 original recipes.
 
 ## Open questions
 

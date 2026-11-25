@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Recipe data check</title>
+<style>body{font:13px/1.4 Consolas,monospace;margin:16px;background:#fff;color:#111}pre{white-space:pre-wrap}</style>
+</head>
+<body>
+<pre id="out">Running…</pre>
+<script type="module">
+// Checks every recipe batch using the app's own derive.js, so the numbers
+// match what the app shows. Run via tools/validate.py, or open
+// http://localhost:8000/tools/validate.html while serving the repo.
+import { loadCatalogue } from "../js/data.js";
+import { CUISINE_BY_ID, MEAL_TYPES, TOOL_BY_ID, DIFFICULTY } from "../js/constants.js";
+
+const out = document.getElementById("out");
+const lines = [];
+const problems = [];
+const warnings = [];
+const say = (s = "") => lines.push(s);
+
+// Plausible kcal per portion by meal type (warn outside these).
+const KCAL_RANGE = { dinner: [250, 900], lunch: [200, 900], breakfast: [150, 750], snack: [60, 600], dessert: [100, 700] };
+const REQUIRED = ["id", "name", "description", "cuisine", "mealTypes", "servings", "prepMins", "cookMins",
+  "difficulty", "spice", "cost", "tools", "ingredients", "steps"];
+const MEALS = new Set(MEAL_TYPES.map((m) => m.id));
+
+try {
+  const cat = await loadCatalogue(new URL("../", location.href));
+  problems.push(...cat.problems);
+
+  // Ingredient list checks.
+  const ingIds = new Set();
+  for (const i of cat.ingredients) {
+    if (ingIds.has(i.id)) problems.push(`ingredients.json: duplicate id "${i.id}"`);
+    ingIds.add(i.id);
+    if (!i.per100g || typeof i.per100g.kcal !== "number") problems.push(`ingredients.json: ${i.id}: missing per100g`);
+    if (i.flags.includes("gluten") !== i.allergens.includes("gluten")) problems.push(`ingredients.json: ${i.id}: gluten flag and allergen disagree`);
+  }
+  const used = new Set();
+
+  say("RECIPE                                   CUISINE         MEAL        KCAL  P    C    F   GF NF  LABELS");
+  for (const r of cat.recipes) {
+    for (const k of REQUIRED) if (r[k] == null) problems.push(`${r.id}: missing "${k}"`);
+    if (!CUISINE_BY_ID[r.cuisine]) problems.push(`${r.id}: unknown cuisine "${r.cuisine}"`);
+    for (const m of r.mealTypes || []) if (!MEALS.has(m)) problems.push(`${r.id}: unknown meal type "${m}"`);
+    for (const t of r.tools || []) if (!TOOL_BY_ID[t]) problems.push(`${r.id}: unknown tool "${t}"`);
+    if (!DIFFICULTY[r.difficulty]) problems.push(`${r.id}: unknown difficulty "${r.difficulty}"`);
+    if (!r.steps?.length) problems.push(`${r.id}: no steps`);
+    for (const v of r.variants || []) {
+      const other = cat.recipes.find((x) => x.id === v.id);
+      if (!other) problems.push(`${r.id}: variant "${v.id}" doesn't exist`);
+      else if (!(other.variants || []).some((w) => w.id === r.id)) problems.push(`${r.id}: variant "${v.id}" doesn't link back`);
+      if (!v.label) problems.push(`${r.id}: variant "${v.id}" has no label`);
+    }
+    r.ingredients.forEach((l) => used.add(l.id));
+
+    const p = r.d.perPortion;
+    const main = r.mealTypes[0];
+    const [lo, hi] = KCAL_RANGE[main] || [0, 9999];
+    if (p.kcal < lo || p.kcal > hi) warnings.push(`${r.id}: ${p.kcal} kcal per portion is outside ${lo}–${hi} for ${main}`);
+    const gf = r.d.diets.includes("gluten-free"), nf = r.d.diets.includes("nut-free");
+    say(`${r.id.padEnd(40)} ${r.cuisine.padEnd(15)} ${main.padEnd(10)} ${String(p.kcal).padStart(5)} ${String(Math.round(p.protein)).padStart(3)} ${String(Math.round(p.carbs)).padStart(4)} ${String(Math.round(p.fat)).padStart(4)}   ${gf ? "Y" : "-"}  ${nf ? "Y" : "-"}  ${r.d.checkLabels.length}`);
+  }
+
+  const kcals = cat.recipes.map((r) => r.d.perPortion.kcal);
+  const gfnf = cat.recipes.filter((r) => r.d.diets.includes("gluten-free") && r.d.diets.includes("nut-free"));
+  const byCuisine = {};
+  for (const r of cat.recipes) byCuisine[r.cuisine] = (byCuisine[r.cuisine] || 0) + 1;
+  const missingCuisines = Object.keys(CUISINE_BY_ID).filter((c) => !byCuisine[c]);
+  const tools = {};
+  for (const r of cat.recipes) for (const t of r.tools) tools[t] = (tools[t] || 0) + 1;
+
+  say();
+  say(`Recipes: ${cat.recipes.length}   Ingredients: ${cat.ingredients.length} (${cat.ingredients.length - used.size} not used yet)`);
+  say(`Gluten-free + nut-free: ${gfnf.length} of ${cat.recipes.length}`);
+  say(`Not GF+NF: ${cat.recipes.filter((r) => !gfnf.includes(r)).map((r) => r.id).join(", ") || "none"}`);
+  say(`kcal per portion: ${Math.min(...kcals)}–${Math.max(...kcals)}`);
+  say(`Cuisines: ${Object.entries(byCuisine).map(([c, n]) => `${c} ${n}`).join(", ")}`);
+  if (missingCuisines.length) warnings.push(`no recipes yet for: ${missingCuisines.join(", ")}`);
+  say(`Tools: ${Object.entries(tools).map(([t, n]) => `${t} ${n}`).join(", ")}`);
+  say();
+  say(`WARNINGS: ${warnings.length}`);
+  warnings.forEach((w) => say("  " + w));
+  say(`PROBLEMS: ${problems.length}`);
+  problems.forEach((p) => say("  " + p));
+} catch (e) {
+  say(`PROBLEMS: 1\n  could not run: ${e.message}`);
+}
+out.textContent = lines.join("\n");
+document.body.dataset.done = "1";
+</script>
+</body>
+</html>
