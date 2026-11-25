@@ -1,21 +1,24 @@
 // Shopping list: grouped by supermarket aisle, duplicates combined, tick
 // off as you shop, then "Done shopping" moves ticked foods into stock.
 
-import { esc, $, formatQty } from "../ui.js";
+import { esc, $ } from "../ui.js";
 import * as k from "../kitchen.js";
 import { AISLES, AISLE_BY_ID, aisleOf } from "../stock-data.js";
 import { mountFoodSearch } from "./food-search.js";
 import { undoToast, enableSwipe } from "./kitchen-ui.js";
+import { preconvert, roundedText, preciseText } from "../rounding.js";
 
-// Units you can only buy whole of: combined amounts are rounded up.
-const WHOLE_UNITS = new Set(["each", "tin", "bunch", "block", "nest"]);
-
-/** "3", "400 g", "2 tins + 1 tbsp" for a shopping item. */
+/**
+ * Amount to buy, rounded to what you'd actually buy (js/rounding.js):
+ * { text: "1 bulb", detail: "needs 2½ cloves" }. text is "" for name-only
+ * items (spices, sauces, spoonfuls); detail is "" when nothing was rounded.
+ */
 export function amountText(item) {
-  if (!item.ingId) return "";
-  return k.combineParts(item.parts, item.ingId)
-    .map(({ qty, unit }) => formatQty(WHOLE_UNITS.has(unit) ? Math.ceil(qty - 0.05) || 1 : qty, unit))
-    .join(" + ");
+  if (!item.ingId) return { text: "", detail: "" };
+  const ing = k.ingredient(item.ingId);
+  const text = roundedText(k.combineParts(preconvert(item.parts, ing), item.ingId), ing);
+  const precise = preciseText(k.combineParts(item.parts, item.ingId));
+  return { text, detail: precise && precise !== text ? `needs ${precise}` : "" };
 }
 
 export function renderShopping({ app, view }) {
@@ -67,7 +70,8 @@ export function renderShopping({ app, view }) {
         <div class="swipe-inner">
           <button type="button" class="tick" data-tick role="checkbox" aria-checked="${!!r.ticked}">
             <span class="box" aria-hidden="true">${r.ticked ? "✓" : ""}</span>
-            <span class="shname"><b>${esc(r.name)}</b>${amount ? ` <span class="amt">${esc(amount)}</span>` : ""}
+            <span class="shname"><b>${esc(r.name)}</b>${amount.text ? ` <span class="amt">${esc(amount.text)}</span>` : ""}
+              ${amount.detail ? `<small class="precise">${esc(amount.detail)}</small>` : ""}
               ${recipes.length ? `<small class="for">For: ${esc(recipes.join(", "))}</small>` : ""}</span>
           </button>
           <button type="button" class="del" data-del aria-label="Remove ${esc(r.name)}">✕</button>
@@ -116,7 +120,7 @@ export function renderShopping({ app, view }) {
       if (!group.length) continue;
       lines.push(`\n${aisleOf(a).label}`);
       group.sort((x, y) => x.name.localeCompare(y.name)).forEach((r) => {
-        const amt = amountText(r);
+        const amt = amountText(r).text;
         lines.push(`- ${r.name}${amt ? ` (${amt})` : ""}`);
       });
     }

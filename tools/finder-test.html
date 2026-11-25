@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<title>Meal finder test</title>
+<style>
+  body { font: 14px/1.4 system-ui, sans-serif; margin: 12px; }
+  iframe { width: 390px; height: 844px; border: 1px solid #ccc; float: right; }
+</style>
+</head>
+<body>
+<!--
+  Tests for the meal finder (phase 3), similar-item matching (js/match.js),
+  shopping-list rounding (js/rounding.js) and the expired-food banner.
+  Part 1 is pure unit tests; part 2 drives the real app in the iframe.
+  WARNING: part 2 clears this browser's meal planner data first, so don't
+  run it in the browser you use the app in.
+  Serve the folder (python -m http.server 8010) and open /tools/finder-test.html.
+  The last line is "DONE: n passed, n failed".
+-->
+<h1>Meal finder test</h1>
+<iframe id="app" title="App under test"></iframe>
+<pre id="out">Running…</pre>
+<script type="module">
+const out = document.getElementById("out");
+const frame = document.getElementById("app");
+const lines = [];
+let passes = 0, failures = 0;
+const log = (ok, msg) => { ok ? passes++ : failures++; lines.push(`${ok ? "PASS" : "FAIL"}  ${msg}`); out.textContent = lines.join("\n"); };
+const eq = (a, b, msg) => log(JSON.stringify(a) === JSON.stringify(b), `${msg}${JSON.stringify(a) === JSON.stringify(b) ? "" : `: got ${JSON.stringify(a)}, expected ${JSON.stringify(b)}`}`);
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+const errors = [];
+
+async function until(fn, ms = 4000) {
+  const end = Date.now() + ms;
+  while (Date.now() < end) { try { const v = fn(); if (v) return v; } catch {} await sleep(50); }
+  return null;
+}
+const doc = () => frame.contentDocument;
+const q = (sel) => doc().querySelector(sel);
+const qa = (sel) => [...doc().querySelectorAll(sel)];
+const text = (el) => (el ? el.textContent.replace(/\s+/g, " ").trim() : "");
+async function go(hash) { frame.contentWindow.location.hash = hash; await sleep(300); }
+async function click(el) { el.click(); await sleep(250); }
+const ymd = (offset) => { const t = new Date(); t.setDate(t.getDate() + offset); return `${t.getFullYear()}-${String(t.getMonth() + 1).padStart(2, "0")}-${String(t.getDate()).padStart(2, "0")}`; };
+
+// ------------------------------------------------------------------ part 1: unit tests
+async function unitTests() {
+  const M = await import("../js/match.js");
+  const R = await import("../js/rounding.js");
+  const I = (id, group, flags = [], allergens = [], extra = {}) => ({ id, name: id, group, flags, allergens, aisle: "tins-dry", units: {}, ...extra });
+  const ingById = Object.fromEntries([
+    I("pasta", "any-pasta", ["gluten"], ["gluten"]), I("gf-pasta", "any-pasta"),
+    I("soy", "soy-sauce", ["gluten"], ["soya", "gluten"]), I("tamari", "soy-sauce", [], ["soya"]),
+    I("peanut-butter", "spread", [], ["peanuts"]), I("seed-butter", "spread"),
+    I("hazelnut-oil", "oil", [], ["nuts"]),
+    I("cheddar", "cheese", ["dairy"], ["milk"]), I("feta", "cheese", ["dairy"], ["milk"]),
+    I("olive-oil", "oil"), I("veg-oil", "oil"), I("salt", null), I("spinach", "leaf"), I("kale", "leaf"),
+  ].map((i) => [i.id, i]));
+  const idx = (stock, staples = ["salt"]) => M.makeStockIndex(stock.map((s) => (typeof s === "string" ? { ingId: s } : s)), staples, ingById,
+    { daysUntil: (d) => Number(d), soonDays: 3 });
+  const st = (line, stock, profile, staples) => { const m = M.matchLine(line, idx(stock, staples), ingById, profile); return [m.status, m.using]; };
+
+  eq(st({ id: "pasta" }, ["pasta"]), ["in", "pasta"], "Exact match counts as in stock");
+  eq(st({ id: "pasta" }, ["gf-pasta"]), ["in", "gf-pasta"], "GF pasta in stock satisfies a recipe's ordinary pasta (using: GF pasta)");
+  eq(st({ id: "gf-pasta" }, ["pasta"]), ["missing", null], "GF SAFETY: wheat pasta never satisfies gluten-free pasta");
+  eq(st({ id: "tamari" }, ["soy"]), ["missing", null], "GF SAFETY: soy sauce never satisfies tamari");
+  eq(st({ id: "soy" }, ["tamari"]), ["in", "tamari"], "Tamari satisfies a recipe's soy sauce");
+  eq(st({ id: "seed-butter" }, ["peanut-butter"]), ["missing", null], "NUT SAFETY: peanut butter never satisfies seed butter");
+  eq(st({ id: "olive-oil" }, ["hazelnut-oil"], null, []), ["missing", null], "NUT SAFETY: nut oil never satisfies olive oil");
+  eq(st({ id: "peanut-butter" }, ["seed-butter"]), ["in", "seed-butter"], "Seed butter (safer) may stand in for peanut butter");
+  eq(st({ id: "cheddar" }, ["feta"]), ["in", "feta"], "Same-group cheese stands in");
+  eq(st({ id: "cheddar" }, ["feta"], { dislikes: ["feta"] }), ["missing", null], "A disliked food is never used as a substitute");
+  eq(st({ id: "cheddar" }, ["feta"], { allergens: ["milk"] }), ["missing", null], "A substitute with a profile allergen is never used");
+  eq(st({ id: "pasta" }, ["gf-pasta"], { diets: ["gluten-free"] }), ["in", "gf-pasta"], "GF profile: GF pasta substitute allowed");
+  eq(st({ id: "spinach" }, [{ ingId: "spinach", low: true }, "kale"]), ["in", "kale"], "Exact item running low, but a non-low similar item is used");
+  eq(st({ id: "spinach" }, [{ ingId: "spinach", low: true }]), ["low", "spinach"], "Exact item running low shows as low");
+  eq(st({ id: "salt" }, []), ["staple", "salt"], "Staples always count as in stock");
+  eq(st({ id: "olive-oil" }, [], null, ["veg-oil"]), ["staple", "veg-oil"], "A staple stands in for a same-group ingredient");
+  eq(st({ id: "kale" }, []), ["missing", null], "Nothing in stock: missing");
+
+  const recipe = { ingredients: [{ id: "pasta" }, { id: "cheddar" }, { id: "spinach" }, { id: "salt" }, { id: "kale", optional: true }] };
+  let m = M.matchRecipe(recipe, idx(["gf-pasta", "cheddar", { ingId: "spinach", expiry: "1" }]), ingById, null);
+  eq([m.needed, m.have, M.groupOf(m)], [3, 3, "now"], "All in stock (staple and optional ignored): Cook now");
+  eq(m.usesUp, ["spinach"], "Uses up food expiring tomorrow");
+  eq(m.subs.map((s) => s.using), ["gf-pasta"], "Substitutions are listed");
+  m = M.matchRecipe(recipe, idx(["gf-pasta", { ingId: "spinach", expiry: "-2" }]), ingById, null);
+  eq([m.missing.map((l) => l.id), M.groupOf(m), m.usesUp], [["cheddar"], "nearly", []], "1 missing: Missing 1–2; expired food isn't 'uses up'");
+  m = M.matchRecipe(recipe, idx([]), ingById, null);
+  eq([m.missing.length, M.groupOf(m), m.pct], [3, "ideas", 0], "3 missing: Ideas");
+  log(M.recipeUses(recipe, "gf-pasta", ingById) && !M.recipeUses(recipe, "soy", ingById), "recipeUses finds safe similar items only");
+  log(!M.recipeUses({ ingredients: [{ id: "gf-pasta" }] }, "pasta", ingById), "recipeUses: wheat pasta doesn't count as using a GF pasta recipe");
+
+  // Rounding
+  const garlic = { id: "garlic", aisle: "fruit-veg", units: { clove: 5, each: 40 } };
+  const shop = (combined, ing) => R.roundedText(combined, ing);
+  eq(shop(R.preconvert([{ qty: 2.5, unit: "clove" }], garlic), garlic), "1 bulb", "2½ garlic cloves -> 1 bulb");
+  eq(shop(R.preconvert([{ qty: 25, unit: "clove" }], garlic), garlic), "3 bulbs", "25 garlic cloves -> 3 bulbs");
+  eq(R.preciseText([{ qty: 2.5, unit: "clove" }]), "2½ cloves", "Precise sum kept: 2½ cloves");
+  eq(shop([{ qty: 1, unit: "tsp" }], { id: "cumin", aisle: "spices-sauces", units: {} }), "", "Spices: no amount");
+  eq(shop([{ qty: 200, unit: "ml" }], { id: "soy", aisle: "spices-sauces", units: {} }), "", "Sauces/oils aisle: no amount even in ml");
+  eq(shop([{ qty: 2, unit: "tbsp" }], { id: "ginger", aisle: "fruit-veg", units: { tbsp: 15 } }), "", "Spoonfuls of anything: no amount");
+  eq(shop([{ qty: 2.5, unit: "each" }], { id: "onion", aisle: "fruit-veg", units: { each: 150 } }), "3", "2½ onions -> 3");
+  eq(shop([{ qty: 0.3, unit: "each" }], { id: "lemon", aisle: "fruit-veg", units: {} }), "1", "A third of a lemon -> 1");
+  eq(shop([{ qty: 1, unit: "each" }, { qty: 1, unit: "tbsp" }], { id: "lemon", aisle: "fruit-veg", units: {} }), "1", "Spoon part dropped when there's a whole-item part");
+  eq(shop([{ qty: 1.5, unit: "tin" }], { id: "chickpeas", aisle: "tins-dry", units: { tin: 400 } }), "2 tins", "1½ tins -> 2 tins");
+  eq(shop([{ qty: 130, unit: "g" }], { id: "rice", aisle: "tins-dry" }), "150 g", "130 g -> 150 g");
+  eq(shop([{ qty: 20, unit: "g" }], { id: "rice", aisle: "tins-dry" }), "50 g", "20 g -> 50 g (smallest step)");
+  eq(shop([{ qty: 480, unit: "g" }], { id: "rice", aisle: "tins-dry" }), "500 g", "480 g -> 500 g");
+  eq(shop([{ qty: 520, unit: "g" }], { id: "rice", aisle: "tins-dry" }), "600 g", "520 g -> 600 g (100 g steps above 500)");
+  eq(shop([{ qty: 1450, unit: "g" }], { id: "rice", aisle: "tins-dry" }), "1.5 kg", "1450 g -> 1.5 kg");
+  eq(shop([{ qty: 3, unit: "handful" }], { id: "spinach", aisle: "fruit-veg", units: { handful: 30 } }), "100 g", "3 handfuls of spinach (90 g) -> 100 g");
+  eq(shop([{ qty: 300, unit: "ml" }], { id: "milk", aisle: "dairy-eggs" }), "300 ml", "300 ml milk stays 300 ml");
+
+  // Time buttons on the real recipes
+  const F = await import("../js/views/find.js");
+  const index = await (await fetch("../data/recipes/index.json")).json();
+  const recipes = (await Promise.all(index.batches.map(async (f) => (await fetch(`../data/recipes/${f}`)).json()))).flat();
+  const slow = recipes.filter((r) => F.isSlowCook(r)).map((r) => r.id);
+  log(slow.includes("slow-cooker-dal") && slow.includes("slow-cooker-beef-ragu") && !slow.includes("egg-fried-rice"),
+    `Slow cook = slow cooker or long hands-off recipes (${slow.join(", ")})`);
+  eq(F.TIMES.map((t) => t.id), ["speedy", "quick", "normal", "long", "slow"], "Time buttons in order");
+  return recipes;
+}
+
+// ------------------------------------------------------------------ part 2: the app
+async function appTests(recipes) {
+  // Fresh data: wipe the database and remembered filters, then seed stock and a profile.
+  localStorage.removeItem("mp-finder-v1");
+  await new Promise((res) => { const r = indexedDB.deleteDatabase("lauren-meal-planner"); r.onsuccess = r.onerror = r.onblocked = res; });
+  const db = await import("../js/db.js");
+  const byId = Object.fromEntries(recipes.map((r) => [r.id, r]));
+  const ingName = Object.fromEntries((await (await fetch("../data/ingredients.json")).json()).map((i) => [i.id, i.name]));
+  const egg = byId["egg-fried-rice"];
+  window.__names = { egg: egg.name, kimchi: byId["kimchi-fried-rice"].name, walnut: byId["yogurt-honey-walnuts"].name };
+  const stockIds = new Set(egg.ingredients.filter((l) => !l.optional).map((l) => l.id));
+  stockIds.add("gf-pasta");          // for the spaghetti "using: GF pasta" check
+  for (const id of stockIds) await db.put("stock", { id, ingId: id, name: ingName[id] || id, storage: "cupboard", aisle: "tins-dry", low: id === "tamari", lowSource: id === "tamari" ? "user" : null, expiry: null });
+  await db.put("stock", { id: "spinach", ingId: "spinach", name: "Spinach", storage: "fridge", aisle: "fruit-veg", low: false, expiry: ymd(-2) });
+  await db.put("stock", { id: "milk", ingId: "milk", name: "Milk", storage: "fridge", aisle: "dairy-eggs", low: false, expiry: ymd(-1) });
+  await db.put("profile", { id: "me", diets: ["gluten-free", "nut-free"], allergens: ["gluten", "peanuts", "nuts"], coeliac: true, dislikes: [], tools: null, household: 2 });
+
+  frame.src = "../index.html#/find";
+  await new Promise((r) => frame.addEventListener("load", r, { once: true }));
+  const w = frame.contentWindow;
+  w.addEventListener("error", (e) => errors.push(e.message));
+  w.addEventListener("unhandledrejection", (e) => errors.push(String(e.reason)));
+  const origErr = w.console.error.bind(w.console);
+  w.console.error = (...a) => { errors.push(a.join(" ")); origErr(...a); };
+
+  log(!!(await until(() => q("#results .fgroup"))), "Find tab shows result groups");
+  const hs = qa(".find-h").map(text);
+  eq(hs, ["How long have you got?", "What do you fancy?"], "Time question comes first, then cuisine");
+  eq(qa("#times [data-time]").map((b) => text(b.querySelector("b"))), ["Speedy", "Quick", "Normal", "Take my time", "Slow cook", "Any time"], "Six time buttons");
+  log(text(q(".profile-note")).includes("Gluten-free") && text(q(".profile-note")).includes("Nut-free"), "Profile note says recipes are for her profile");
+
+  const groupNames = (g) => qa(`.g-${g} .card-title`).map(text);
+  const allNames = () => [...groupNames("now"), ...groupNames("nearly"), ...groupNames("ideas")];
+  const shownCount = () => Number((text(q("#count")).match(/^(\d+)/) || [])[1]);
+  const fits = recipes.filter((r) => !["fluffy-pancakes", "yogurt-honey-walnuts"].includes(r.id));
+  log(groupNames("now").includes(window.__names.egg), `Cook now includes Egg fried rice (${groupNames("now").join(", ")})`);
+  const eggItem = qa(".g-now .fitem").find((x) => text(x.querySelector(".card-title")) === window.__names.egg);
+  log(text(eggItem).includes("Low on tamari"), "Running-low warning on a recipe that uses a low item");
+  log(text(eggItem).includes(`${egg.ingredients.filter((l) => !l.optional && !["vegetable-oil"].includes(l.id)).length} of`) || /\d+ of \d+ in stock/.test(text(eggItem)), `Stock fraction shown (${text(eggItem.querySelector(".frac"))})`);
+  const kimchi = qa(".g-nearly .fitem").find((x) => text(x.querySelector(".card-title")) === window.__names.kimchi);
+  log(!!kimchi && /kimchi/.test(text(kimchi.querySelector(".fmiss"))), `Missing 1–2 shows Kimchi fried rice with what's missing (${text(kimchi?.querySelector(".fmiss"))})`);
+  log(!allNames().some((n) => /pancakes/i.test(n) && !/gluten/i.test(n)) && !allNames().includes(window.__names.walnut), "Profile applied: wheat pancakes and walnut yogurt never appear");
+  eq(shownCount(), fits.length, "All profile-safe recipes appear with no filters");
+  log(text(q("#count")).includes("2 hidden by your profile"), `Count mentions hidden recipes (${text(q("#count"))})`);
+  log(groupNames("ideas").length > 0, "Ideas group has the rest");
+
+  // Time filters
+  const tot = (r) => (r.prepMins || 0) + (r.cookMins || 0);
+  const speedyWant = fits.filter((r) => tot(r) <= 15).length;
+  await click(q('[data-time="speedy"]')); await sleep(150);
+  eq(shownCount(), speedyWant, "Speedy shows only recipes of 15 min or less");
+  log(q('[data-time="speedy"]').getAttribute("aria-pressed") === "true", "Speedy button shows as selected");
+  await click(q('[data-time="slow"]')); await sleep(150);
+  const slowWant = fits.filter((r) => r.tools.includes("slow-cooker") || ((r.cookMins || 0) >= 60 && (r.prepMins || 0) <= 20)).length;
+  eq(shownCount(), slowWant, "Slow cook shows slow-cooker / hands-off recipes");
+  await click(q('[data-time="slow"]')); await sleep(150);
+  eq(shownCount(), fits.length, "Tapping the selected time again clears it");
+  await click(q('[data-time="long"]')); await sleep(150);
+  eq(shownCount(), fits.filter((r) => tot(r) > 45).length, "Take my time shows recipes over 45 min");
+  await click(q('[data-time=""]')); await sleep(150);
+
+  // Cuisines (multi-select)
+  await click(q('[data-cuisine="italian"]')); await sleep(150);
+  await click(q('[data-cuisine="thai"]')); await sleep(150);
+  const it = fits.filter((r) => ["italian", "thai"].includes(r.cuisine)).length;
+  eq(shownCount(), it, "Italian + Thai together");
+  log(qa("#results .cuisine-label").every((el) => /italian|thai/i.test(text(el))), "Only Italian and Thai cards shown");
+  await click(q('[data-cuisine=""]')); await sleep(150);
+  eq(shownCount(), fits.length, "Anything clears the cuisines");
+
+  // More filters
+  q("#more").open = true;
+  const tool = q("#tool"); tool.value = "air-fryer"; tool.dispatchEvent(new Event("change", { bubbles: true })); await sleep(200);
+  eq(shownCount(), fits.filter((r) => r.tools.includes("air-fryer")).length, "Air fryer meals filter");
+  q("#reset").click(); await sleep(300);
+  eq(shownCount(), fits.length, "Clear all filters");
+
+  // Remembered filters
+  await click(q('[data-time="quick"]')); await sleep(150);
+  await go("#/stock"); await go("#/find"); await sleep(200);
+  log(q('[data-time="quick"]').getAttribute("aria-pressed") === "true", "Filters are remembered when you come back");
+  await click(q('[data-time=""]')); await sleep(150);
+
+  // Add missing to shopping list
+  const k2 = qa(".g-nearly .fitem").find((x) => text(x.querySelector(".card-title")) === window.__names.kimchi);
+  await click(k2.querySelector("[data-add]")); await sleep(200);
+  const k3 = qa(".g-nearly .fitem").find((x) => text(x.querySelector(".card-title")) === window.__names.kimchi);
+  log(text(k3).includes("On your list"), "Add missing: button changes to 'On your list'");
+  await go("#/shopping"); await sleep(300);
+  const shopNames = qa(".shrow .shname b").map(text);
+  log(shopNames.some((n) => /kimchi/i.test(n)), `Missing items reach the shopping list (${shopNames.join(", ")})`);
+  log(text(q(".shrow")).includes(window.__names.kimchi), "Shopping items are tagged with the recipe");
+
+  // Surprise me
+  await go("#/find"); await sleep(250);
+  await click(q("#surprise")); await sleep(300);
+  log(w.location.hash.startsWith("#/recipe/"), `Surprise me opens a recipe (${w.location.hash})`);
+
+  // Recipe page uses the same matching
+  await go("#/recipe/spaghetti-pomodoro"); await sleep(400);
+  const gfLine = qa("#ings li").find((li) => /gluten-free spaghetti/i.test(text(li)));
+  log(!!gfLine && /using: gluten-free pasta/i.test(text(gfLine)) && gfLine.classList.contains("st-in"), `Recipe page: GF spaghetti covered by GF pasta in stock (${text(gfLine)})`);
+  await go("#/recipe/egg-fried-rice"); await sleep(400);
+  const tam = qa("#ings li").find((li) => /tamari/i.test(text(li)));
+  log(!!tam && tam.classList.contains("st-low"), "Recipe page: tamari shows Low, like the finder");
+
+  // Expired banner on the Stock tab
+  await go("#/stock"); await sleep(400);
+  const banner = () => q(".expired-banner");
+  log(!!banner() && /2 items have expired/.test(text(banner())) && /spinach/.test(text(banner())) && /milk/.test(text(banner())), `Expired banner lists both items (${text(banner()?.querySelector("b"))})`);
+  const spinRow = qa(".srow").find((r) => /Spinach/.test(text(r)));
+  log(!!spinRow && /Expired 2 days ago/.test(text(spinRow)) && spinRow.classList.contains("expired"), "Expired item row shows a clear warning");
+  log(!/Spinach/.test(text(q(".useup"))), "Expired items aren't in the 'Use it up' strip");
+  await click(q('[data-exp-dismiss="spinach"]'));
+  log(!!banner() && !/spinach/i.test(text(banner())) && /milk/i.test(text(banner())), "Keep dismisses one item's warning");
+  log(qa(".srow").some((r) => /Spinach/.test(text(r))), "A dismissed expired item stays in stock");
+  await go("#/find"); await go("#/stock"); await sleep(300);
+  log(!banner() || !/spinach/i.test(text(banner())), "Dismissal is remembered");
+  await click(q('[data-exp-dismiss="all"]'));
+  log(!banner(), "✕ dismisses the banner in one tap");
+  // Changing the expiry date brings the warning back
+  await click(qa(".srow").find((r) => /Spinach/.test(text(r))).querySelector("[data-edit]"));
+  const date = q(".sedit [data-exp]"); date.value = ymd(-3); date.dispatchEvent(new Event("change", { bubbles: true })); await sleep(300);
+  log(!!banner() && /spinach/i.test(text(banner())), "A new expiry date brings the warning back");
+  await click(q('[data-exp-remove="spinach"]'));
+  log(!qa(".srow").some((r) => /Spinach/.test(text(r))) && !banner(), "Remove takes an expired item out of stock");
+  await click(q(".toast button")); await sleep(300);
+  log(qa(".srow").some((r) => /Spinach/.test(text(r))), "Undo puts it back");
+
+  // Shopping rounding in the real list
+  await go("#/recipe/egg-fried-rice"); await sleep(400);
+  await click(q("[data-addall]")); await sleep(300);
+  await go("#/shopping"); await sleep(300);
+  const garlicRow = qa(".shrow").find((r) => /^Garlic/.test(text(r.querySelector(".shname b"))));
+  log(!!garlicRow && /\d+ bulbs?/.test(text(garlicRow.querySelector(".amt"))) && /needs .*clove/.test(text(garlicRow.querySelector(".precise"))),
+    `Garlic rounded to bulbs with the exact need shown (${text(garlicRow?.querySelector(".shname"))})`);
+  const tamRow = qa(".shrow").find((r) => /Tamari/.test(text(r.querySelector(".shname b"))));
+  log(!!tamRow && !tamRow.querySelector(".amt"), `Sauces show no amount (${text(tamRow?.querySelector(".shname"))})`);
+
+  log(errors.length === 0, `No console errors${errors.length ? ": " + errors.join(" | ") : ""}`);
+}
+
+(async () => {
+  try {
+    const recipes = await unitTests();
+    await appTests(recipes);
+  } catch (e) {
+    log(false, `Test crashed: ${e.stack || e}`);
+  }
+  lines.push(`\nDONE: ${passes} passed, ${failures} failed`);
+  out.textContent = lines.join("\n");
+  document.title = `DONE ${passes}/${passes + failures}`;
+})();
+</script>
+</body>
+</html>

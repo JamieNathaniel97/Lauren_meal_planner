@@ -87,7 +87,7 @@ export function renderStock({ app, view }) {
         <div class="swipe-inner">
           <button type="button" class="sname" data-edit aria-expanded="${open}">
             <span>${esc(r.name)}${r.ingId ? "" : ` <small class="muted">(own item)</small>`}</span>
-            ${r.expiry ? `<small class="exp">${esc(k.expiryText(r.expiry))}</small>` : ""}
+            ${r.expiry ? `<small class="exp">${soon < 0 ? "⚠ " : ""}${esc(k.expiryText(r.expiry))}</small>` : ""}
           </button>
           <button type="button" class="lowbtn" data-low aria-pressed="${!!r.low}" title="Mark as running low">${r.low ? "Low" : "Low?"}</button>
           <button type="button" class="del" data-del aria-label="Remove ${esc(r.name)}">✕</button>
@@ -113,10 +113,28 @@ export function renderStock({ app, view }) {
     const lowCount = all.filter((r) => r.low).length;
     const useUp = k.useItUp();
 
+    const expired = k.expiredToReview();
+
     let html = "";
+    if (!q && expired.length) {
+      const n = expired.length;
+      html += `<section class="expired-banner" role="alert" aria-label="Expired food">
+        <div class="row eb-head">
+          <b>⚠ ${n} item${n === 1 ? " has" : "s have"} expired: ${esc(expired.map((r) => r.name.toLowerCase()).join(", "))}</b>
+          <button type="button" class="eb-x" data-exp-dismiss="all" aria-label="Dismiss: keep ${n === 1 ? "it" : "them"} in stock">✕</button>
+        </div>
+        <ul class="eb-list">${expired.map((r) => `
+          <li data-eid="${esc(r.id)}"><span><b>${esc(r.name)}</b> <small>${esc(k.expiryText(r.expiry))}</small></span>
+            <span class="eb-btns"><button type="button" class="btn small-btn danger-fill" data-exp-remove="${esc(r.id)}">Remove</button>
+            <button type="button" class="btn secondary small-btn" data-exp-dismiss="${esc(r.id)}">Keep</button></span></li>`).join("")}
+        </ul>
+        ${n > 1 ? `<div class="row eb-all"><button type="button" class="btn small-btn danger-fill" data-exp-remove="all">Remove all ${n}</button>
+          <button type="button" class="btn secondary small-btn" data-exp-dismiss="all">Keep all</button></div>` : ""}
+      </section>`;
+    }
     if (!q && useUp.length) {
       html += `<section class="useup" aria-label="Use it up"><h3>⏰ Use it up</h3><div class="useup-list">${useUp.map((r) =>
-        `<button type="button" class="useup-item${k.daysUntil(r.expiry) < 0 ? " expired" : ""}" data-jump="${esc(r.id)}"><b>${esc(r.name)}</b><small>${esc(k.expiryText(r.expiry))}</small></button>`).join("")}</div></section>`;
+        `<button type="button" class="useup-item" data-jump="${esc(r.id)}"><b>${esc(r.name)}</b><small>${esc(k.expiryText(r.expiry))}</small></button>`).join("")}</div></section>`;
     }
     html += `<p class="count">${all.length ? `${all.length} item${all.length === 1 ? "" : "s"} in stock${lowCount ? ` · ${lowCount} running low` : ""}` : ""}${q ? ` · showing ${shown.length} matching “${esc(filter)}”` : ""}</p>`;
 
@@ -163,6 +181,30 @@ export function renderStock({ app, view }) {
     if (jump) {
       editing = jump.dataset.jump; drawBody();
       $(`.srow[data-id="${CSS.escape(editing)}"]`, view)?.scrollIntoView({ block: "center", behavior: "smooth" });
+      return;
+    }
+    const expDismiss = t.closest("[data-exp-dismiss]");
+    if (expDismiss) {
+      const ids = expDismiss.dataset.expDismiss === "all" ? k.expiredToReview().map((r) => r.id) : [expDismiss.dataset.expDismiss];
+      const before = ids.map((id) => k.stockItem(id)).filter(Boolean);
+      await k.dismissExpired(ids);
+      undoToast(ids.length === 1 ? `Keeping ${before[0]?.name}` : `Keeping ${ids.length} expired items`, async () => {
+        for (const rec of before) await k.restoreStock(rec);
+        drawBody();
+      });
+      drawBody();
+      return;
+    }
+    const expRemove = t.closest("[data-exp-remove]");
+    if (expRemove) {
+      const ids = expRemove.dataset.expRemove === "all" ? k.expiredToReview().map((r) => r.id) : [expRemove.dataset.expRemove];
+      const removed = [];
+      for (const id of ids) { const rec = await k.removeStock(id); if (rec) removed.push(rec); }
+      undoToast(removed.length === 1 ? `Removed ${removed[0].name}` : `Removed ${removed.length} expired items`, async () => {
+        for (const rec of removed) await k.restoreStock(rec);
+        drawAll();
+      });
+      drawAll();
       return;
     }
     const un = t.closest("[data-unstaple]");

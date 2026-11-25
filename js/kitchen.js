@@ -19,6 +19,7 @@
 // for gluten-free pasta (similar-item matching comes later, with GF rules).
 
 import * as db from "./db.js";
+import { makeStockIndex } from "./match.js";
 import { SUGGESTED_STAPLES, STORAGE_FOR_AISLE, EXPIRY_SOON_DAYS } from "./stock-data.js";
 
 const state = { stock: new Map(), shopping: new Map(), staples: new Set(), ingById: {}, loaded: false };
@@ -35,6 +36,8 @@ export async function loadKitchen(ingById) {
 
 const uid = (prefix) => `${prefix}-${Date.now().toString(36)}${Math.random().toString(36).slice(2, 7)}`;
 const ing = (id) => state.ingById[id];
+/** The ingredient-list entry for an id (or undefined). */
+export const ingredient = ing;
 
 // ---------------------------------------------------------------- staples
 
@@ -121,11 +124,33 @@ export function daysUntil(date) {
   return Math.round((target - today) / 86400000);
 }
 
-/** Items expiring within EXPIRY_SOON_DAYS (or already expired), soonest first. */
+/** Items expiring within EXPIRY_SOON_DAYS (not already expired), soonest first. */
 export function useItUp() {
   return stockList()
-    .filter((r) => r.expiry && daysUntil(r.expiry) <= EXPIRY_SOON_DAYS)
+    .filter((r) => r.expiry && daysUntil(r.expiry) >= 0 && daysUntil(r.expiry) <= EXPIRY_SOON_DAYS)
     .sort((a, b) => a.expiry.localeCompare(b.expiry));
+}
+
+// Expired items are never removed automatically. The Stock tab shows a
+// banner until each one is removed or dismissed ("keep it"). A dismissal is
+// stored against the expiry date it was for (expiredDismissedFor), so it
+// only comes back if that date changes. Dismissed items stay in stock.
+
+export const isExpired = (r) => !!r.expiry && daysUntil(r.expiry) < 0;
+
+/** Expired items whose warning hasn't been dismissed, oldest first. */
+export function expiredToReview() {
+  return stockList().filter((r) => isExpired(r) && r.expiredDismissedFor !== r.expiry)
+    .sort((a, b) => a.expiry.localeCompare(b.expiry));
+}
+
+/** Keep these expired items without being warned again (until the date changes). */
+export async function dismissExpired(ids) {
+  const at = new Date().toISOString();
+  for (const id of ids) {
+    const r = state.stock.get(id);
+    if (r && r.expiry) await saveStock({ ...r, expiredDismissedFor: r.expiry, expiredDismissedAt: at });
+  }
 }
 
 export function expiryText(date) {
@@ -274,4 +299,11 @@ export function combineParts(parts, ingId) {
 
 export function recipesFor(item) {
   return [...new Set(item.parts.map((p) => p.recipe).filter(Boolean))];
+}
+
+// ---------------------------------------------------------------- matching
+
+/** Quick-lookup index of current stock for js/match.js (finder & recipe page). */
+export function stockIndex() {
+  return makeStockIndex(stockList(), state.staples, state.ingById, { daysUntil, soonDays: EXPIRY_SOON_DAYS });
 }

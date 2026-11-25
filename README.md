@@ -4,9 +4,8 @@ An installable, offline web app (PWA) for meal ideas, recipes, kitchen stock
 and shopping. It works on iPhone and Android. The full brief is in
 [PLAN.md](PLAN.md).
 
-**Status: phase 1 (foundations).** Done: the recipe book, recipe pages, the
-profile, and the cuisine picker on Find. Stock, Shopping and the full finder
-are placeholders for later phases.
+**Status: phases 1–4.** Done: the recipe book, recipe pages, the profile,
+the meal finder, kitchen stock and the shopping list.
 
 ## Run it locally
 
@@ -42,6 +41,9 @@ manifest.webmanifest     install info (name, icons, colours)
 sw.js                    service worker: offline cache (bump CACHE on changes)
 css/app.css              main styles; light and dark mode
 css/kitchen.css          stock and shopping styles
+css/find.css             meal finder styles
+js/match.js              what can I cook? stock matching, incl. safe similar items
+js/rounding.js           shopping-list rounding rules (garlic bulbs, packs, name-only spices)
 js/app.js                start-up, routing (#/find, #/recipes, #/recipe/<id>, #/profile …)
 js/constants.js          cuisines, meal types, diets, 14 UK allergens, tools, presets, default profile
 js/derive.js             works out diet tags, allergens, label warnings, ingredient count, nutrition
@@ -56,6 +58,8 @@ icons/                   app icons (made by tools/make_icons.py)
 tools/validate.py        checks all recipe data (see below)
 tools/validate.html      the check itself (runs the app's own derive.js)
 tools/make_icons.py      redraws the icons (needs Pillow)
+tools/finder-test.html   finder, matching and rounding tests (run in a browser)
+tools/kitchen-test.html  stock and shopping tests (run in a browser)
 ```
 
 ## Recipe data
@@ -165,8 +169,22 @@ Added in phases 2 and 4. All of it is saved on the phone (IndexedDB stores
 - **Recipe page**: each ingredient shows Have / Low / Need (tap to change your
   stock), plus **Add missing to shopping list** and **Add all ingredients**,
   scaled to the chosen servings and labelled with the recipe name.
-- Matching is on exact ingredient ids only, so wheat pasta never counts as
-  gluten-free pasta. Similar-item matching (phase 3) must keep that rule.
+- Matching (shared with the meal finder, see below) never lets wheat pasta
+  count as gluten-free pasta.
+- **Expired food** is never removed automatically. Its row says "⚠ Expired
+  2 days ago", and the Stock tab shows a banner listing expired items, with
+  Remove / Keep for each (or all) and a one-tap ✕. Keeping (dismissing) is
+  stored on the item as `expiredDismissedFor` (the expiry date it was for)
+  plus `expiredDismissedAt`, so the warning only comes back if the date
+  changes. Kept items stay in stock and count normally for recipes; expired
+  food is never ranked as "use it up".
+- **Shopping amounts are rounded to what you'd buy** (`js/rounding.js`):
+  garlic cloves → bulbs (10 cloves a bulb, at least 1); spices, sauces, oils
+  and any tsp/tbsp/pinch amount → just the name; whole items, tins and packs
+  round up; weights round up to 50 g steps under 500 g, 100 g above. The
+  exact need is shown small and grey ("needs 2½ cloves"). The rules are
+  tables at the top of `js/rounding.js` (by unit and aisle, with
+  per-ingredient overrides in `INGREDIENT_RULES`).
 
 Files: `js/kitchen.js` (data and logic), `js/stock-data.js` (storage places,
 aisle order, default staples, quick-add list), `js/views/stock.js`,
@@ -174,3 +192,39 @@ aisle order, default staples, quick-add list), `js/views/stock.js`,
 `js/views/food-search.js`, `js/views/kitchen-ui.js` (Undo toast, swipe),
 `css/kitchen.css`. Run `tools/kitchen-test.html` in a browser (served
 locally) to exercise the stock and shopping flows.
+
+## Meal finder (Find tab)
+
+Added in phase 3 (`js/views/find.js`, `js/match.js`, `css/find.css`).
+
+1. **How long have you got?** Speedy (≤15 min), Quick (≤30), Normal (≤45),
+   Take my time (>45), Slow cook (slow cooker, or cook ≥ 60 min with prep
+   ≤ 20 min), Any time. Based on prep + cook time.
+2. **What do you fancy?** Cuisine tiles; pick several, or Anything. Each
+   tile shows how many recipes match the other filters.
+3. **More filters**: calories, meal, difficulty, max ingredients, kitchen
+   tool, "use this ingredient" (from stock), one-pot only.
+4. **Results** in three groups: **Cook now** (everything in stock),
+   **Missing 1–2** (with "Add n to shopping list", scaled to the household
+   size) and **Ideas** (the rest). Within a group: most in stock first, then
+   recipes that use up food expiring soon, then quickest. Cards show
+   "n of m in stock", "Uses up …" and "⚠ Low on …". 30 per group, then
+   "Show more". **Surprise me** picks at random (Cook now first).
+
+The profile is always applied (diets, allergens, dislikes, owned tools).
+Filters are remembered on the device (`localStorage`, key `mp-finder-v1`).
+
+**Similar-item matching** (`js/match.js`, also used by the recipe page so
+both agree): a recipe ingredient is covered by the exact food, a staple, or a
+food in the same `group` of `data/ingredients.json` that is **at least as
+safe** — its diet flags and allergens must be a subset of the recipe
+ingredient's, and it must suit the profile. So GF pasta in stock covers a
+recipe's spaghetti (the recipe page says "using: gluten-free pasta shapes"),
+but wheat spaghetti never covers GF pasta and soy sauce never covers tamari.
+Optional ingredients never count as missing.
+
+**Tests:** serve the folder and open `tools/finder-test.html` (matching,
+GF and nut safety, rounding, time filters, the whole finder, expired
+banner) and `tools/kitchen-test.html` (stock and shopping). Both wipe this
+browser's app data first, so don't run them in the browser you use the app
+in. With ~1,400 recipes, matching takes under 10 ms per filter change.
