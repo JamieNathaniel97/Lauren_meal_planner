@@ -64,6 +64,9 @@ tools/validate.py        checks all recipe data (see below)
 tools/validate.html      the check itself (runs the app's own derive.js)
 tools/make_icons.py      redraws the icons (needs Pillow)
 tools/import_all.py      rebuilds the imported batches (see Imported recipes)
+tools/safety_scan.py     coeliac/nut check of recipe WORDS (run by validate.py; --test runs its tests)
+tools/text_safety.py     rewrites words to match safe ingredients (soy sauce -> tamari, etc.); used by the importer
+tools/recipe_fixes.json  hand-reviewed per-recipe fixes and allowed phrases
 tools/import_unitools.py, import_forkrecipe.py   read each source into a common format
 tools/import_common.py   ingredient matching, safety checks, units, GF/NF versions
 tools/jslit.py           reads ForkRecipe's .js files as plain data (never runs them)
@@ -167,6 +170,18 @@ git clone --depth 1 https://github.com/farcrak/unitools-recipes raw/unitools/rep
 python tools/import_all.py raw/forkrecipe/repo raw/unitools/repo/unitools-recipes-v1.json
 python tools/validate.py
 ```
+
+**Words must match the safe ingredients.** For every recipe that is
+gluten-free or nut-free by its ingredients, the importer runs
+`tools/text_safety.py`: optional unsafe extras ("naan, to serve") are swapped
+for safe ones, and the name, description, notes and steps are rewritten
+("soy sauce" -> "tamari", "lightly floured surface" -> "surface dusted with
+gluten-free flour", "serve with crusty bread" -> "serve with gluten-free
+bread", "walnuts" -> the seeds used). Hand fixes go in
+`tools/recipe_fixes.json`. `tools/validate.py` then runs
+`tools/safety_scan.py` and fails if any gluten word is left in a gluten-free
+recipe or any nut word in a nut-free one. Our own batch isn't rebuilt by
+the importer, so after editing it, check it with `python tools/safety_scan.py`.
 
 `raw/` is git-ignored. Downloaded files are treated as data only: the
 ForkRecipe `.js` files are parsed by `tools/jslit.py`, which accepts plain

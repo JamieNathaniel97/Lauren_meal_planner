@@ -74,7 +74,7 @@ def _qualified(text, start):
     return bool(scan.GF_QUALIFIER.search(text[max(0, start - 30):start]))
 
 
-def gluten_rules(ids, ing_by_id):
+def gluten_rules(ids, ing_by_id, omelette=False):
     """(regex, replacement-function) pairs for a gluten-free recipe."""
     has = lambda *xs: any(x in ids for x in xs)
     flours = [f for f in GF_FLOURS if f in ids]
@@ -121,11 +121,11 @@ def gluten_rules(ids, ing_by_id):
         (r"\b(soft |crusty |burger |brioche |hot dog )*(buns?|loaf|loaves)\b(?! (tin|pan))",
          unless_covered("bun", lambda m: "gluten-free " + m.group(0).lower())),
         (r"\b(warm |hot |toasted |thin |soft )*(flatbreads?|pittas?|pitas?|pita bread|pitta bread|naans?|lavash|"
-         r"chapatis?|rotis?|parathas?|injera|tortilla wraps?)\b",
+         r"chapatis?|rotis?|parathas?|bhaturas?|puris?|kulchas?|injera|tortilla wraps?)\b",
          lambda m, t: m.group(0) if (_qualified(t, m.start()) or ("injera" in m.group(0).lower() and "teff-flour" in ids))
          else _cap(m.group(0), "gluten-free flatbread")),
         (r"\btortilla chips\b", unless_covered("-", "corn tortilla chips (check the label)")),
-        (r"\b(flour )?tortillas?\b", unless_covered("tortilla", lambda m: "corn tortilla" + ("s" if m.group(0).endswith("s") else ""))),
+        (r"\b(flour )?tortillas?\b", (lambda m, t: m.group(0)) if omelette else unless_covered("tortilla", lambda m: "corn tortilla" + ("s" if m.group(0).endswith("s") else ""))),
         (r"\b(pearl )?couscous\b", unless_covered("-", grain)),
         (r"\b(fine |coarse )?bulgu?a?r( wheat)?\b|\bcracked wheat\b|\bwheat berries\b", unless_covered("-", grain)),
         (r"\b(pearl )?barley\b|\bfarro\b|\bfreekeh\b|\bspelt\b", unless_covered("-", grain)),
@@ -134,7 +134,8 @@ def gluten_rules(ids, ing_by_id):
          lambda m, t: m.group(0) if _qualified(t, m.start()) else _cap(m.group(0), "gluten-free breadcrumbs")),
         (r"\bbreadcrumbs\b", unless_covered("breadcrumb", "gluten-free breadcrumbs")),
         (r"\bsemolina (couscous|quinoa|rice|grains?)\b", lambda m, t: m.group(1)),
-        (r"\bsemolina\b", unless_covered("-", "fine polenta")),
+        # In a converted couscous dish the semolina IS the grain (now quinoa); elsewhere it's for dusting.
+        (r"\bsemolina\b", unless_covered("-", "quinoa" if "quinoa" in ids else "fine polenta")),
         (r"\b(buttered )?(filo|phyllo)\b(?! pastry)",
          lambda m, t: m.group(0) if _qualified(t, m.start()) else _cap(m.group(0), (m.group(1) or "") + "gluten-free filo")),
         (r"\bramen\b", unless_covered("ramen", "gluten-free ramen")),
@@ -243,7 +244,8 @@ def make_text_safe(recipe, ing_by_id):
     recipe["ingredients"] = lines
     ids = {l["id"] for l in lines}
 
-    rules = (nut_rules(ids, ing_by_id) if nf else []) + (gluten_rules(ids, ing_by_id) if gf else [])
+    omelette = recipe.get("cuisine") == "spanish" and "eggs" in ids   # a Spanish tortilla, not a flatbread
+    rules = (nut_rules(ids, ing_by_id) if nf else []) + (gluten_rules(ids, ing_by_id, omelette) if gf else [])
 
     # 2. Words. A converted version's description ends with the stated swaps; keep those as written.
     desc = recipe.get("description") or ""

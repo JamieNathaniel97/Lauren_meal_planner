@@ -61,7 +61,7 @@ GLUTEN = re.compile(
     r"\b(wheat|flours?|floured|flouring|breadcrumbs?|panko|bread|breads|loaf|baguette|brioche|croutons?|"
     r"pastry|pastries|shortcrust|puff pastry|filo|phyllo|soy sauces?|shoyu|couscous|bulgu?a?r|barley|rye|spelt|"
     r"semolina|beers?|ales?|lager|stout|malt|malted|seitan|udon|ramen|soba|langue de chat|orzo|pasta|noodles?|spaghetti|linguine|"
-    r"tagliatelle|fettuccine|penne|macaroni|lasagne|gnocchi|tortillas?|pittas?|pitas?|naan|chapatis?|rotis?|"
+    r"tagliatelle|fettuccine|penne|macaroni|lasagne|gnocchi|tortillas?|pittas?|pitas?|naan|chapatis?|rotis?|bhaturas?|puris?|kulchas?|"
     r"flatbreads?|crackers?|biscuits?|cookies|savoiardi|ladyfingers|sponge fingers|cake crumbs|hoisin|"
     r"oyster sauce|worcestershire|farro|freekeh|wheat berries|crumpets?|bagels?|buns?|loaves|dumpling wrappers?)\b",
     re.I)
@@ -172,6 +172,8 @@ def scan_recipe(recipe, ings):
                     continue
                 if COVERED_BY.get(_singular(w), set()) & ids:
                     continue
+                if w.lower().startswith("tortilla") and recipe.get("cuisine") == "spanish" and "eggs" in ids:
+                    continue   # a Spanish tortilla is a potato omelette
                 out.append((where, w, t[max(0, m.start() - 50):m.end() + 40].strip()))
         if nf:
             for m in NUTS.finditer(t):

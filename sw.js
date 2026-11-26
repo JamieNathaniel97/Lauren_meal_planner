@@ -2,7 +2,7 @@
 // served from the cache first.
 // IMPORTANT: bump CACHE whenever any file changes (code, CSS or recipes),
 // otherwise installed phones keep showing the old version.
-const CACHE = "meal-planner-v4";
+const CACHE = "meal-planner-v5";
 
 const SHELL = [
   "./",
