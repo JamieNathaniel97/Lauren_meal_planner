@@ -4,7 +4,9 @@
 // code runs in the app and in tools/validate.html.
 
 // Grams per unit when an ingredient doesn't give its own figure.
-const DEFAULT_UNIT_GRAMS = { tsp: 5, tbsp: 15, pinch: 0.5, ml: 1, g: 1, kg: 1000, l: 1000 };
+// Keep in step with DEFAULT_UNIT_GRAMS in tools/import_common.py.
+const DEFAULT_UNIT_GRAMS = { tsp: 5, tbsp: 15, pinch: 0.5, ml: 1, g: 1, kg: 1000, l: 1000,
+  sprig: 1, leaf: 0.3, slice: 25, bunch: 25, handful: 30, clove: 4, cm: 5, stick: 40, tin: 400 };
 
 const MEAT_LIKE = ["meat", "pork", "fish", "shellfish", "animal-rennet", "gelatin"];
 
@@ -49,7 +51,9 @@ export function deriveRecipe(recipe, ingById) {
       problems.push(`no weight for unit "${line.unit}" of "${line.id}"`);
       continue;
     }
-    for (const k of Object.keys(totals)) totals[k] += (ing.per100g[k] || 0) * grams / 100;
+    // absorb: the share that ends up in the food (e.g. 0.15 of deep-frying oil).
+    const eaten = grams * (line.absorb ?? 1);
+    for (const k of Object.keys(totals)) totals[k] += (ing.per100g[k] || 0) * eaten / 100;
   }
   allergens.forEach((a) => optionalAllergens.delete(a));
 

@@ -1,0 +1,38 @@
+{
+  "about": "Hand-reviewed per-recipe safety fixes, applied by tools/import_all.py after the automatic rewrites in tools/text_safety.py. subs: [regex, replacement] applied to name, description, notes and steps. addIngredients / removeIngredients / swapIngredients edit the ingredient list. drop: remove this (importer-made) version. allow: phrases tools/safety_scan.py should accept in this recipe after review.",
+  "fixes": {
+    "fr-mantu-gf": {
+      "allow": [
+        "Chinese dumpling wrappers"
+      ],
+      "why": "comparison only; this version's own wrappers use gluten-free flour"
+    },
+    "spanish-tortilla": {
+      "allow": [
+        "tortilla"
+      ],
+      "why": "a Spanish tortilla is a potato omelette"
+    },
+    "pesto-pasta-beans": {
+      "allow": [
+        "pesto"
+      ],
+      "why": "the pesto is made in the recipe with sunflower seeds, no nuts"
+    },
+    "ut-pesto-alla-genovese-nf": {
+      "allow": [
+        "pesto"
+      ],
+      "why": "the pesto is made in the recipe with sunflower seeds instead of pine nuts"
+    },
+    "fr-zabaglione": {
+      "subs": [
+        [
+          "a delicate gluten-free biscuit such as a gluten-free sponge fingers",
+          "delicate gluten-free biscuits, such as gluten-free sponge fingers,"
+        ]
+      ],
+      "why": "the source suggested savoiardi or amaretti (almonds); the rewrite left awkward wording"
+    }
+  }
+}

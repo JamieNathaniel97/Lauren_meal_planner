@@ -1,11 +1,20 @@
 // Profile: diet, allergens, coeliac strictness, dislikes, tools, household.
 // Starts empty; "Coeliac + nut-free" sets Lauren's needs in one tap.
 
-import { DIETS, ALLERGENS, TOOLS, COELIAC_NF_PRESET, DEFAULT_PROFILE } from "../constants.js";
+import { DIETS, ALLERGENS, TOOLS, COELIAC_NF_PRESET, DEFAULT_PROFILE, SOURCES } from "../constants.js";
 import { esc, $, $$ } from "../ui.js";
 import { isPersistent } from "../db.js";
 
 const COMMON_TOOLS = ["hob", "oven", "microwave", "grill"];
+
+function countBySource(recipes) {
+  const out = { own: 0 };
+  for (const r of recipes) {
+    const k = r.source?.name || "own";
+    out[k] = (out[k] || 0) + 1;
+  }
+  return out;
+}
 
 export function renderProfile(ctx) {
   const { app, view } = ctx;
@@ -62,6 +71,17 @@ export function renderProfile(ctx) {
 
     <h2>Reset</h2>
     <button class="btn secondary block" id="reset">Clear my profile</button>
+
+    <h2>Credits</h2>
+    <div class="panel small credits">
+      <p>${countBySource(app.catalogue.recipes).own} recipes were written for this app. The others are adapted from these open recipe collections, shared under the
+        <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">Creative Commons Attribution-ShareAlike 4.0</a> licence (CC BY-SA 4.0):</p>
+      <ul>${Object.entries(SOURCES).map(([name, s]) => `
+        <li><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(name)}</a>: ${esc(s.note)} (${countBySource(app.catalogue.recipes)[name] || 0} recipes)</li>`).join("")}
+      </ul>
+      <p>This app changed them: amounts were converted (some worked out from ratios), ingredients were matched to its own list, diet tags, allergens and nutrition were worked out from those, and gluten-free and nut-free versions were made. The adapted recipes are shared under the same licence. Each recipe page links to its source.</p>
+      <p>Recipe photos are from Wikimedia Commons, credited on each recipe page under their own licences.</p>
+    </div>
     <p class="small muted">${isPersistent() ? "Saved on this phone only." : "This browser isn't allowing storage, so changes last until you close the app."}</p>`;
 
   const save = async (changes, msg) => {

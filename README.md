@@ -8,6 +8,11 @@ and shopping. It works on iPhone and Android. The full brief is in
 profile, and the cuisine picker on Find. Stock, Shopping and the full finder
 are placeholders for later phases.
 
+**Recipes:** about 1,400. 42 were written for this app; the rest are adapted
+from two open recipe collections (CC BY-SA 4.0), plus gluten-free and
+nut-free versions made from them. See [Imported recipes](#imported-recipes)
+and [DATA_LICENSE.md](DATA_LICENSE.md).
+
 ## Run it locally
 
 It needs a web server, because ES modules don't load from `file://`:
@@ -48,13 +53,25 @@ js/data.js               loads ingredients + all recipe batches, runs derive.js 
 js/db.js                 IndexedDB storage (profile now; stock, shopping, own recipes later)
 js/ui.js                 HTML escaping, quantity and time formatting
 js/views/*.js            one file per screen
-data/ingredients.json    master ingredient list
+data/ingredients.json    master ingredient list (written by tools/import_all.py; see below)
 data/recipes/index.json  list of recipe batch files to load
-data/recipes/batch-01.json  the first 40 recipes
+data/recipes/batch-01.json  our own recipes (steps inline)
+data/recipes/unitools-NN.json, fork-NN.json  imported recipes, without steps
+data/steps/unitools-NN.json, fork-NN.json    their method steps, loaded when a recipe opens
+DATA_LICENSE.md          licence and credits for the imported recipe data
 icons/                   app icons (made by tools/make_icons.py)
 tools/validate.py        checks all recipe data (see below)
 tools/validate.html      the check itself (runs the app's own derive.js)
 tools/make_icons.py      redraws the icons (needs Pillow)
+tools/import_all.py      rebuilds the imported batches (see Imported recipes)
+tools/import_unitools.py, import_forkrecipe.py   read each source into a common format
+tools/import_common.py   ingredient matching, safety checks, units, GF/NF versions
+tools/jslit.py           reads ForkRecipe's .js files as plain data (never runs them)
+tools/ingnorm.py         cleans ingredient names for matching
+tools/ingredient_master_new.txt   ingredients added for the imports (flags, allergens, nutrition, match phrases)
+tools/ingredient_map_existing.txt match phrases for the original ingredients
+tools/import_report.md   what the last import took, converted and rejected, and why
+tools/debug_recipe.py    prints a recipe's grams and kcal line by line
 ```
 
 ## Recipe data
@@ -105,7 +122,14 @@ tags, the ingredient count or the calories. If they clash with the profile,
 the recipe page warns about them.
 
 **Nut-free** means no peanuts, no tree nuts and no pine nuts. Coconut is
-allowed but flagged ("Contains coconut") until someone decides on it.
+allowed (decided), and shown as "Contains coconut".
+
+Extra optional recipe fields: `origin` (country or region), `nativeName`,
+`photo` (`url`, `credit`, `licence`, `via`), `source` (`name`, `url`,
+`licence`, `author`) for adapted recipes, `quantitiesEstimated` (amounts were
+worked out from ratios; the page says so) and, on an ingredient line,
+`absorb` (the share of deep-frying oil that ends up in the food, used for
+calories).
 
 ### Adding a batch of recipes
 
@@ -115,8 +139,76 @@ allowed but flagged ("Contains coconut") until someone decides on it.
 3. Run `python tools/validate.py` and fix anything it reports.
 4. Bump `CACHE` in `sw.js`.
 
-Recipe ids must be unique across all batches. All recipes must be original:
-don't copy them from websites or books.
+Recipe ids must be unique across all batches. Recipes in our own batches must
+be original: don't copy them from websites or books. Openly licensed
+collections go through the importer below instead.
+
+### Imported recipes
+
+Two open collections, both **CC BY-SA 4.0** (licence confirmed from each
+source's own LICENSE file):
+
+- **UniTools World Recipes** (theunitools.com/en/data): 501 home-cooking
+  recipes from 127 countries, with real quantities and Wikimedia Commons
+  photos (each with its own licence and author).
+- **ForkRecipe** (github.com/futurechef/forkrecipe-recipes): 963 recipe files.
+  Only dishes are imported (proteins, seafood, grains, vegetables, eggs,
+  desserts); sauces, stocks, condiments, ferments, drinks and breads are
+  skipped as components. Many give **ratios ("parts") instead of amounts**;
+  those are scaled to a sensible size (or to a weight stated in the recipe,
+  like "pork shoulder, 2 kg") and the recipe page says the amounts were
+  worked out.
+
+To rebuild (safe to rerun; our own `batch-NN.json` files are never touched):
+
+```
+git clone --depth 1 https://github.com/futurechef/forkrecipe-recipes raw/forkrecipe/repo
+git clone --depth 1 https://github.com/farcrak/unitools-recipes raw/unitools/repo
+python tools/import_all.py raw/forkrecipe/repo raw/unitools/repo/unitools-recipes-v1.json
+python tools/validate.py
+```
+
+`raw/` is git-ignored. Downloaded files are treated as data only: the
+ForkRecipe `.js` files are parsed by `tools/jslit.py`, which accepts plain
+literals and rejects anything else; nothing from the sources is executed.
+
+What the importer does, per recipe:
+
+1. **Matches every ingredient** to `data/ingredients.json` using the phrase
+   lists in `tools/ingredient_map_existing.txt` and
+   `tools/ingredient_master_new.txt` (longest phrase wins; "x or y" uses the
+   first option, "x and y" becomes both). The source's wording is kept as
+   the line's note. A recipe with any unmatched ingredient is left out.
+2. **Safety check:** if the source text mentions nuts, peanuts, pine nuts, a
+   gluten source, fish or meat that the matched ingredient doesn't carry,
+   the recipe is left out, so a loose match can't hide an allergen.
+   Alternatives the cook chooses between ("sunflower or peanut oil") use the
+   first option, and the note says the source also suggests a nut or gluten
+   option.
+3. **Converts amounts** (cups, lb, cans, pieces, ratios) to the app's units.
+   Liquid stock becomes gluten-free stock cubes ("made up to 500 ml").
+   Deep-frying oil counts at 15 % for calories.
+4. **Works out** tools from the method, spice, cost and meal type; servings
+   are adjusted only if calories per portion would otherwise be implausible.
+5. **Skips duplicates** of dishes we already have (ours win, then UniTools).
+6. **Makes gluten-free / nut-free versions** where the swap is standard
+   (tamari for soy sauce, GF pasta, GF flour, GF stock, corn tortillas, rice
+   noodles, quinoa for couscous, seeds for garnish nuts …), linked to the
+   original with `variants`. Kneaded yeast doughs and dishes built on nuts
+   aren't converted.
+
+Diet tags, allergens and nutrition are still worked out by `derive.js`.
+`tools/import_report.md` lists everything rejected with the reason, the
+recipes whose calories differ a lot from the source's own figure (the
+app's figure is used), and diet-tag disagreements with UniTools (all
+checked: either the source was loose, e.g. "vegetarian" jollof made with
+chicken stock, or UK rules are stricter, e.g. Parmesan uses animal rennet).
+
+**Credits:** Profile → Credits names both sources and the licence; every
+imported recipe page links to its source and says it was adapted; photos are
+credited on the recipe page. Under CC BY-SA, the adapted recipe data must
+stay under the same licence (see DATA_LICENSE.md). Don't call the app
+"ForkRecipe" (their trademark).
 
 ### Checking the data
 

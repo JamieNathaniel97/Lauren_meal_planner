@@ -17,7 +17,14 @@ export const CUISINES = [
   { id: "caribbean", label: "Caribbean", emoji: "🌴", color: "#099268" },
   { id: "north-african", label: "North African", emoji: "🍲", color: "#d9480f" },
   { id: "american", label: "American", emoji: "🍔", color: "#1864ab" },
-  { id: "british", label: "British", emoji: "🫖", color: "#5f6b7a" },
+  { id: "british", label: "British & Irish", emoji: "🫖", color: "#5f6b7a" },
+  { id: "latin-american", label: "Latin American", emoji: "🌽", color: "#c2255c" },
+  { id: "southeast-asian", label: "South-East Asian", emoji: "🍢", color: "#2b8a3e" },
+  { id: "african", label: "African", emoji: "🍠", color: "#b35c00" },
+  { id: "eastern-european", label: "Eastern European", emoji: "🥟", color: "#5c7cfa" },
+  { id: "european", label: "European", emoji: "🧀", color: "#7048e8" },
+  { id: "central-asian", label: "Central Asian", emoji: "🫓", color: "#a61e4d" },
+  { id: "international", label: "International", emoji: "🌍", color: "#1098ad" },
 ];
 export const CUISINE_BY_ID = Object.fromEntries(CUISINES.map((c) => [c.id, c]));
 
@@ -26,8 +33,15 @@ export const MEAL_TYPES = [
   { id: "lunch", label: "Lunch" },
   { id: "dinner", label: "Dinner" },
   { id: "snack", label: "Snack" },
+  { id: "side", label: "Side" },
   { id: "dessert", label: "Dessert" },
 ];
+
+// Where imported recipes come from (all CC BY-SA 4.0). Shown in Profile > Credits.
+export const SOURCES = {
+  ForkRecipe: { url: "https://github.com/futurechef/forkrecipe-recipes", note: "the ForkRecipe open recipe dataset, by FoodML and contributors" },
+  UniTools: { url: "https://theunitools.com/en/data", note: "UniTools World Recipes, theunitools.com" },
+};
 
 // Diet tags are worked out from ingredients in derive.js.
 export const DIETS = [

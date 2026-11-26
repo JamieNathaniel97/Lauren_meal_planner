@@ -1,9 +1,12 @@
 // Loads the ingredient list and every recipe batch, and derives each
 // recipe's facts. Used by the app and by tools/validate.html.
 //
-// Recipes live in data/recipes/batch-NN.json. data/recipes/index.json lists
-// the batch files (a static site can't list a folder), so adding a batch
-// means: write the file, add its name to index.json, bump CACHE in sw.js.
+// Recipes live in data/recipes/*.json, listed in data/recipes/index.json
+// (a static site can't list a folder). Our own batches (batch-NN.json) keep
+// their method steps inline. Imported batches (unitools-NN, fork-NN) keep
+// them in data/steps/<same name>.json, loaded when a recipe is opened, so
+// the recipe list starts quickly. Adding a batch means: write the file, add
+// its name to index.json, bump CACHE in sw.js.
 
 import { deriveRecipe } from "./derive.js";
 
@@ -35,8 +38,26 @@ export async function loadCatalogue(base) {
       seen.set(r.id, file);
       const d = deriveRecipe(r, ingById);
       d.problems.forEach((p) => problems.push(`${file}: ${r.id}: ${p}`));
-      recipes.push({ ...r, batch: file, d });
+      const rec = { ...r, batch: file, d };
+      if (!r.steps) rec.stepsUrl = at(`data/steps/${file}`);
+      recipes.push(rec);
     }
   }
-  return { ingredients, ingById, recipes, problems };
+  const stepsFiles = [...new Set(recipes.map((r) => r.stepsUrl).filter(Boolean))];
+  return { ingredients, ingById, recipes, problems, stepsFiles };
+}
+
+const stepCache = new Map();   // steps file URL -> Promise of { id: [steps] }
+
+/** The method steps for a recipe, fetching its steps file if needed. */
+export async function stepsFor(recipe) {
+  if (recipe.steps) return recipe.steps;
+  if (!stepCache.has(recipe.stepsUrl)) {
+    stepCache.set(recipe.stepsUrl, getJSON(recipe.stepsUrl).catch((e) => {
+      stepCache.delete(recipe.stepsUrl);
+      throw e;
+    }));
+  }
+  const all = await stepCache.get(recipe.stepsUrl);
+  return all[recipe.id] || [];
 }

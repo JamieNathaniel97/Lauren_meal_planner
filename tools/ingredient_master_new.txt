@@ -1,0 +1,354 @@
+# New master ingredients added for the imports.
+# id | Name | match phrases | flags | allergens | aisle | storage | kcal protein carbs fat fibre (per 100 g) | units (unit=grams) | label
+# aisles: fv fruit-veg, mf meat-fish, de dairy-eggs, td tins-dry, ss spices-sauces, bk bakery, fz frozen, dr drinks
+# storage: c cupboard, f fridge, s spices, v fruit-veg, z freezer
+# labels: GF wheat/contamination, SP spice blend, ST stock, MT processed meat, BR brand varies, NUT may contain nuts, SAUCE soy-based sauce
+#
+# ---- vegetables & fruit
+shallot | Shallots | shallot, asian shallot, banana shallot, shallots and garlic, shallots garlic | | | fv | v | 72 2.5 17 0.1 3.2 | each=30 |
+white-cabbage | White cabbage | cabbage, white cabbage, green cabbage, savoy cabbage, savoy or green cabbage, green or white cabbage, cabbage leave, cabbage wedges and cucumber slice, spinach or young cabbage, cabbage or kale | | | fv | v | 25 1.3 6 0.1 2.5 | each=900 |
+red-cabbage | Red cabbage | red cabbage | | | fv | v | 31 1.4 7 0.2 2.1 | each=900 |
+chinese-cabbage | Chinese leaf (napa cabbage) | napa cabbage, chinese cabbage, chinese leaf | | | fv | f | 16 1.2 3 0.2 1.2 | each=800 |
+pak-choi | Pak choi | bok choy, pak choi, baby bok choy, gai lan, chinese broccoli | | | fv | f | 13 1.5 2.2 0.2 1 | each=120 |
+kale | Kale | kale, curly kale, cavolo nero, lacinato kale, collard green, collard greens stems stripped, stewed collard green | | | fv | f | 49 4.3 9 0.9 3.6 | handful=30 |
+swiss-chard | Chard | swiss chard, chard, rainbow chard | | | fv | f | 19 1.8 3.7 0.2 1.6 | handful=40 |
+mustard-greens | Mustard greens | mustard green, spinach or mustard green, taro leaves or spinach, cassava leaves or spinach, pounded cassava leave, moringa leaves or spinach, spinach or ugwu leave, bitterleaf or spinach, waterleaf, eru leaf, bredes mafana, sorrel, molokhia leave | | | fv | f | 27 2.9 4.7 0.4 3.2 | handful=40 |
+watercress | Watercress | watercress, pea shoots or watercress, pea shoot | | | fv | f | 11 2.3 1.3 0.1 0.5 | handful=20 |
+rocket | Rocket | rocket, wild rocket, arugula, arugula or mixed green | | | fv | f | 25 2.6 3.7 0.7 1.6 | handful=20 |
+asparagus | Asparagus | asparagus, thick asparagus spear | | | fv | f | 20 2.2 3.9 0.1 2.1 | each=20 |
+brussels-sprouts | Brussels sprouts | brussels sprout | | | fv | f | 43 3.4 9 0.3 3.8 | |
+butternut-squash | Butternut squash | butternut squash, squash, pumpkin, winter melon, chayote or courgette, chayote | | | fv | v | 45 1 12 0.1 2 | each=1000 |
+pumpkin-puree | Pumpkin purée | pumpkin puree | | | td | c | 34 1.1 8 0.3 2.9 | tin=425 |
+beetroot | Beetroot | beetroot, beet, red beet, mixed beets red | | | fv | f | 43 1.6 10 0.2 2.8 | each=150 |
+pickled-beetroot | Pickled beetroot | pickled beetroot | | | td | c | 28 1.2 5.6 0 1.7 | |
+parsnip | Parsnips | parsnip, parsley root | | | fv | v | 75 1.2 18 0.3 4.9 | each=150 |
+turnip | Turnips | turnip, swede, soured turnip | | | fv | v | 28 0.9 6.4 0.1 1.8 | each=200 |
+celeriac | Celeriac | celeriac, celery root | | celery | fv | v | 42 1.5 9 0.3 1.8 | each=700 |
+radish | Radishes | radish, red radish, green radish, daikon, daikon radish, mooli | | | fv | f | 18 0.6 4.1 0.1 1.6 | each=300 |
+fennel | Fennel | fennel, fennel bulb, fennel frond | | | fv | f | 31 1.2 7.3 0.2 3.1 | each=250 |
+okra | Okra | okra | | | fv | f | 33 1.9 7.5 0.2 3.2 | |
+cassava | Cassava | cassava, yuca, root vegetables cassava, cassava dough, gari, attieke, attieke or rice | | | fv | v | 160 1.4 38 0.3 1.8 | each=400 |
+taro | Taro or yam | taro, yam, name yam, yautia or taro, taro or potato, nagaimo yam | | | fv | v | 112 1.5 26 0.2 4.1 | each=300 |
+plantain | Plantains | plantain, green plantain, green banana, green matoke banana | | | fv | v | 122 1.3 32 0.4 2.3 | each=250 |
+jerusalem-artichoke | Jerusalem artichokes | jerusalem artichoke | | | fv | v | 73 2 17 0 1.6 | |
+burdock | Burdock root | burdock root | | | fv | v | 72 1.5 17 0.2 3.3 | |
+bamboo-shoots | Bamboo shoots | bamboo shoot | | | td | c | 27 2.6 5 0.3 2.2 | |
+water-chestnuts | Water chestnuts | water chestnut | | | td | c | 97 1.4 24 0.1 3 | tin=140 |
+banana-blossom | Banana blossom | banana blossom | | | td | c | 51 1.6 10 0.6 5.7 | |
+green-papaya | Green papaya | green papaya, green papaya or daikon | | | fv | v | 43 0.5 11 0.3 1.7 | each=800 |
+corn-cob | Corn on the cob | corn on the cob, corn cob, ear of corn, ears of corn, choclo, choclo corn, choclo corn kernel, boiled peruvian corn | | | fv | v | 86 3.3 19 1.4 2 | each=250 |
+hominy | Hominy | hominy | | | td | c | 72 1.5 14 0.9 2.5 | tin=400 |
+artichoke | Artichokes | artichoke, artichoke heart | | | fv | v | 47 3.3 11 0.2 5.4 | each=120 |
+sugar-snap | Sugar snap peas | sugar snap pea, mangetout, snow pea | | | fv | f | 42 2.8 7.6 0.2 2.6 | |
+broad-beans | Broad beans | broad bean, fava bean, fried broad bean | | | fv | z | 88 7.9 12 0.6 5.4 | |
+edamame | Edamame | edamame, soybean | | soya | fz | z | 121 12 9 5 5 | |
+lettuce-mixed | Mixed salad leaves | mixed green, salad leave, lettuce and vegetable, seasonal vegetable | | | fv | f | 17 1.4 3 0.2 1.5 | handful=30 |
+mixed-veg | Mixed vegetables | vegetable, mixed vegetable, mixed vegetables sweet potato, potato and cauliflower | | | fz | z | 65 3 13 0.5 4 | |
+olives | Olives | olive, black olive, green olive, kalamata olive, green castelvetrano olive, cracked green olive, black olive slice, green or violet olive, olives and caper | | | td | c | 145 1 3.8 15 3.3 | each=4 |
+capers | Capers | caper, capers in brine, salted caper, brined caper, salt packed caper, non pareil caper, caper berrie, capers and lemon, capers and lemon slice | | | td | c | 23 2.4 4.9 0.9 3.2 | tsp=4,tbsp=10 |
+gherkins | Gherkins | gherkin, cornichon, pickled cucumber, brined cucumber, dill pickle chip, pickle | | | td | c | 12 0.3 2.3 0.2 1 | each=30 |
+sauerkraut | Sauerkraut | sauerkraut, soured cabbage, soured cabbage leave, pickled red cabbage |  |  | td | c | 19 0.9 4.3 0.1 2.9 | each=1000 | 
+pickled-mustard | Pickled mustard greens | pickled mustard green, preserved radish, yibin ya cai, gundruk | | | td | c | 25 1.5 4 0.2 2 | |
+pickled-ginger | Pickled ginger | pickled ginger, beni shoga pickled ginger, beni shoga | | | td | f | 20 0.3 4 0.1 1 | |
+pickled-jalapenos | Pickled jalapeños | pickled jalapeno | | | td | c | 27 0.9 4.7 0.9 2.6 | |
+preserved-lemon | Preserved lemon | preserved lemon, preserved lemon rind | | | td | c | 30 0.6 6 0.5 4 | each=60 |
+garlic-chives | Chinese chives | garlic chive | | | fv | f | 30 3.3 4.4 0.7 2.5 | handful=20 |
+chives | Chives | chive | | | fv | f | 30 3.3 4.4 0.7 2.5 | tbsp=3,handful=10 |
+lemongrass | Lemongrass | lemongrass, lemongrass stalk | | | fv | f | 99 1.8 25 0.5 0 | each=20 |
+galangal | Galangal | galangal | | | fv | f | 71 1.2 15 0.6 2 | cm=5 |
+kaffir-lime-leaves | Kaffir lime leaves | kaffir lime leave, makrut lime leave, lime leave | | | fv | z | 0 0 0 0 0 | each=0.5 |
+curry-leaves | Curry leaves | curry leave, curry leaf | | | fv | f | 108 6 18 1 6 | each=0.2,sprig=1 |
+pandan | Pandan leaves | pandan leaf, pandan leave | | | fv | z | 0 0 0 0 0 | each=2 |
+banana-leaves | Banana leaves (for wrapping) | banana leave, banana leaf, banana leaves or foil, corn husk, sorghum leave | | | fv | c | 0 0 0 0 0 | each=50 |
+thyme | Thyme | thyme, thyme sprig, thyme leave, thyme or oregano, sage and thyme, savory and thyme | | | fv | f | 101 5.6 24 1.7 14 | sprig=1,bunch=20 |
+rosemary | Rosemary | rosemary, rosemary sprig, thyme and rosemary, thyme sprigs and rosemary | | | fv | f | 131 3.3 21 5.9 14 | sprig=1,bunch=20 |
+sage | Sage | sage, sage leave | | | fv | f | 315 10 61 13 40 | each=0.5,sprig=2 |
+tarragon | Tarragon | tarragon, tarragon sprig | | | fv | f | 295 23 50 7 7 | sprig=1 |
+chervil | Chervil | chervil, mitsuba, mitsuba or trefoil, mitsuba or coriander | | | fv | f | 237 23 49 3.9 11 | sprig=1 |
+lovage | Lovage | lovage, cumin lovage seed | | celery | fv | f | 20 2 3 0.4 1 | |
+marjoram | Marjoram | marjoram, savory, summer savory | | | ss | s | 271 13 61 7 40 | |
+fresh-oregano | Fresh oregano | oregano sprig | | | fv | f | 265 9 69 4.3 43 | sprig=1 |
+epazote | Epazote | epazote, guascas | | | fv | f | 32 0.3 7.4 0.5 3.8 | sprig=1 |
+fenugreek-leaves | Fenugreek leaves | fenugreek leave, kasuri methi, fenugreek leaf | | | ss | s | 49 4.4 6 0.9 1.1 | |
+bouquet-garni | Bouquet garni | bouquet garni, thyme and bay, thyme and bay leave, thyme sprigs and bay leave, thyme and bay leaf bouquet garni, spices bay leave | | | fv | f | 0 0 0 0 0 | each=5 |
+celery-leaves | Celery leaves | celery leave | | celery | fv | f | 16 0.7 3 0.2 1.6 | |
+rose-petals | Edible rose petals | rose petal, marigold petal | | | ss | c | 0 0 0 0 0 | |
+pears | Pears | pear, asian pear, korean pear, peach or pear | | | fv | v | 57 0.4 15 0.1 3.1 | each=170 |
+orange | Oranges | orange, bitter orange, seville orange, mandarin | | | fv | v | 47 0.9 12 0.1 2.4 | each=150 |
+orange-zest | Orange zest or peel | orange zest, orange peel, orange peel strip, strip of orange peel bouquet, mandarin peel, candied orange peel | | | fv | v | 97 1.5 25 0.2 11 | each=6 |
+lemon-juice | Lemon juice | lemon juice, squeezed lemon juice, lemon juice and zest, lemon zest juice | | | fv | f | 22 0.4 6.9 0.2 0.3 | tbsp=15,tsp=5,each=40 |
+lemon-zest | Lemon zest or peel | lemon zest, lemon peel, lemon peel strip, candied lemon peel, lemon zest strip and cinnamon stick, yuzu zest or lemon zest, yuzu zest | | | fv | v | 47 1.5 16 0.3 10.6 | each=6 |
+lime-juice | Lime juice | lime juice, key lime juice, yuzu juice, sour orange or lime, bitter orange juice | | | fv | f | 25 0.4 8.4 0.1 0.4 | tbsp=15,tsp=5,each=30 |
+lime-zest | Lime zest | lime zest, key lime zest | | | fv | v | 47 1.5 16 0.3 10.6 | each=4 |
+grapefruit | Grapefruit | grapefruit | | | fv | v | 42 0.8 11 0.1 1.6 | each=250 |
+berries | Mixed berries | berrie, berry, forest berrie, seasonal berrie, macerated berrie, bilberrie, lingonberrie, lingonberry | | | fv | f | 50 0.9 12 0.3 4 | handful=40 |
+strawberries | Strawberries | strawberry, strawberrie | | | fv | f | 32 0.7 7.7 0.3 2 | each=12 |
+raspberries | Raspberries | raspberry, raspberrie | | | fv | f | 52 1.2 12 0.7 6.5 | handful=40 |
+blueberries | Blueberries | blueberry, blueberrie | | | fv | f | 57 0.7 14 0.3 2.4 | handful=40 |
+cherries | Cherries | cherry, cherrie, black cherrie, sour cherrie, morello cherrie | | | fv | f | 63 1.1 16 0.2 2.1 | each=8 |
+cranberries | Cranberries | cranberry, cranberrie | | | fv | f | 46 0.5 12 0.1 4.6 | |
+peaches | Peaches | peache, peach, but firm freestone peache, apricot or peache | | | fv | v | 39 0.9 10 0.3 1.5 | each=150 |
+passionfruit | Passion fruit | passionfruit, passion fruit | | | fv | v | 97 2.2 23 0.7 10 | each=20 |
+kiwi | Kiwi fruit | kiwi fruit, kiwifruit, kiwi | | | fv | v | 61 1.1 15 0.5 3 | each=75 |
+watermelon | Watermelon | watermelon | | | fv | v | 30 0.6 7.6 0.2 0.4 | |
+pomegranate-seeds | Pomegranate seeds | pomegranate seed | | | fv | f | 83 1.7 19 1.2 4 | |
+dates | Dates | date, medjool date, jujube date | | | td | c | 282 2.5 75 0.4 8 | each=20 |
+raisins | Raisins | raisin, sultana, currant, golden raisin, raisins or currant, currants or raisin | | | td | c | 299 3.1 79 0.5 3.7 | handful=30 |
+prunes | Prunes | prune, sour plum | | sulphites | td | c | 240 2.2 64 0.4 7.1 | each=10 |
+barberries | Barberries | barberrie, barberry, saffron stained rice and barberrie | | | td | c | 316 4 70 4 7 | |
+tomatillos | Tomatillos | tomatillo | | | fv | v | 32 1 5.8 1 1.9 | each=35 |
+apple-sauce | Apple sauce | apple sauce | | | td | c | 68 0.2 17 0.1 1.2 | |
+ackee | Ackee (tinned) | ackee, canned ackee, tinned ackee | | | td | c | 151 2.9 0.8 15 2.7 | tin=540 |
+# ---- dried chillies
+dried-chillies | Dried chillies | guajillo chilli, guajillo chile, guajillo chili, guajillo chilie, guajillo, ancho chili, ancho chile, ancho chilli, ancho chilie, pasilla chilli, pasilla chile, mulato chile, mulato chilli, arbol chile, morita chipotle chilie, chipotle, sichuan red chilie, kashmiri chili, red chilie, dried chilli, cobanero chilli, guindilla, guindilla pepper, timur pepper | | | ss | s | 324 12 70 6 27 | each=4 |
+scotch-bonnet | Scotch bonnet or habanero | scotch bonnet, scotch bonnet pepper, scotch bonnet chili, scotch bonnet chilli, scotch bonnet chillie, habanero, habanero chili, habanero chillie, aji limo, aji limo or habanero, aji limo or rocoto, locoto or jalapeno | | | fv | v | 40 1.9 9 0.4 1.5 | each=10 |
+chipotle-adobo | Chipotles in adobo | chipotle pepper in adobo, chipotle chiles in adobo, chipotle peppers in adobo | | | td | c | 70 2 10 2 5 | each=15 | BR
+aji-amarillo | Aji amarillo paste | aji amarillo paste, aji amarillo, aji panca paste, aji sauce |  |  | ss | f | 60 1.5 10 1.5 3 | tbsp=15,each=20 | BR
+# ---- meat
+pork-shoulder | Pork shoulder | pork shoulder, pork, bone in pork shoulder, pork neck, pork knuckle, smoked pork knuckle, pork loin roast, salted pork, salt pork, cured pork belly | meat,pork |  | mf | f | 236 17 0 18 0 | each=1500 | 
+pork-belly | Pork belly | pork belly, skin on pork belly, pork belly slab, pork belly with skin, pork belly strip, smoked pork belly | meat,pork |  | mf | f | 518 9 0 53 0 | each=1000 | 
+pork-loin | Pork loin or chops | pork loin, pork chop, pork loin chop, pork tenderloin, pork loin cutlet, bone in pork rib chop | meat,pork | | mf | f | 143 21 0 6 0 | each=180 |
+pork-ribs | Pork ribs | pork rib, smoked rib, smoked pork rib, spare rib | meat,pork | | mf | f | 277 16 0 23 0 | |
+pork-mince | Pork mince | pork mince, minced pork, ground pork, pork sausage meat | meat,pork | | mf | f | 263 17 0 21 0 | |
+bacon | Bacon | bacon, smoked bacon, streaky bacon, thick cut bacon, lardon, smoked lardon, pancetta, guanciale, canadian bacon, back bacon | meat,pork | | mf | f | 417 13 0 40 0 | slice=25 | MT
+pork-fat | Pork fat (lard, salo) | pork fat, pork back fat, smoked pork fat, rendered pork fat, aged salo, caul fat, smoked bacon fat, pork skin with fat, pork skin aspic | meat,pork | | mf | f | 800 3 0 88 0 | |
+lard | Lard | lard, lard or shortening, lard or butter, lard or oil, lard or vegetable oil, lard or neutral oil, lard or pork fat, lard or margarine, beef dripping or lard | meat,pork | | td | f | 898 0 0 99 0 | tbsp=13 |
+animal-fat | Dripping or duck fat | beef dripping, beef tallow, duck fat, goose fat, lamb tail fat, tail fat, mutton fat, lamb fat or neutral oil, mutton fat or oil |  meat | | td | f | 898 0 0 99 0 | tbsp=13 |
+sausages | Sausages | sausage, pork sausage, italian sausage, toulouse sausage, smoked sausage, white sausage, boiled sausage, frankfurter, dog bun sausage, rookworst, smoked rookworst sausage, smoked strasbourg, kielbasa, smoked kielbasa, andouille sausage, merguez sausage, tasso ham or andouille, chinese sausage | meat,pork | | mf | f | 301 13 3 26 0 | each=60 | MT
+black-pudding | Blood sausage (morcilla) | morcilla, blood sausage, pig s blood | meat,pork | | mf | f | 297 10 15 22 0 | | MT
+cured-ham | Cured ham (prosciutto) | prosciutto, prosciutto crudo, serrano ham, njegusi prosciutto, jamon | meat,pork | | mf | f | 250 26 0 16 0 | slice=15 |
+salami | Salami | salami | meat,pork | | mf | f | 407 22 2 34 0 | slice=8 | MT
+ham-hock | Ham hock | ham hock, smoked ham hock | meat,pork | | mf | f | 210 19 0 15 0 | each=800 |
+char-siu | Char siu pork | char siu | meat,pork | | mf | f | 280 22 10 17 0 | | BR
+lamb | Lamb | lamb, lamb shoulder, bone in lamb shoulder, lamb on the bone, leg of lamb, bone in leg of lamb, lamb neck, lamb neck or shoulder, lamb shoulder or neck, lamb loin chop, lamb chop, freshest lamb, mutton, mutton on the bone, goat meat, lamb or beef, beef or lamb, lamb or veal | meat |  | mf | f | 282 17 0 23 0 | each=1500 | 
+veal | Veal | veal, veal escalope, veal shin, veal osso buco, veal eye of round, rabbit, rabbit piece, reindeer meat, kazy or horsemeat | meat |  | mf | f | 172 24 0 8 0 | each=150 | 
+beef-offal | Offal (liver, heart, tripe) | liver, beef liver, chicken liver, heart, beef heart, kidney, beef tripe, tripe, bone marrow | meat | | mf | f | 135 20 4 4 0 | |
+duck | Duck | duck, duck leg, duck breast, pekin duck, duck confit leg, brown duck, duck or chicken | meat |  | mf | f | 337 19 0 28 0 | each=300 | 
+turkey | Turkey | turkey, turkey or chicken, smoked turkey leg | meat | | mf | f | 135 30 0 1 0 | |
+chicken-mince | Chicken mince | chicken mince, minced chicken, ground chicken | meat | | mf | f | 143 17 0 8 0 | |
+foie-gras | Foie gras | foie gras | meat | | mf | f | 462 11 4.7 44 0 | |
+gelatine | Gelatine | gelatine, gelatin, sheet gelatin, leaf gelatine | gelatin | | td | c | 335 86 0 0 0 | each=2 |
+# ---- fish & seafood
+white-fish | White fish fillets | white fish, white fish fillet, firm white fish, firm white fish fillet, thick white fish fillet, cod, cod fillet, thick cod, thick cod fillet, haddock, sea bass, sea bass fillet, sea bream, branzino, dorado or sea bream, grouper or sea bream, tilapia, tilapia or sea bream, tilapia or carp, carp, catfish, catfish fillet, catfish steak, hake, pollock, sole, dover sole, black cod fillet, rockfish, bony rockfish, firm fish, tender fish, mixed firm fish, firm white ocean fish, barramundi or sea bass, nile perch or pike perch, sea bass or bream, river fish, fish, stockfish or fish, stockfish, whitebait, swordfish steak, trout | fish | fish | mf | f | 90 19 0 1.5 0 | each=500 | 
+smoked-haddock | Smoked haddock | smoked haddock, undyed smoked haddock fillet, smoked fish | fish | fish | mf | f | 101 23 0 0.9 0 | |
+tuna-steak | Tuna steak | tuna steak, sashimi grade ahi tuna, sushi grade ahi tuna loin, sushi grade sea bass, sashimi grade white fish | fish | fish | mf | f | 108 24 0 1 0 | |
+tinned-tuna | Tinned tuna | tinned tuna, canned tuna, tuna, tuna in olive oil, canned tuna in olive oil, smoked or tinned tuna, tuna or mackerel | fish | fish | td | c | 190 26 0 9 0 | tin=145 |
+mackerel | Mackerel or sardines | mackerel, sardine, herring, hilsa or herring, pickled herring | fish | fish | mf | f | 205 19 0 14 0 | each=150 |
+salt-cod | Salt cod | salt cod, saltfish | fish | fish | mf | f | 290 63 0 2.4 0 | |
+anchovies | Anchovies | anchovy, anchovie, anchovy fillet, oil packed anchovy fillet, anchovy fillets in oil | fish | fish | td | c | 210 29 0 10 0 | each=4 |
+dried-shrimp | Dried shrimp or shrimp paste | shrimp paste, belacan, belacan shrimp paste, terasi, terasi shrimp paste, bagoong shrimp paste, dried shrimp, maldive fish, crayfish | shellfish | crustaceans | ss | c | 250 50 5 3 0 | tsp=5,tbsp=15 |
+fish-roe | Fish roe | roe, roe or milt, whitefish or trout roe, fish roe | fish | fish | mf | f | 143 22 1.5 6.4 0 | |
+crab | Crab | crab, crab meat, dungeness crab, mud crab, jumbo lump blue crab meat | shellfish | crustaceans | mf | f | 87 18 0 1 0 | |
+lobster | Lobster (whole) | lobster, live lobster | shellfish | crustaceans | mf | f | 31 6.6 0 0.3 0 | each=600 |
+mussels | Mussels (in shell) | mussel, live mussel | shellfish | molluscs | mf | f | 26 3.6 1.1 0.7 0 | each=15 | 
+clams | Clams or cockles (in shell) | clam, littleneck clam, cockle, cockles or squid, conch or squid | shellfish | molluscs | mf | f | 26 4.5 1.1 0.3 0 | each=20 | 
+squid | Squid | squid, squid tube, squid tubes and tentacle, cuttlefish, octopus, calamari | shellfish | molluscs | mf | f | 92 16 3 1.4 0 | each=150 | 
+squid-ink | Squid ink | squid ink, cuttlefish ink, squid or cuttlefish ink | shellfish | molluscs | mf | f | 0 0 0 0 0 | |
+scallops | Scallops | scallop, king scallop, dry packed sea scallop | shellfish | molluscs | mf | f | 69 12 3.2 0.5 0 | each=30 |
+oysters | Oysters | oyster, live oyster, oysters on the half shell | shellfish | molluscs | mf | f | 68 7 3.9 2.5 0 | each=15 |
+prawn-shells | Prawn shells and heads | prawn shells and head, prawn shell | shellfish | crustaceans | mf | f | 20 4 0 0.3 0 | |
+fish-stock | Fish stock (gluten-free) | fish stock, fish stock or water, water or light fish stock, fish stock or clam juice, fish or chicken stock, prawn or chicken stock | fish | fish,celery | ss | c | 10 1.5 0.5 0.3 0 | each=10 | ST
+dashi | Dashi | dashi, dashi stock, ichiban dashi, water or dashi, anchovy kombu stock, anchovy kelp stock, water or anchovy stock | fish | fish | ss | c | 2 0.3 0.1 0 0 | | BR
+bonito-flakes | Bonito flakes (katsuobushi) | katsuobushi, bonito flake, katsuobushi and aonori | fish | fish | td | c | 340 77 0 3 0 | |
+fish-cake | Fish cake (kamaboko, eomuk) | kamaboko, kamaboko fish cake, eomuk | fish,gluten | fish,gluten | mf | f | 95 12 10 1 0 | | GF
+# ---- dairy & eggs
+egg-yolks | Egg yolks | egg yolk, yolk, coddled egg yolk, egg yolks pastry cream | egg | eggs | de | f | 322 16 3.6 27 0 | each=17 |
+egg-whites | Egg whites | egg white, aged egg white, aged egg whites divided whites tant pour tant | egg | eggs | de | f | 52 11 0.7 0.2 0 | each=33 |
+soured-cream | Soured cream | soured cream, sour cream, smetana, smetana or sour cream, full fat sour cream, thick soured cream, natilla or soured cream, kajmak, kajmak or soured cream, katyk or soured cream, mexican crema, soured cream and herb | dairy | milk | de | f | 198 2.4 4.6 19 0 | tbsp=15 |
+creme-fraiche | Crème fraîche | creme fraiche | dairy | milk | de | f | 292 2.4 2.6 30 0 | tbsp=15 |
+cream-cheese | Cream cheese | cream cheese, full fat cream cheese, catupiry or cream cheese, soft white cheese | dairy | milk | de | f | 253 5.5 4 24 0 | tbsp=15 |
+mascarpone | Mascarpone | mascarpone | dairy | milk | de | f | 429 4.6 4.8 44 0 | |
+ricotta | Ricotta | ricotta, milk ricotta, full fat sheep s milk ricotta | dairy | milk | de | f | 150 9.5 3 11 0 | |
+cottage-cheese | Curd cheese (tvorog, paneer-style) | curd cheese, dry curd cheese, firm curd cheese, curd cheese gjize, ayib or curd, cuajada cheese, cheddar cheese curd, quark, farmer cheese, paraguayan cheese, young salted cheese, datshi or feta cheese | dairy | milk | de | f | 145 17 3.5 7 0 | |
+paneer | Paneer | paneer | dairy | milk | de | f | 321 21 3 25 0 | |
+halloumi | Halloumi | halloumi, frying cheese, akkawi or mozzarella, suluguni | dairy | milk | de | f | 321 21 2 26 0 | |
+goats-cheese | Goat's cheese | goat cheese, goats cheese | dairy | milk | de | f | 320 21 1 26 0 | |
+blue-cheese | Blue cheese | blue cheese, blue cheese dip, celery sticks and blue cheese dressing | dairy | milk | de | f | 353 21 2.3 29 0 | |
+gruyere | Gruyère or Emmental | gruyere, gruyere cheese, gruyere or comte, comte, emmental, emmental or bergkase, vacherin fribourgeois, raclette, kashkaval cheese, swiss cheese, njegusi cheese, njegusi | dairy,animal-rennet | milk | de | f | 413 30 0.4 32 0 | |
+pecorino | Pecorino | pecorino, pecorino romano, kefalotyri, kefalotyri or parmesan, aged hard cheese, parmesan style hard cheese | dairy,animal-rennet | milk | de | f | 387 32 3.6 27 0 | tbsp=6 |
+cotija | Cotija (crumbly Mexican cheese) | cotija cheese, cotija, queso fresco | dairy | milk | de | f | 366 20 3 30 0 | |
+buttermilk | Buttermilk or kefir | buttermilk, kefir, matsoni or kefir, matsoni or yoghurt, matsun or plain yoghurt, katyk or full fat kefir, suzma or thick yoghurt, curdled milk, skyr, ersho or water kefir | dairy | milk | de | f | 52 3.4 4.8 1.5 0 | |
+evaporated-milk | Evaporated milk | evaporated milk | dairy | milk | td | c | 134 6.8 10 7.6 0 | tin=410 |
+condensed-milk | Condensed milk | condensed milk, sweetened condensed milk | dairy | milk | td | c | 321 7.9 54 8.7 0 | tin=397 |
+dulce-de-leche | Dulce de leche | dulce de leche | dairy | milk | td | c | 315 6.8 55 7.4 0 | |
+milk-powder | Milk powder | milk powder, full fat milk powder | dairy | milk | td | c | 496 26 38 27 0 | |
+ghee | Ghee or clarified butter | ghee, clarified butter, niter kibbeh, niter kibbeh spiced butter, niter kibbeh or ghee, ghee or butter, ghee or neutral oil, ghee or coconut oil, ghee or margarine, mustard oil or ghee, clarified butter or lard, neutral oil or ghee | dairy | milk | td | c | 900 0 0 100 0 | tbsp=13,tsp=4 |
+mayonnaise | Mayonnaise | mayonnaise, full fat mayonnaise, japanese mayonnaise, kewpie mayonnaise | egg | eggs,mustard | ss | f | 680 1 1 75 0 | tbsp=14 | BR
+ice-cream | Vanilla ice cream | vanilla ice cream, ice cream | dairy,egg | milk,eggs | fz | z | 207 3.5 24 11 0.7 | |
+margarine | Margarine | margarine, margarine or lard | | | de | f | 717 0.2 0.7 80 0 | tbsp=14 |
+# ---- grains, flours, starches
+cooked-rice | Cooked rice | cooked rice, day old rice, day old jasmine rice, leftover rice, cooked white rice, cooked basmati rice, steamed rice, cooked jasmine rice, boiled rice, cold cooked rice, cooked short grain rice | | | td | f | 130 2.7 28 0.3 0.4 | |
+teff-flour | Teff flour | teff flour, teff | | | td | c | 366 13 73 2.4 8 | | GF
+sourdough-starter | Sourdough starter (rye or wheat) | rye starter, rye sourdough starter, sourdough starter, rye malt | gluten | gluten | td | f | 200 6 40 1 3 | |
+bors | Borș (fermented wheat bran) | bran bors, bors | gluten | gluten | td | f | 20 0.5 4 0 0 | |
+rice-cakes | Korean rice cakes (tteok) | garae tteok, tteok, rice cake, tteokbokki tteok | | | td | f | 230 4 50 0.5 0.5 | | GF
+dried-mushrooms | Dried mushrooms (porcini, shiitake) | dried porcini, dried shiitake, porcini, porcini mushroom, dried mushroom, dried porcini mushroom, dried shiitake mushroom | | | td | c | 300 25 55 3 30 | |
+vine-leaves | Vine leaves | vine leave, grape leave, vine leaf, grape leaf | | | td | c | 93 5.6 17 2.1 11 | each=3 |
+dried-yogurt | Dried yogurt (jameed, qurut) | jameed, qurut, kashk | dairy | milk | td | c | 330 40 25 8 0 | |
+palm-fruit | Palm fruit concentrate | palm fruit pulp, palm nut cream, palm nut concentrate | | | td | c | 300 2 8 30 5 | |
+ginseng | Ginseng root | ginseng root, ginseng | | | fv | f | 0 0 0 0 0 | each=10 |
+salsa | Salsa | salsa, salsa verde, salsa roja, salsa verde or salsa roja, pico de gallo | | | ss | f | 36 1.5 7 0.2 2 | tbsp=15 | BR
+soup-bones | Bones for stock | marrow bone, beef marrow bone, beef bone, chicken carcass, ham bone, soup bone, pork bone, veal bone, lamb bone, beef marrow bones | meat |  | mf | f | 15 2 0 0.7 0 | each=300 | 
+fish-bones | Fish bones and heads (for stock) | fish frame, fish head, salmon head and bone, rockfish fish frame, whole rockfish fish frame, fish bone, fish trimming | fish | fish | mf | f | 10 2 0 0.3 0 | |
+dried-pasta | Dried pasta | pasta, rigatoni, penne, short pasta, elbow macaroni, macaroni, orzo, jumbo pasta shell, short macaroni, rigatoni or spaghetti, short pasta ditalini, rigatoni or other short, fusilli, farfalle, tagliatelle, pappardelle, fettuccine, ditalini | gluten | gluten | td | c | 357 12 72 1.5 3 | |
+gf-lasagne | Gluten-free lasagne sheets | gluten free lasagne sheet | | | td | c | 357 7 79 1.5 2 | each=20 | GF
+gf-gnocchi | Gluten-free gnocchi | gluten free gnocchi | | | td | f | 150 2 33 0.5 2 | | GF
+gf-biscuits | Gluten-free biscuits | gluten free biscuit, gluten free digestive | dairy | milk | td | c | 480 5 68 21 3 | each=15 | GF
+gf-beer | Gluten-free beer | gluten free beer | alcohol | | dr | c | 40 0.3 3.5 0 0 | | GF
+gf-asafoetida | Asafoetida (gluten-free) | gluten free asafoetida | | | ss | s | 297 4 68 1 4 | pinch=0.3 | GF
+sunflower-butter | Sunflower seed butter | sunflower seed butter | | | td | c | 617 17 23 55 6 | tbsp=16 | NUT
+soya-milk | Soya milk | soya milk, soy milk | | soya | dr | f | 42 3.3 2.4 1.8 0.5 | |
+long-grain-rice | Long-grain rice | rice, white rice, long grain rice, long grain white rice, long grain parboiled rice, grain rice, red rice, broken rice, devzira, devzira rice | | | td | c | 360 7 79 0.6 1.3 | |
+short-grain-rice | Short-grain (sushi) rice | short grain rice, short grain white rice, japanese short grain rice, short grain japanese rice, sushi rice, pudding rice, bomba rice, bomba or calasparra rice, calasparra rice | | | td | c | 358 6.5 79 0.5 1 | |
+glutinous-rice | Glutinous (sticky) rice | glutinous rice, sticky rice, thai glutinous rice | | | td | c | 370 6.8 81 0.6 2.8 | |
+brown-rice | Brown rice | brown rice | | | td | c | 362 7.5 76 2.7 3.4 | |
+rice-flour | Rice flour | rice flour, glutinous rice flour, mochiko, shiratamako | | | td | c | 366 6 80 1.4 2.4 | tbsp=10 | GF
+potato-starch | Potato or tapioca starch | potato starch, katakuriko, tapioca starch, cassava starch, arrowroot | | | td | c | 357 0.1 88 0.1 0.9 | tbsp=10,tsp=3 |
+polenta | Polenta or cornmeal | polenta, cornmeal, maize flour, maize meal, stone coarse cornmeal, stone coarse grit, grit, corn flour, precooked corn flour, masarepa corn flour, kama flour, sorghum or wheat flour | | | td | c | 370 8 79 1.8 4 | | GF
+masa-harina | Masa harina | masa harina | | | td | c | 365 9 76 4 6 | | GF
+egg-noodles | Egg noodles | egg noodle, wheat noodle, thin wheat noodle, thin shanghai noodle, ramen noodle, lo mein noodle, udon noodle, udon, chow mein noodle | gluten,egg | gluten,eggs | td | c | 384 14 71 4.4 3.3 | nest=60 |
+soba | Soba noodles | soba noodle, soba | gluten | gluten | td | c | 336 14 68 1.7 4 | | GF
+glass-noodles | Glass noodles | glass noodle, dangmyeon, cellophane noodle, mung bean vermicelli, shirataki noodle | | | td | c | 351 0.2 86 0.1 0.5 | | GF
+gnocchi | Potato gnocchi | potato gnocchi, gnocchi | gluten | gluten | td | f | 133 3 30 0.2 1.5 | |
+lasagne-sheets | Lasagne sheets | lasagne sheet, lasagna sheet, lasagne | gluten | gluten | td | c | 360 12 72 1.5 3 | each=20 |
+vermicelli-wheat | Wheat vermicelli | vermicelli | gluten | gluten | td | c | 360 12 74 1.5 3 | |
+dumpling-wrappers | Dumpling wrappers | gyoza wrapper, wonton wrapper, dumpling wrapper, empanada disc | gluten | gluten | td | f | 290 9 58 1.5 2 | each=8 |
+gf-pastry | Gluten-free pastry | gluten free pastry, gluten free puff pastry | | eggs | td | f | 400 4 45 22 2 | | GF
+puff-pastry | Puff pastry | puff pastry, all butter puff pastry, puff pastry or shortcrust | gluten,dairy | gluten,milk | de | f | 558 7.4 46 38 1.5 | |
+shortcrust-pastry | Shortcrust pastry | shortcrust pastry, inch pie shell, pie crust | gluten,dairy | gluten,milk | de | f | 527 6.5 55 31 2 | |
+filo-pastry | Filo pastry | filo pastry, phyllo pastry, filo pastry sheet, phyllo pastry sheet, phyllo dough, yufka or filo pastry, malsouka or filo sheet, warqa or filo pastry, kataifi pastry | gluten | gluten | de | f | 299 7.1 61 2.9 1.9 | each=20 |
+strong-flour | Strong bread flour | strong flour, bread flour, high gluten bread flour, semola rimacinata, semolina flour, wholemeal flour, spelt flour, rye flour, atta, atta dough, atta dough sealing | gluten | gluten | td | c | 361 12 72 1.5 3 | tbsp=8 |
+semolina | Semolina | semolina, fine semolina | gluten | gluten | td | c | 360 13 73 1.1 3.9 | |
+yeast | Dried yeast | yeast, dry yeast, instant yeast, active dry yeast, instant dry yeast, ersho starter | | | td | c | 325 40 41 7.6 27 | tsp=3 |
+bicarb | Bicarbonate of soda | bicarbonate of soda, baking soda, bicarb | | | td | c | 0 0 0 0 0 | tsp=5 |
+cream-of-tartar | Cream of tartar | cream of tartar | | | td | c | 258 0 62 0 0 | tsp=3 |
+breadcrumbs | Breadcrumbs | breadcrumb, panko breadcrumb, fine breadcrumb, dry breadcrumb, panko, tenkasu tempura scrap, panko breadcrumbs in butter, breadcrumbs in heavy cream | gluten | gluten | td | c | 395 13 72 5 4.5 | tbsp=8 |
+barley | Pearl barley | pearl barley, barley | gluten | gluten | td | c | 352 10 78 1.2 15 | |
+farro | Farro or freekeh | farro, pearled farro, semi pearled farro, emmer wheat farro, freekeh, wheat berrie, wheat | gluten | gluten | td | c | 340 13 72 2 10 | |
+buckwheat | Buckwheat groats | buckwheat, buckwheat groat, kasha | | | td | c | 343 13 72 3.4 10 | | GF
+millet | Millet or sorghum | millet, sorghum | | | td | c | 378 11 73 4.2 8.5 | | GF
+brioche | Brioche or buns | brioche, bun, hamburger bun, martin s potato roll, dog bun, mantou bun, english muffin, buns | gluten,dairy,egg | gluten,milk,eggs | bk | c | 346 8 50 12 2 | each=60 |
+flatbread | Flatbread (pitta, naan, lavash) | flatbread, pita bread, pita, pitta, day old pita bread, lavash bread, lavash, thin lavash, naan, roti, roti or paratha, injera, somun flatbread, pide flatbread, taboon flatbread, cypriot pita, fatir flatbread, unleavened corek flatbread, thin flatbread, arepa | gluten | gluten | bk | c | 275 9 55 1.2 2.2 | each=70 |
+gf-flatbread | Gluten-free flatbread or wrap | gluten free flatbread, gluten free wrap, gluten free pitta, gluten free naan | | | bk | c | 280 5 50 6 4 | each=60 | GF
+popcorn | Popcorn (plain) | popcorn, plain popcorn | | | td | c | 387 13 78 4.5 15 | handful=8 | BR
+baguette | Baguette | baguette, crusty baguette, grilled baguette slice | gluten | gluten | bk | c | 270 9 56 1 2.4 | each=250,slice=20 |
+rye-bread | Rye bread | rye bread, dark rye bread | gluten | gluten | bk | c | 259 8.5 48 3.3 5.8 | slice=32 |
+biscuits | Digestive biscuits | digestive biscuit, graham cracker, graham cracker crumb, shortbread biscuit, gingersnap cookie, milk biscuit, savoiardi, ladyfinger, oyster cracker, gingerbread | gluten,dairy | gluten,milk | td | c | 480 7 66 21 3 | each=15 | NUT
+cornflakes | Cornflakes | cornflake | gluten | gluten | td | c | 378 7 84 0.9 3 | | GF
+crisps | Plantain crisps or chips | plantain crisp, cancha or chifle | | | td | c | 530 2.3 60 32 3 | | GF
+oat-flour-gf | Gluten-free oat flour | gluten free oat flour | | | td | c | 400 13 66 9 7 | | OAT
+# ---- pulses, nuts, seeds
+lentils-brown | Green or brown lentils | lentil, green lentil, brown lentil, brown or green lentil, green or brown lentil, puy lentil | | | td | c | 352 25 63 1 11 | |
+yellow-split-peas | Split peas or dal | yellow split pea, split pea, green split pea, toor dal, chana dal, moong dal, yellow moong dal, split yellow mung dal, yellow lentil, urad dal, black urad dal, grey pea, fried split pea, chickpea dal | | | td | c | 341 24 60 1.2 25 | | GF
+white-beans | White beans (cannellini, butter beans) | white bean, cannellini bean, butter bean, white butter bean, canned butter bean, haricot bean, great northern bean, gigantes bean, tarbais bean, fabes bean, navy bean, lima bean, baby lima bean, borlotti, borlotti bean, beans, bean | | | td | c | 114 7.5 20 0.5 6 | tin=400 |
+lupini-beans | Lupini beans | lupini bean, lupin bean, lupini | | lupin | td | c | 119 16 10 2.9 4.5 | |
+black-eyed-peas | Black-eyed beans | black eyed pea, black eyed bean, pigeon pea, ful medames bean | | | td | c | 116 7.7 21 0.5 6.5 | tin=400 |
+baked-beans | Baked beans | baked bean | | | td | c | 84 4.8 15 0.6 3.8 | tin=415 | BR
+soybeans | Soybeans | soybeans, fermented locust bean | | soya | td | c | 446 36 30 20 9 | |
+tempeh | Tempeh | tempeh | | soya | de | f | 193 20 9 11 0 | |
+silken-tofu | Silken tofu | silken tofu, soft tofu, silken, silken or soft tofu | | soya | de | f | 55 4.8 2.9 2.7 0.1 | block=300 |
+tofu-puffs | Fried tofu puffs | fried tofu puff, fried tofu | | soya | de | f | 270 19 9 20 4 | |
+almonds | Almonds | almond, blanched almond, flaked almond, slivered almond, cilantro and almond sliver |  | nuts | td | c | 579 21 22 50 12 | handful=30,each=1.2 | 
+hazelnuts | Hazelnuts | hazelnut, blanched hazelnut, hazelnut flour, praline paste |  | nuts | td | c | 628 15 17 61 10 | each=1.5 | 
+pistachios | Pistachios | pistachio, shelled pistachio |  | nuts | td | c | 560 20 28 45 10 | each=0.7 | 
+pecans | Pecans | pecan, pecan halve, macadamia, brazil nut |  | nuts | td | c | 691 9 14 72 10 | each=5 | 
+candlenuts | Candlenuts | candlenut, candlenuts or macadamia, kerisik, cashews or hazelnut | | nuts | ss | c | 620 9 8 63 3 | each=4 |
+chestnuts | Chestnuts | chestnut |  | nuts | td | c | 213 2.4 46 2.3 5.1 | each=10 | 
+almond-milk | Almond milk | almond milk | | nuts | dr | f | 15 0.6 0.3 1.2 0.2 | |
+pumpkin-seeds | Pumpkin seeds | pumpkin seed, pepita | | | td | c | 559 30 11 49 6 | tbsp=9 | NUT
+egusi | Egusi (melon seeds) | egusi, egusi seed | | | td | c | 557 28 15 47 4 | | NUT
+nigella-seeds | Nigella or poppy seeds | nigella seed, poppy seed, black seed | | | ss | s | 525 18 28 42 20 | tsp=3 |
+chia-flax | Chia or flax seeds | chia seed, flaxseed, linseed | | | td | c | 486 17 42 31 34 | tbsp=10 |
+coconut | Desiccated coconut | desiccated coconut, desiccated, coconut, coconut flake, grated coconut | coconut | | td | c | 660 6.9 24 64 16 | tbsp=6 |
+coconut-cream | Coconut cream | coconut cream, full fat coconut cream, condensed coconut milk | coconut | | td | c | 330 3.6 6.7 35 2.2 | tin=400 |
+coconut-oil | Coconut oil | coconut oil, vegetable oil or palm oil, red palm oil, palm oil, dende, dende oil, dende palm oil | coconut | | td | c | 892 0 0 99 0 | tbsp=13,tsp=4 |
+coconut-water | Coconut water | coconut water, young coconut water, young green coconut water | coconut | | dr | c | 19 0.7 3.7 0.2 1.1 | |
+# ---- sauces, condiments, pastes
+coleslaw | Coleslaw | coleslaw | egg | eggs,mustard | fv | f | 150 1 9 12 2 | | BR
+oyster-sauce | Oyster sauce | oyster sauce, oyster flavored sauce | shellfish,gluten | molluscs,gluten,soya | ss | c | 51 1.4 11 0.3 0.3 | tbsp=18,tsp=6 |
+gf-oyster-sauce | Oyster sauce (gluten-free) | gluten free oyster sauce | shellfish | molluscs,soya | ss | c | 51 1.4 11 0.3 0.3 | tbsp=18,tsp=6 | GF
+hoisin | Hoisin sauce | hoisin sauce, hoisin | gluten | gluten,soya,sesame | ss | c | 220 3.3 44 3.4 2.8 | tbsp=18 |
+gf-hoisin | Hoisin sauce (gluten-free) | gluten free hoisin sauce | | soya,sesame | ss | c | 220 3.3 44 3.4 2.8 | tbsp=18 | GF
+dark-soy | Dark soy sauce | dark soy sauce | gluten | gluten,soya | ss | c | 100 7 14 0 0 | tbsp=18,tsp=6 |
+kecap-manis | Kecap manis (sweet soy sauce) | kecap manis, sweet soy sauce | gluten | gluten,soya | ss | c | 250 4 58 0 0 | tbsp=20 |
+gf-kecap-manis | Gluten-free sweet soy sauce | gluten free sweet soy sauce, gluten free kecap manis | | soya | ss | c | 250 4 58 0 0 | tbsp=20 | GF
+gochujang | Gochujang | gochujang, red pepper paste, biber salcas pepper paste, biber salcasi | gluten | gluten,soya | ss | f | 230 5 45 2 3 | tbsp=18 |
+gf-gochujang | Gluten-free gochujang | gluten free gochujang | | soya | ss | f | 230 5 45 2 3 | tbsp=18 | GF
+doenjang | Doenjang (soybean paste) | doenjang, soybean paste | gluten | gluten,soya | ss | f | 190 12 18 7 5 | tbsp=18 |
+doubanjiang | Doubanjiang (chilli bean paste) | doubanjiang, chilli bean paste, chili bean paste, fermented black bean, fermented red bean curd | gluten | gluten,soya | ss | c | 180 9 15 9 6 | tbsp=18 |
+black-vinegar | Chinese black vinegar | chinkiang black vinegar, chinkiang black rice vinegar, black vinegar, black vinegar dipping | gluten | gluten | ss | c | 54 1 10 0 0 | tbsp=15 |
+shaoxing | Shaoxing rice wine | shaoxing rice wine, shaoxing wine, rice wine, chinese cooking wine | gluten,alcohol | gluten,sulphites | ss | c | 130 1.6 4 0 0 | tbsp=15 |
+dry-sherry | Dry sherry | dry sherry, sherry, rice wine or dry sherry, madeira, dry madeira, marsala, marsala wine, dry marsala wine, sweet wine, tej or dry white wine | alcohol | sulphites | dr | c | 140 0.2 6 0 0 | tbsp=15 |
+sake | Sake | sake, mirin or dry sake | alcohol | sulphites | dr | c | 134 0.5 5 0 0 | tbsp=15 |
+white-wine | Dry white wine | dry white wine, white wine, alsatian riesling, dry white wine or water, dry hard cider, apple cider | alcohol | sulphites | dr | c | 82 0.1 2.6 0 0 | |
+red-wine | Red wine | red wine, dry red wine, full bodied red wine, young red burgundy, burgundy, red wine or tej, water or dry red wine | alcohol | sulphites | dr | c | 85 0.1 2.6 0 0 | |
+beer | Beer or ale | beer, dark beer, lager, ice lager, ice lager beer, pale beer, brown ale, ice pale ale, mexican lager beer, stout, dark belgian beer, ale, pale ale, amber beer, dark amber beer, ice cold pale ale, ice cold lager | alcohol,gluten | gluten | dr | c | 43 0.5 3.6 0 0 | |
+spirits | Spirits (brandy, rum) | brandy, cognac, cognac or brandy, brandy or cognac, cognac or armagnac, rum, dark rum, kirsch, grand marnier, orange liqueur, pernod, pastis or pernod, ouzo or pernod, anise liqueur, aquavit or vodka, rakija or rum, vodka | alcohol | | dr | c | 231 0 0 0 0 | tbsp=15 |
+cider-vinegar | Cider vinegar | apple cider vinegar, cider vinegar | | | ss | c | 21 0 0.9 0 0 | tbsp=15,tsp=5 |
+white-wine-vinegar | White wine vinegar | white wine vinegar, vinegar, white vinegar, cane vinegar, sherry vinegar, cane or rice vinegar, vinegar the sauce | | sulphites | ss | c | 19 0 0.3 0 0 | tbsp=15,tsp=5 |
+balsamic | Balsamic vinegar | balsamic vinegar, balsamic | | sulphites | ss | c | 88 0.5 17 0 0 | tbsp=15 |
+dijon-mustard | Mustard | dijon mustard, mustard, yellow mustard, english mustard, grain dijon mustard, wholegrain mustard, mustard the sauce | | mustard | ss | f | 66 4.4 5.8 4 3.3 | tsp=5,tbsp=15 | BR
+mustard-seeds | Mustard seeds or powder | mustard seed, black mustard seed, mustard powder | | mustard | ss | s | 508 26 28 36 12 | tsp=3 |
+peanut-oil | Groundnut (peanut) oil | groundnut oil, peanut oil, groundnut oil or vegetable oil | | peanuts | td | c | 884 0 0 100 0 | tbsp=13,tsp=4 |
+mustard-oil | Mustard oil | mustard oil | | mustard | td | c | 884 0 0 100 0 | tbsp=13 |
+horseradish | Horseradish | horseradish | | | ss | f | 48 1.2 11 0.7 3.3 | tbsp=15 | BR
+harissa | Harissa | harissa, harissa paste | | | ss | c | 120 3 10 8 5 | tsp=5,tbsp=15 | BR
+sriracha | Hot sauce (sriracha, Tabasco) | sriracha, hot sauce, frank s redhot original sauce, pepper sauce, tabasco, sriracha or chili oil, salsa lizano, shito sauce, zhug, zhug sauce, sambal, sambal oelek, sambal paste, toum, rouille, amba, piri piri chillie | | | ss | c | 93 1.9 19 0.9 2.2 | tsp=5,tbsp=15 | BR
+chilli-oil | Chilli oil or crisp | chili oil, chilli oil, chili crisp, chili oil with sediment | | | ss | c | 700 2 6 75 2 | tsp=5,tbsp=13 | BR
+tomato-passata | Passata | tomato passata, passata, tomato sauce, tomato passata smooth puree, tomato juice, tomatoes a spoon of tomato paste | | | td | c | 30 1.4 5 0.2 1.2 | |
+pomegranate-molasses | Pomegranate molasses | pomegranate molasse, pomegranate molasses | | | ss | c | 266 0 66 0 0 | tbsp=20 |
+sumac | Sumac | sumac | | | ss | s | 239 4.3 64 14 28 | tsp=3 |
+thai-red-paste | Thai red or massaman curry paste | thai red curry paste, red curry paste, massaman curry paste, laksa paste, mole negro paste, green papaya paste | shellfish | crustaceans | ss | f | 130 3 15 6 4 | tbsp=15 | BR
+curry-roux | Japanese curry roux | japanese curry roux block, curry roux | gluten | gluten | ss | c | 512 6 46 34 2 | each=20 |
+achiote | Achiote (annatto) paste | achiote paste, achiote, annatto, annatto seed, achiote or paprika | | | ss | s | 300 5 40 10 15 | tbsp=15 | SP
+tonkatsu-sauce | Tonkatsu or okonomiyaki sauce | tonkatsu sauce, okonomiyaki sauce, okonomi sauce, browning sauce | gluten | gluten,soya | ss | c | 130 1 30 0.2 1 | tbsp=18 |
+ponzu | Ponzu | ponzu sauce, ponzu | gluten | gluten,soya | ss | c | 60 4 10 0 0 | tbsp=15 |
+umeboshi | Umeboshi | umeboshi, umeboshi or tuna mayo | | | td | f | 30 1 5 0.5 3 | each=10 |
+nori | Nori or wakame seaweed | nori, nori sheet, wakame, kombu, aonori, seaweed | | | td | c | 35 6 5 0.3 0.3 | each=3 |
+red-bean-paste | Sweet red bean paste | red bean paste, tsubuan or koshian, tsubuan, koshian | | | td | c | 240 5 55 0.5 6 | |
+kinako | Kinako (roasted soy flour) | kinako dusting, kinako | | soya | td | c | 450 37 28 26 18 | |
+matcha | Matcha | matcha, matcha powder, ceremonial grade matcha powder, green tea | | | dr | c | 324 30 39 5 39 | tsp=2 |
+coffee | Espresso or coffee | espresso, strong espresso, instant espresso powder, coffee | | | dr | c | 9 0.1 1.7 0.2 0 | tsp=2 |
+black-tea | Black tea | strong brewed black tea, black tea, fermented tea leave | | | dr | c | 1 0 0.3 0 0 | |
+cocoa | Cocoa powder | cocoa powder, cocoa, unsweetened cocoa powder, dutch process cocoa powder, unsweetened dutch process cocoa powder, cocoa the icing | | | td | c | 228 20 58 14 37 | tbsp=7 | NUT
+dark-chocolate | Dark chocolate | dark chocolate, bittersweet chocolate, mini dark chocolate chip, chocolate chip, dark chocolate glaze, chocolate sprinkle, chocolate the glaze, dark chocolate fondant glaze | dairy | milk | td | c | 546 4.9 61 31 7 | | NUT
+jam | Jam | jam, apricot jam, plum jam, blackcurrant jam, lingonberry jam, cranberry jam, lingonberry sauce, sour cream and jam, apricot chutney | | | td | c | 250 0.4 63 0 1 | tbsp=20 |
+golden-syrup | Golden syrup or treacle | golden syrup, treacle, golden syrup or treacle, light corn syrup, dark corn syrup, corn syrup, maltose syrup, simple syrup, apple or dark syrup, date syrup, date paste | | | td | c | 325 0.3 81 0 0 | tbsp=20 |
+icing-sugar | Icing sugar | icing sugar, powdered sugar, confectioners sugar, sugar coating, cinnamon and icing sugar | | | td | c | 398 0 100 0 0 | tbsp=8 |
+palm-sugar | Palm or rock sugar | palm sugar, rock sugar, jaggery, chancaca, panela, cane sugar block | | | td | c | 383 0.4 95 0.1 0 | tbsp=12 |
+vanilla | Vanilla extract or pod | vanilla, vanilla extract, pure vanilla extract, vanilla bean, vanilla pod, vanilla sugar, vanilla extract and fine salt, kosher salt and vanilla extract | | | td | c | 288 0.1 13 0.1 0 | tsp=4,each=3 |
+rose-water | Rose or orange blossom water | rose water, rosewater, orange blossom water, kewra water | | | td | c | 2 0 0.3 0 0 | tsp=5,tbsp=15 |
+agar | Agar agar | agar agar powder, agar | | | td | c | 26 0.5 7 0 0.5 | tsp=2 |
+rennet | Rennet | rennet | animal-rennet | | td | f | 0 0 0 0 0 | tsp=5 |
+curing-salt | Curing salt | curing salt | | | td | c | 0 0 0 0 0 | tsp=6 |
+food-colour | Food colouring | orange food colouring, food colouring | | | td | c | 0 0 0 0 0 | tsp=5 |
+truffle-oil | Truffle oil | truffle oil, black truffle | | | td | c | 884 0 0 100 0 | tsp=4 |
+stock-cubes-gf | Gluten-free stock cube | salt and seasoning cube, salt and seasoning cubes, seasoning cube | | celery | ss | c | 250 10 25 12 1 | each=10 | ST
+demi-glace | Gluten-free gravy or demi-glace | veal demi glace, demi glace, meat gravy, gravy | meat | celery | ss | c | 40 3 5 1 0 | | GF
+pate | Chicken liver pâté | chicken liver pate | meat | | mf | f | 319 13 3 28 0 | | MT
+# ---- spices & seasonings
+ground-ginger | Ground ginger | ground ginger, ginger powder, dry ginger | | | ss | s | 335 9 72 4.2 14 | tsp=2 |
+cumin-seeds | Cumin seeds | cumin seed, caraway seed, caraway, salt and caraway seed, ajwain seed | | | ss | s | 375 18 44 22 11 | tsp=2 |
+coriander-seeds | Coriander seeds | coriander seed | | | ss | s | 298 12 55 18 42 | tsp=2 |
+fennel-seeds | Fennel or anise seeds | fennel seed, ground fennel, anise seed, aniseed, star anise, celery seed | | | ss | s | 345 16 52 15 40 | tsp=2,each=1 |
+cardamom | Cardamom | cardamom, cardamom pod, green cardamom pod, black cardamom pod, black cardamom, cardamom pods and bay leaf | | | ss | s | 311 11 68 6.7 28 | each=0.3,tsp=2 |
+cloves | Cloves | clove, cloves | | | ss | s | 274 6 66 13 34 | each=0.1,tsp=2 |
+allspice | Allspice | allspice, allspice berrie, allspice and white pepper | | | ss | s | 263 6 72 8.7 22 | tsp=2,each=0.2 |
+nutmeg | Nutmeg or mace | nutmeg, mace, mace blade, nutmeg and cinnamon, nutmeg and pepper |  |  | ss | s | 525 6 49 36 21 | tsp=2,pinch=0.3,each=5 | 
+cinnamon-stick | Cinnamon sticks | cinnamon stick, cassia bark, mexican cinnamon stick, mexican cinnamon | | | ss | s | 247 4 81 1.2 53 | each=3 |
+saffron | Saffron | saffron, saffron thread, saffron strand, saffron strands steeped in tbsp milk | | | ss | s | 310 11 65 6 4 | pinch=0.1 |
+white-pepper | White pepper | white pepper, white peppercorn, fine white pepper | | | ss | s | 296 10 69 2 26 | tsp=2 |
+sichuan-pepper | Sichuan peppercorns | sichuan peppercorn | | | ss | s | 300 7 60 9 30 | tsp=2 |
+juniper | Juniper berries | juniper berrie, juniper berry | | | ss | s | 300 4 60 16 40 | each=0.2 |
+fenugreek-seeds | Fenugreek seeds | fenugreek seed, fenugreek | | | ss | s | 323 23 58 6.4 25 | tsp=4 |
+asafoetida | Asafoetida | asafoetida, hing | gluten | gluten | ss | s | 297 4 68 1 4 | pinch=0.3 | SP
+five-spice | Chinese five-spice | five spice powder, chinese five spice powder, five spice | | | ss | s | 300 10 65 8 25 | tsp=2 | SP
+amchur | Amchur (dried mango powder) | amchur, amchoor, amchur or lemon juice | | | ss | s | 330 3 80 2 10 | tsp=2 |
+chaat-masala | Chaat masala | chaat masala, chaat masala and lemon wedge | | | ss | s | 250 10 50 4 20 | tsp=3 | SP
+spice-blend | Spice blend | spice blend, spice, spices, baharat, baharat spice mix, berbere, berbere spice blend, mitmita spice, khmeli suneli, hawaij spice mix, bizar spice mix, shawarma spice blend, kabsa baharat, seven spice, seven spice mix, quatre epice, biryani masala, char masala, tarka spice, suya spice mix, creole seasoning, old bay seasoning, bbq dry rub, pumpkin pie spice, sazon, cayenne pepper and garlic powder, smoked paprika and oregano, mexican cinnamon or spices, panch phoron, zaatar | | | ss | s | 300 12 55 8 25 | tsp=2.5,tbsp=7 | SP
+ginger-garlic-paste | Ginger-garlic paste | ginger garlic paste, garlic ginger paste, garlic and ginger | | | ss | f | 100 3 20 1 3 | tsp=5,tbsp=15 |
+onion-powder | Onion powder | onion powder | | | ss | s | 341 10 79 1 15 | tsp=2.5 |
+lime-loomi | Dried lime (loomi) | lime loomi, persian limes limoo omani, loomi, dried lime, goraka or tamarind, kukum puli | | | ss | s | 250 2 60 1 15 | each=6 |
+mahlab | Mahlab | mahlab | | nuts | ss | s | 400 15 50 20 10 | tsp=2 |
+smoking-wood | Wood chips (for smoking) | hickory, smoking wood chip, hardwood chunk, post oak wood split, food grade beeswax |  |  | td | c | 0 0 0 0 0 | each=100 | 
+sausage-casings | Sausage casings | sausage casing | meat,pork | | mf | f | 0 0 0 0 0 | |

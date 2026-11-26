@@ -56,7 +56,18 @@ def main():
     report = html.unescape(match.group(1)) if match else "Couldn't read the report.\nPROBLEMS: 1"
     print(report)
     ok = re.search(r"PROBLEMS: 0\b", report)
-    sys.exit(0 if ok else 1)
+
+    # Coeliac / nut safety of the recipe WORDS (tools/safety_scan.py).
+    sys.path.insert(0, str(ROOT / "tools"))
+    import safety_scan
+    problems = safety_scan.scan()
+    print("\nSafety scan of recipe text (gluten words in gluten-free recipes, nut words in nut-free ones):")
+    for rid, where, word, ctx in problems[:50]:
+        print(f"  {rid} | {where} | {word} | {ctx}")
+    if len(problems) > 50:
+        print(f"  … and {len(problems) - 50} more (run python tools/safety_scan.py)")
+    print(f"SAFETY PROBLEMS: {len(problems)}")
+    sys.exit(0 if ok and not problems else 1)
 
 
 if __name__ == "__main__":

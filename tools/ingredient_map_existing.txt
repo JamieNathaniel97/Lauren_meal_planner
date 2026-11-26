@@ -1,0 +1,152 @@
+# Match phrases for ingredients that already exist in data/ingredients.json.
+# Format: id | phrases (comma separated; matched as whole words in the
+# normalised name, longest match wins; a trailing s/es plural also matches)
+onion | onion, yellow onion, white onion, brown onion, sweet onion, spanish onion, thin onion, onion half
+red-onion | red onion, purple onion
+spring-onion | spring onion, scallion, green onion, scallion green, spring onion green, green onion top, spring onion or leek, onion leek
+garlic | garlic, garlic clove, head of garlic, garlic bulb, garlic paste
+ginger | ginger, root ginger, ginger slice, ginger paste
+carrot | carrot, yellow carrot, yellow and red carrot
+celery | celery, celery stalk, celery stick, inner celery rib, celery stalks with leaves
+leek | leek
+potato | potato, chip, chips, fries, french fry, french fries, waxy potato, floury potato, yukon gold potato, maris piper, russet, yellow potato, boiled potato, yellow fleshed potato, potatoes rosti
+baby-potatoes | baby potato, new potato
+sweet-potato | sweet potato, orange flesh sweet potato, camote, japanese sweet potato
+red-pepper | red pepper, red bell pepper, bell pepper, sweet pepper, red and green bell pepper, mixed sweet bell pepper, fleshy red pepper, red and yellow bell pepper, green and red bell pepper, red and green bell peppers
+green-pepper | green pepper, green bell pepper, long green pepper, green sivri pepper
+courgette | courgette, zucchini, korean zucchini
+aubergine | aubergine, eggplant, globe eggplant, japanese eggplant, slender eggplant, thai eggplant, thai aubergine, african aubergine
+tomato | tomato, plum tomato, roma tomato, vine tomato, ripe tomato
+cherry-tomatoes | cherry tomato, grape tomato, cherry or grape tomato
+mushrooms | mushroom, oyster mushroom, king oyster mushroom, button mushroom, chestnut mushroom, chestnut button mushroom, chestnut or button mushroom, cremini mushroom, chestnut button mushroom, mixed mushroom, wild mushroom, mixed wild mushroom
+spinach | spinach, baby spinach, frozen spinach, water spinach, kangkong or spinach, bitter leaf or spinach, spinach or watercress
+broccoli | broccoli
+cauliflower | cauliflower, cauliflower head
+green-beans | green bean, flat green bean, haricots verts, long bean, yard long bean, long beans or green beans
+peas-frozen | pea, frozen pea, green pea, frozen garden pea, garden pea
+sweetcorn | sweetcorn, corn kernel, sweet corn kernel, corn
+tofu | tofu, firm tofu, firm or tofu
+beansprouts | bean sprout, beansprout, soybean sprout, mung bean sprout
+cucumber | cucumber, english cucumber, persian cucumber
+little-gem | little gem, lettuce, romaine, romaine heart, butter lettuce, lettuce leave, romaine lettuce
+lemon | lemon, unwaxed lemon
+lime | lime, persian lime
+apple | apple, tart apple, firm apple, granny smith, tart cooking apple, firm tart apple
+banana | banana
+mango | mango, ataulfo mango
+avocado | avocado
+red-chilli | chilli, red chilli, chili, chile, green chilli, red chili, green chili, red chile, green chile, chillies, red chillies, green chillies, birds eye chilli, bird s eye chili, bird s eye chilies, thai bird s eye chili, thai bird s eye chilies, thai bird s eye chilis, red bird s eye chilies, bird s eye chillies, thai chillies, jalapeno, serrano, serrano chile, long green chile, long red chili and green chili, green chilies, jalapeno chillies, african bird s eye chilies, pili pili chilli, piri piri chilli, malagueta chilli, cherry pepper, poblano pepper, hot pepper, hot cherry pepper
+coriander | coriander, cilantro, laksa leaf, samat, samat or coriander, cilantro leaves and tender stem, cilantro and tender stem, coriander leaf, cilantro leave, culantro, sawtooth coriander, cilantro sprig, cilantro with stem, coriander and parsley, cilantro and flat leaf parsley
+basil | basil, basil leave, thai basil, holy basil, purple basil, thai holy basil, thai basil leave, holy basil leave
+parsley | parsley, flat leaf parsley, curly parsley, flat leaf parsley leave, flat leaf parsley sprig
+mint | mint, mint leave, mint and parsley, mint and coriander
+dill | dill, dill frond, dill and parsley, dill or parsley
+chicken-breast | chicken breast, bone in chicken breast, chicken breasts on the bone
+chicken-thighs | chicken thigh, chicken, chicken leg, chicken drumstick, bone in chicken piece, chicken piece, chicken on the bone, poussin
+chicken-wings | chicken wing
+beef-mince | beef mince, minced beef, ground beef, lean beef mince
+lamb-mince | lamb mince, minced lamb, ground lamb
+beef-steak | beef steak, sirloin, beef sirloin, ribeye, beef fillet, beef tenderloin, filet mignon, flank steak, beef rump, beef flank, centre cut beef fillet, beef ribeye or sirloin, sirloin or ribeye beef, beef sirloin or ribeye, flank or skirt
+braising-beef | beef, braising beef, assorted meat, assorted meats or fish, beef chuck, beef shin, beef shank, beef brisket, brisket, beef short rib, beef chuck roast, beef shoulder, beef topside, beef joint, lean beef, beef bottom round, beef on the bone, oxtail, oxtail piece, beef chuck or short rib, beef shin or shoulder, flanken cut short rib, beef sirloin or topside, full packer brisket
+chorizo | chorizo, spanish chorizo, chorizo sausage, chourico, linguica
+ham | ham, cooked ham, smoked ham
+salmon | salmon, salmon fillet, skin on salmon fillet
+king-prawns | prawn, king prawn, shrimp, tiger prawn, jumbo shrimp, shell on prawn, water prawn
+eggs | egg, whole egg, hard boiled egg, fried egg, egg glazing, egg wash, egg yolk glaze, egg coating
+butter | butter, browned butter, butter frying
+milk | milk, whole milk, full fat milk, full cream milk, skimmed milk, milk or cream
+double-cream | double cream, heavy cream, cream, whipping cream, heavy whipping cream, single cream, milk or heavy cream
+cheddar | cheddar, sharp cheddar, cheddar cheese, hard cheese, cheese, american cheese slice
+mozzarella | mozzarella, fior di latte mozzarella, low moisture mozzarella, oaxaca cheese
+parmesan | parmesan, parmigiano reggiano, parmigiano, parmesan rind, grana padano
+feta | feta, feta cheese, brined white cheese, white brined cheese, bulgarian white cheese, salty white cheese, brined cheese, white cheese, salty cheese, sheep s brynza
+greek-yogurt | greek yogurt, thick yoghurt, thick yogurt, full fat greek yogurt, strained yogurt, turkish style thick yogurt, thick full fat yogurt, plain milk greek yogurt
+natural-yogurt | yogurt, yoghurt, natural yogurt, plain yogurt, plain yoghurt, full fat plain yogurt, full fat yogurt, plain full fat yogurt, milk yogurt, plain milk yogurt, bulgarian yoghurt, garlic yoghurt
+bread | bread, crouton, pane sciocco, stale bread soaked in wine, tuscan bread, white bread, crusty bread, stale bread, white loaf, country bread, day old white bread, stale white bread, firm crumbed bread, thick cut white bread, white bread slice, slice of bread, day old rustic bread, sourdough bread
+corn-tortillas | corn tortilla, tostada
+tortilla-wraps | tortilla, flour tortilla, tortilla wrap, wrap
+spaghetti | spaghetti, linguine, bucatini, tonnarelli, spaghetti or rigatoni, linguine or spaghetti
+gf-pasta | gluten free pasta, gf pasta, gluten free penne, gluten free fusilli
+arborio-rice | arborio rice, risotto rice, carnaroli rice, carnaroli or arborio rice
+basmati-rice | basmati rice, basmati, aged basmati rice, long basmati rice
+jasmine-rice | jasmine rice
+quinoa | quinoa, white quinoa
+rice-noodles | rice noodle, wide rice noodle, flat rice noodle, rice vermicelli, thin rice noodle, thick rice noodle, sen lek rice noodle, fine rice noodle, vermicelli noodle, fine vermicelli noodle, thick rice vermicelli
+rice-paper | rice paper
+porridge-oats | oat, rolled oat, porridge oat
+gf-oats | gluten free oat
+plain-flour | flour, plain flour, all purpose flour, plain wheat flour, wheat flour, cake flour, tipo flour, type flour, all purpose flour pastry
+gf-flour | gluten free flour
+cornflour | cornflour, cornstarch, corn starch, cornstarch mixed with water, cornstarch dissolved in water, cornstarch mixed with g water
+baking-powder | baking powder
+sugar | sugar, caster sugar, granulated sugar, white sugar, cane sugar, granulated white sugar, caster, pinch of sugar
+brown-sugar | brown sugar, light brown sugar, dark brown sugar, demerara sugar, turbinado sugar, muscovado sugar, dark muscovado sugar, brown sugar or sugar, palm sugar or brown sugar, panela or brown sugar
+honey | honey, runny honey, dark honey, thyme or wildflower honey
+maple-syrup | maple syrup
+red-lentils | red lentil, red split lentil, split red lentil
+chickpeas | chickpea, canned chickpea
+black-beans | black bean
+kidney-beans | kidney bean, red kidney bean, red bean
+chopped-tomatoes | chopped tomato, canned tomato, tinned tomato, san marzano tomato, canned san marzano tomato, fire roasted tomato, canned or tomato
+tomato-puree | tomato puree, tomato paste
+coconut-milk | coconut milk, full fat coconut milk
+pineapple | pineapple, pineapple chunk, pineapple ring
+dried-apricots | dried apricot, apricot
+sunflower-seeds | sunflower seed
+mixed-seeds | mixed seed
+sesame-seeds | sesame seed, black sesame seed, white sesame seed
+walnuts | walnut, walnut halve
+peanuts | peanut, roasted peanut, fried peanut
+peanut-butter | peanut butter, natural peanut butter, unsweetened peanut butter, peanut paste
+cashews | cashew, roasted cashew
+ground-almonds | ground almond, almond flour, blanched almond flour
+pine-nuts | pine nut
+couscous | couscous, fine semolina couscous, couscous semolina
+bulgur | bulgur, fine bulgur, cracked wheat, fine bulgur wheat, dzavar
+malt-vinegar | malt vinegar
+worcestershire-sauce | worcestershire sauce, worcestershire
+tahini | tahini, sesame paste, chinese sesame paste
+orange-juice | orange juice
+tamari | tamari, gluten free soy sauce
+soy-sauce | soy sauce, steamed fish soy sauce, light soy sauce, regular soy sauce, usukuchi
+fish-sauce | fish sauce, nam pla, patis, padaek, prahok, garum, liquamen, garum or liquamen, padaek or fish sauce, prahok or fish sauce
+rice-vinegar | rice vinegar, white rice vinegar
+red-wine-vinegar | red wine vinegar, wine vinegar
+mirin | mirin
+miso | miso, white miso, shiro miso, miso paste, white miso paste, shiro miso paste, saikyo miso, white shiro miso
+tamarind | tamarind, tamarind paste, tamarind sauce
+thai-green-paste | thai green curry paste, green curry paste
+kimchi | kimchi, over fermented kimchi
+bbq-sauce | bbq sauce, barbecue sauce, prepared bbq sauce
+ketchup | ketchup, tomato ketchup
+gf-veg-stock | vegetable stock, veg stock, vegetable broth, water or vegetable stock, vegetable stock or water, stock cube, stock, vegetable or meat stock, stock or water, water or stock, water or light stock, broth or water
+gf-chicken-stock | chicken stock, duck stock, duck or veal stock, brown chicken stock, chicken broth, chicken bouillon powder, light chicken stock, chicken stock or water, water or chicken stock, chicken cooking broth, chicken or pork stock, chicken or lamb stock, lamb or chicken stock, meat stock, meat broth, lamb broth, lamb stock, veal stock
+gf-beef-stock | beef stock, beef broth, beef or veal stock, beef stock or water, water or beef stock, beef or chicken stock, beef or vegetable stock, beef or veal broth, beef broth or water, lamb or beef stock
+garam-masala | garam masala
+curry-powder | curry powder, mild curry powder, roasted curry powder, durban curry powder
+ground-cumin | cumin, ground cumin
+ground-coriander | ground coriander
+turmeric | turmeric, turmeric powder
+chilli-flakes | chilli flake, chili flake, red pepper flake, crushed red pepper, red chili flake, chile flake, red chilli flake, peperoncino, pul biber, pul biber flake, aleppo pepper, aleppo pepper flake, gochugaru, gochugaru flake, cayenne or aleppo pepper
+chilli-powder | chilli powder, ground red pepper, chili powder, kashmiri chili powder, kashmiri chilli powder, kashmiri red chili powder, kashmiri red chilli powder, red chile powder, cayenne pepper, cayenne, ancho chili powder, chile powder
+paprika | paprika, sweet paprika, sweet hungarian paprika
+smoked-paprika | smoked paprika, sweet smoked paprika, smoked sweet paprika, pimenton, sweet pimenton de la vera
+cinnamon | cinnamon, ground cinnamon
+dried-oregano | oregano, mexican oregano, greek oregano, dried oregano
+mixed-herbs | mixed herb, herb, green seasoning, herbes de provence
+bay-leaf | bay leaf, bay leave
+garlic-granules | garlic powder, garlic granule
+ras-el-hanout | ras el hanout, ras el hanout spice blend
+jerk-seasoning | jerk seasoning
+olive-oil | olive oil, virgin olive oil, extra virgin olive oil, olive oil finishing
+vegetable-oil | vegetable oil, neutral oil, sunflower oil, rapeseed oil, canola oil, neutral vegetable oil, oil, neutral oil frying, oil frying, neutral oil deep frying, neutral frying oil, neutral oil shallow frying, vegetable oil frying, vegetable oil deep frying, neutral high heat oil, neutral oil searing, neutral oil with high smoke point, neutral oil with a high smoke point, neutral high smoke point oil, sunflower or neutral oil, sunflower, grapeseed oil, corn oil
+sesame-oil | sesame oil, toasted sesame oil
+salt | salt, sea salt, fine sea salt, fine salt, kosher salt, coarse salt, flaky sea salt, coarse sea salt, flaky salt, fleur de sel, coarse kosher salt, fine kosher salt, salt for the water, salt the water, pinch of fine salt, pinch of fine sea salt, smoked salt
+black-pepper | black pepper, pepper, cracked black pepper, black peppercorn, peppercorn, ground black pepper
+water | water, iced water, ice water, boiling water, tepid water, warm water, pasta cooking water, starchy pasta cooking water, noodle water, noodle cooking water, ice, sparkling water, ice sparkling water
+gf-spaghetti | gluten free spaghetti, gf spaghetti, gluten free linguine
+gf-bread | gluten free bread, gf bread
+gf-breadcrumbs | gluten free breadcrumb, gf breadcrumb, gluten free panko
+gf-flour | gluten free flour blend
+xanthan-gum | xanthan gum, xanthan
+gram-flour | gram flour, chickpea flour, besan

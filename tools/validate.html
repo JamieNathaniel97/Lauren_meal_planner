@@ -11,8 +11,8 @@
 // Checks every recipe batch using the app's own derive.js, so the numbers
 // match what the app shows. Run via tools/validate.py, or open
 // http://localhost:8000/tools/validate.html while serving the repo.
-import { loadCatalogue } from "../js/data.js";
-import { CUISINE_BY_ID, MEAL_TYPES, TOOL_BY_ID, DIFFICULTY } from "../js/constants.js";
+import { loadCatalogue, stepsFor } from "../js/data.js";
+import { CUISINE_BY_ID, MEAL_TYPES, TOOL_BY_ID, DIFFICULTY, SOURCES } from "../js/constants.js";
 
 const out = document.getElementById("out");
 const lines = [];
@@ -21,13 +21,25 @@ const warnings = [];
 const say = (s = "") => lines.push(s);
 
 // Plausible kcal per portion by meal type (warn outside these).
-const KCAL_RANGE = { dinner: [250, 900], lunch: [200, 900], breakfast: [150, 750], snack: [60, 600], dessert: [100, 700] };
+// Same ranges as KCAL_RANGE in tools/import_common.py.
+const KCAL_RANGE = { dinner: [250, 900], lunch: [200, 900], breakfast: [150, 750], snack: [60, 600], dessert: [100, 700], side: [40, 600] };
 const REQUIRED = ["id", "name", "description", "cuisine", "mealTypes", "servings", "prepMins", "cookMins",
-  "difficulty", "spice", "cost", "tools", "ingredients", "steps"];
+  "difficulty", "spice", "cost", "tools", "ingredients"];
 const MEALS = new Set(MEAL_TYPES.map((m) => m.id));
 
 try {
   const cat = await loadCatalogue(new URL("../", location.href));
+  // Imported batches keep their steps in data/steps/; load them all here.
+  for (const r of cat.recipes) {
+    try { r.steps = await stepsFor(r); } catch (e) { problems.push(`${r.id}: steps file didn't load (${e.message})`); r.steps = []; }
+    if (r.source) {
+      if (!SOURCES[r.source.name]) problems.push(`${r.id}: unknown source "${r.source.name}"`);
+      if (!/^https:\/\//.test(r.source.url || "")) problems.push(`${r.id}: source has no https link`);
+      if (!r.source.licence) problems.push(`${r.id}: source has no licence`);
+    }
+    if (r.photo && (!/^https:\/\//.test(r.photo.url || "") || !r.photo.licence)) problems.push(`${r.id}: photo needs an https url and a licence`);
+    for (const l of r.ingredients) if (l.absorb != null && !(l.absorb > 0 && l.absorb <= 1)) problems.push(`${r.id}: bad absorb on ${l.id}`);
+  }
   problems.push(...cat.problems);
 
   // Ingredient list checks.

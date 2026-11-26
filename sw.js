@@ -2,7 +2,7 @@
 // served from the cache first.
 // IMPORTANT: bump CACHE whenever any file changes (code, CSS or recipes),
 // otherwise installed phones keep showing the old version.
-const CACHE = "meal-planner-v2";
+const CACHE = "meal-planner-v4";
 
 const SHELL = [
   "./",
@@ -33,9 +33,12 @@ self.addEventListener("install", (event) => {
   event.waitUntil((async () => {
     const cache = await caches.open(CACHE);
     await cache.addAll(SHELL);
-    // Recipe batches are listed in data/recipes/index.json.
+    // Recipe batches are listed in data/recipes/index.json. Imported batches
+    // keep their method steps in data/steps/, cached too so recipes open offline.
+    // (Recipe photos come from another site and need a connection.)
     const index = await (await fetch("data/recipes/index.json", { cache: "no-store" })).json();
     await cache.addAll(index.batches.map((f) => `data/recipes/${f}`));
+    await cache.addAll(index.batches.filter((f) => !f.startsWith("batch-")).map((f) => `data/steps/${f}`));
     await self.skipWaiting();
   })());
 });

@@ -133,6 +133,10 @@ main {
   background: var(--c);
   background: linear-gradient(135deg, var(--c), color-mix(in srgb, var(--c) 60%, #000));
 }
+.card-art img {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+}
+.card-art img + .cuisine-label { text-shadow: 0 1px 3px rgba(0,0,0,.8); }
 .card-art .cuisine-label {
   position: absolute; left: 8px; bottom: 6px; font-size: .68rem; font-weight: 700; letter-spacing: .04em;
   text-transform: uppercase; color: #fff; opacity: .92;
@@ -154,6 +158,20 @@ main {
   background: var(--c);
   background: linear-gradient(135deg, var(--c), color-mix(in srgb, var(--c) 55%, #000));
 }
+.hero { position: relative; overflow: hidden; }
+.hero-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.hero-text { position: relative; }
+.hero.has-photo { padding-top: 170px; }
+.hero.has-photo .hero-text {
+  margin: 0 -16px -18px; padding: 40px 16px 18px;
+  background: linear-gradient(to bottom, transparent, rgba(0,0,0,.72) 38%);
+}
+.hero.has-photo .emoji { display: none; }
+.hero .origin { font-size: .85rem; font-weight: 600; opacity: .9; margin: -2px 0 6px; }
+.credit a { color: inherit; }
+.credits ul { padding-left: 18px; margin: 6px 0; }
+.credits p { margin: 6px 0; }
+.credits a { color: var(--accent); }
 .hero .emoji { font-size: 3rem; line-height: 1; }
 .hero h2 { font-size: 1.5rem; margin: 10px 0 6px; line-height: 1.2; }
 .hero p { margin: 0; opacity: .93; }

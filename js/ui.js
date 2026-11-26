@@ -29,7 +29,8 @@ function niceWeight(n) {
 }
 
 const PLURALS = { clove: "cloves", tin: "tins", slice: "slices", handful: "handfuls", bunch: "bunches",
-  stick: "sticks", pinch: "pinches", nest: "nests", block: "blocks", cm: "cm", tsp: "tsp", tbsp: "tbsp" };
+  stick: "sticks", pinch: "pinches", nest: "nests", block: "blocks", cm: "cm", tsp: "tsp", tbsp: "tbsp",
+  leaf: "leaves", sprig: "sprigs" };
 
 /** "2 tins", "400 g", "1½ tsp", "3" (for "each"), "" for to-taste lines. */
 export function formatQty(qty, unit) {

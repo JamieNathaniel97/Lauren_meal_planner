@@ -2207,7 +2207,7 @@
    "For the sauce, soften the onion and carrot in 1 tbsp oil for 8 minutes. Add the garlic, ginger and curry powder for 1 minute.",
    "Add the water, stock cube, honey and tamari and simmer for 15 minutes. Blend smooth, then thicken with the cornflour mixed with a splash of water.",
    "Cook the rice.",
-   "Dust the chicken in the flour, dip it in the egg, then press it into the breadcrumbs. Spray or brush with the remaining oil.",
+   "Dust the chicken in the gluten-free flour, dip it in the egg, then press it into the breadcrumbs. Spray or brush with the remaining oil.",
    "Air-fry at 200°C for 12–15 minutes, turning halfway, until golden and cooked through.",
    "Slice the chicken and serve over the rice with the sauce poured alongside."
   ]
@@ -2441,7 +2441,7 @@
     "qty": 0.5,
     "unit": "tsp",
     "optional": true,
-    "note": "skip if your flour blend already contains it"
+    "note": "skip if your gluten-free flour blend already contains it"
    },
    {
     "id": "baking-powder",
@@ -3451,7 +3451,7 @@
    "Fry the chorizo in a dry pan for 3 minutes until it releases its red oil.",
    "Add the onion and peppers and cook for 8 minutes until soft. Stir in the garlic and paprika for 1 minute.",
    "Add the chickpeas, tomatoes, water and crumbled stock cube and simmer for 12 minutes.",
-   "Stir in the spinach until wilted. Scatter with parsley and serve with bread."
+   "Stir in the spinach until wilted. Scatter with parsley and serve with gluten-free bread."
   ]
  },
  {
@@ -3597,7 +3597,7 @@
    }
   ],
   "steps": [
-   "Whisk the flour, 1 egg, salt, milk and water into a smooth, thin batter. Rest for 10 minutes if you can.",
+   "Whisk the buckwheat flour, 1 egg, salt, milk and water into a smooth, thin batter. Rest for 10 minutes if you can.",
    "Melt a little butter in a large non-stick frying pan over a medium heat and swirl in a ladle of batter to coat the base thinly.",
    "When the edges lift (about 2 minutes), flip the galette.",
    "Scatter with cheese and a slice of ham, crack an egg into the middle and cover the pan for 3 minutes until the white sets.",
@@ -4063,7 +4063,7 @@
    "Soften the onion and peppers in the oil in a wide frying pan for 10 minutes.",
    "Stir in the garlic and spices for 1 minute, then add the tomatoes. Season and simmer for 10 minutes until thick.",
    "Make 4 dips, crack in the eggs, cover and cook on a low heat for 6–8 minutes until the whites are set.",
-   "Scatter with feta and coriander and serve from the pan with bread."
+   "Scatter with feta and coriander and serve from the pan with gluten-free bread."
   ]
  },
  {

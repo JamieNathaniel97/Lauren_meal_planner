@@ -1,3 +1,19 @@
 {
-  "batches": ["batch-01.json"]
+  "batches": [
+    "batch-01.json",
+    "unitools-01.json",
+    "unitools-02.json",
+    "unitools-03.json",
+    "unitools-04.json",
+    "unitools-05.json",
+    "unitools-06.json",
+    "unitools-07.json",
+    "fork-01.json",
+    "fork-02.json",
+    "fork-03.json",
+    "fork-04.json",
+    "fork-05.json",
+    "fork-06.json",
+    "fork-07.json"
+  ]
 }

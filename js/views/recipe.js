@@ -2,7 +2,16 @@
 
 import { CUISINE_BY_ID, DIET_BY_ID, ALLERGEN_BY_ID, TOOL_BY_ID, DIFFICULTY, COST } from "../constants.js";
 import { fitsProfile, optionalClashes } from "../derive.js";
+import { stepsFor } from "../data.js";
 import { esc, $, formatQty, minutes } from "../ui.js";
+
+/** Only http(s) links from the data are used, so a bad value can't run script. */
+function safeUrl(u) {
+  try {
+    const url = new URL(u);
+    return url.protocol === "https:" || url.protocol === "http:" ? url.href : "";
+  } catch { return ""; }
+}
 
 const SPICE = ["Not spicy", "Mild", "Medium", "Hot"];
 
@@ -50,12 +59,21 @@ export function renderRecipe({ app, view, route }) {
   const extras = [r.onePot && "One-pot", r.batchCook && "Batch cook", r.freezerFriendly && "Freezes well",
     r.goodForLeftovers && "Good leftovers", r.lunchbox && "Lunchbox"].filter(Boolean);
 
+  const photoUrl = r.photo ? safeUrl(r.photo.url) : "";
+  const src = r.source;
+  const srcUrl = src ? safeUrl(src.url) : "";
+  const origin = [r.origin && r.origin.toLowerCase() !== c.label.toLowerCase() ? r.origin : "", r.nativeName].filter(Boolean);
+
   view.innerHTML = `
-    <section class="hero" style="--c:${c.color}">
-      <div class="emoji" aria-hidden="true">${c.emoji}</div>
-      <h2>${esc(r.name)}</h2>
-      <p>${esc(r.description)}</p>
-      <div class="badges">${dietBadges}</div>
+    <section class="hero${photoUrl ? " has-photo" : ""}" style="--c:${c.color}">
+      ${photoUrl ? `<img class="hero-photo" src="${esc(photoUrl)}" alt="" decoding="async" onerror="this.remove();this.parentNode&&this.parentNode.classList.remove('has-photo')">` : ""}
+      <div class="hero-text">
+        <div class="emoji" aria-hidden="true">${c.emoji}</div>
+        <h2>${esc(r.name)}</h2>
+        ${origin.length ? `<div class="origin">${esc(origin.join(" · "))}</div>` : ""}
+        <p>${esc(r.description)}</p>
+        <div class="badges">${dietBadges}</div>
+      </div>
     </section>
     ${variantLinks ? `<div class="variants">${variantLinks}</div>` : ""}
     ${fitBanner}${labelBanner}${clashBanner}
@@ -73,10 +91,11 @@ export function renderRecipe({ app, view, route }) {
       </div>
     </div>
     <ul class="ingredients" id="ings"></ul>
+    ${r.quantitiesEstimated ? `<div class="banner"><strong>Amounts worked out from ratios</strong>The original recipe gives proportions rather than amounts, so these quantities were calculated for the servings shown. Check they look right before you shop.</div>` : ""}
     <p class="small muted">Salt, pepper, oil and water count as staples, so they aren't included in the ingredient count.</p>
 
     <h2>Method</h2>
-    <ol class="steps">${r.steps.map((s) => `<li>${esc(s)}</li>`).join("")}</ol>
+    <ol class="steps" id="steps">${r.steps ? r.steps.map((s) => `<li>${esc(s)}</li>`).join("") : `<li class="muted">Loading the method…</li>`}</ol>
 
     <h2>Details</h2>
     <dl class="kv">
@@ -92,7 +111,19 @@ export function renderRecipe({ app, view, route }) {
       ${d.containsCoconut ? `<dt>Coconut</dt><dd>Contains coconut</dd>` : ""}
       <dt>Per portion</dt><dd>≈${d.perPortion.kcal} kcal · ${d.perPortion.protein} g protein · ${d.perPortion.carbs} g carbs · ${d.perPortion.fat} g fat · ${d.perPortion.fibre} g fibre</dd>
     </dl>
-    <p class="small muted">Nutrition is an estimate worked out from the ingredients (optional extras not included). Always check packaging for allergens.</p>`;
+    <p class="small muted">Nutrition is an estimate worked out from the ingredients (optional extras not included). Always check packaging for allergens.</p>
+    ${src ? `<p class="credit small muted">Adapted from ${srcUrl ? `<a href="${esc(srcUrl)}" target="_blank" rel="noopener">${esc(src.name)}</a>` : esc(src.name)}${src.author && src.author !== src.name ? ` (${esc(src.author)})` : ""}, licensed <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">${esc(src.licence || "CC BY-SA 4.0")}</a>. Amounts, diet tags and nutrition were worked out by this app${r.id.match(/-(gf|nf|gfnf)$/) ? ", and the gluten-/nut-free swaps were made by this app" : ""}.</p>` : ""}
+    ${photoUrl ? `<p class="credit small muted">Photo: ${esc(r.photo.credit || "unknown author")}, ${esc(r.photo.licence)}${r.photo.via ? `, via ${esc(r.photo.via)}` : ""}.</p>` : ""}`;
+
+  if (!r.steps) {
+    stepsFor(r).then((steps) => {
+      const el = $("#steps", view);
+      if (el) el.innerHTML = steps.map((s) => `<li>${esc(s)}</li>`).join("") || `<li class="muted">No method found.</li>`;
+    }).catch(() => {
+      const el = $("#steps", view);
+      if (el) el.innerHTML = `<li class="muted">Couldn't load the method. Check your connection and try again.</li>`;
+    });
+  }
 
   function drawIngredients() {
     const scale = servings / r.servings;

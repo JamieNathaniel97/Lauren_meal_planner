@@ -53,14 +53,26 @@ shopping list and a full recipe book.
   ones that are now used up (removed) or running low.
 
 ### 3. Meal finder (the main screen)
-**"What do you fancy?"** The screen starts with a big, tappable **cuisine**
+**First: "How long have you got?"** A row of big buttons at the top, based
+on total time (prep + cook):
+- ⚡ **Speedy**: 15 min or less
+- 🏃 **Quick**: 30 min or less
+- 🍳 **Normal**: 45 min or less
+- 🕰️ **Take my time**: over 45 min (roasts, stews, baking)
+- 🐢 **Slow cook / leave it**: long, mostly hands-off recipes (slow cooker,
+  oven braises) that need little active time
+- **Any time**
+
+Pick one (tap again to clear). The cooking time stays on show with each
+result.
+
+**Then: "What do you fancy?"** The screen starts with a big, tappable **cuisine**
 picker, so Lauren can choose by mood. You can pick one or several:
 - Chinese, Italian, Mexican, Indian, Thai, Japanese, Korean, Vietnamese,
   Middle Eastern, Greek, Spanish, French, Turkish, Caribbean,
   North African, American, British, "Anything".
 
 Then narrow down with any of these:
-- Time (e.g. under 15 / 30 / 45 / 60 min)
 - Calories per portion (range)
 - Meal type (breakfast, lunch, dinner, snack, dessert)
 - Difficulty, number of ingredients, one-pot only, a specific tool

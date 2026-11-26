@@ -5,7 +5,8 @@ import { fitsProfile } from "../derive.js";
 import { esc, $, minutes } from "../ui.js";
 
 // Remembered while the app is open, so going back keeps your filters.
-const state = { q: "", cuisine: "", meal: "", diet: "", tool: "", gfnf: false, showAll: false, scrollY: 0 };
+const state = { q: "", cuisine: "", meal: "", diet: "", tool: "", gfnf: false, showAll: false, scrollY: 0, limit: 60 };
+const PAGE = 60;   // cards drawn at a time; "Show more" adds another page
 
 function searchText(r, ingById) {
   return [r.name, r.description, ...(r.tags || []), CUISINE_BY_ID[r.cuisine]?.label,
@@ -24,9 +25,12 @@ export function card(r, { unfit = false } = {}) {
   }
   if (r.d.diets.includes("vegan")) badges.push(`<span class="badge">Vegan</span>`);
   else if (r.d.diets.includes("vegetarian")) badges.push(`<span class="badge">Veggie</span>`);
+  // Photos load lazily from the web; offline (or if one fails) the cuisine card shows instead.
+  const photo = r.photo && /^https:\/\//.test(r.photo.url)
+    ? `<img src="${esc(r.photo.url)}" alt="" loading="lazy" decoding="async" onerror="this.remove()">` : "";
   return `
     <a class="card${unfit ? " unfit" : ""}" href="#/recipe/${encodeURIComponent(r.id)}">
-      <div class="card-art" style="--c:${c.color}"><span aria-hidden="true">${c.emoji}</span><span class="cuisine-label">${esc(c.label)}</span></div>
+      <div class="card-art" style="--c:${c.color}"><span aria-hidden="true">${c.emoji}</span>${photo}<span class="cuisine-label">${esc(c.label)}</span></div>
       <div class="card-body">
         <div class="card-title">${esc(r.name)}</div>
         <div class="card-meta">${minutes(r.d.totalMins)} · ≈${r.d.perPortion.kcal} kcal</div>
@@ -61,12 +65,14 @@ export function renderRecipes({ app, view, route }) {
     </div>
     ${profileSet ? `<label class="toggle small"><input type="checkbox" id="showAll"${state.showAll ? " checked" : ""}> Also show recipes that don't suit my profile</label>` : ""}
     <div class="count" id="count"></div>
-    <div class="grid" id="list"></div>`;
+    <div class="grid" id="list"></div>
+    <button class="btn secondary block" id="more" hidden style="margin-top:14px"></button>`;
 
-  const list = $("#list", view), countEl = $("#count", view);
+  const list = $("#list", view), countEl = $("#count", view), moreBtn = $("#more", view);
   const texts = new Map(recipes.map((r) => [r.id, searchText(r, ingById)]));
 
-  function update() {
+  function update(resetLimit = true) {
+    if (resetLimit) state.limit = PAGE;
     const words = state.q.toLowerCase().split(/\s+/).filter(Boolean);
     let hidden = 0;
     const shown = [];
@@ -82,8 +88,11 @@ export function renderRecipes({ app, view, route }) {
       shown.push({ r, fit });
     }
     shown.sort((a, b) => (b.fit - a.fit) || a.r.name.localeCompare(b.r.name));
-    list.innerHTML = shown.map(({ r, fit }) => card(r, { unfit: !fit })).join("")
+    list.innerHTML = shown.slice(0, state.limit).map(({ r, fit }) => card(r, { unfit: !fit })).join("")
       || `<p class="empty" style="grid-column:1/-1">No recipes match. Try removing a filter.</p>`;
+    const left = shown.length - state.limit;
+    moreBtn.hidden = left <= 0;
+    moreBtn.textContent = `Show ${Math.min(PAGE, left)} more`;
     countEl.textContent = `${shown.length} recipe${shown.length === 1 ? "" : "s"}` +
       (hidden ? ` · ${hidden} hidden because they don't suit your profile` : "");
   }
@@ -110,8 +119,9 @@ export function renderRecipes({ app, view, route }) {
   }
   $("#showAll", view)?.addEventListener("change", (e) => { state.showAll = e.target.checked; update(); });
   list.addEventListener("click", () => { state.scrollY = window.scrollY; });
+  moreBtn.addEventListener("click", () => { state.limit += PAGE; update(false); });
 
-  update();
+  update(false);   // keep the page count when coming back from a recipe
   window.scrollTo(0, state.scrollY);
   state.scrollY = 0;
 }
